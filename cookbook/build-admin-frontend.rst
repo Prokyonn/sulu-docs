@@ -1,17 +1,17 @@
-Building the administration interface frontend application
-==========================================================
+Building the Administration Interface Front-End Application
+===========================================================
 
-The administration interface of Sulu is implemented as a single page application using React. The code of this
-application is built using webpack and stored in the `public/build/admin` directory of the project.
-If you update your Sulu version or add custom Javascript code to your project, you need to update the build in
-the `public/build/admin directory`. There are different ways to do this:
+The administration interface of Sulu is implemented as a single-page application using React. The code of this
+application is built using Webpack and stored in the `public/build/admin` directory of the project.
+If you update your Sulu version or add custom JavaScript code to your project, you need to update the build in
+the `public/build/admin` directory. There are several ways to do this:
 
-Solution 1: Update Command (Recommended way)
---------------------------------------------
+Solution 1: Update Command (Recommended)
+----------------------------------------
 
-Sulu is shipped with a build in command to update the build.
+Sulu is shipped with a built-in command to update the build.
 
-1. Run Update Build command
+1. Run the Update Build Command
 
 .. code-block:: bash
 
@@ -19,24 +19,24 @@ Sulu is shipped with a build in command to update the build.
 
 .. note::
 
-    The update build command will download the build for your project from the `sulu/skeleton repository`_ if possible.
-    If you have added custom Javascript code in your project, the command will automatically cleanup leftovers from
-    previous builds and build the Javascript code manually on your system. Make sure that you have installed `node`_ if
+    The update build command will download the build for your project from the `sulu/skeleton` repository if possible.
+    If you have added custom JavaScript code to your project, the command will automatically clean up leftovers from
+    previous builds and build the JavaScript code manually on your system. Make sure that you have installed Node.js if
     your project requires a manual build.
 
-Solution 2: Build manually with docker
+Solution 2: Build Manually with Docker
 --------------------------------------
 
-1. Start a node container with the desired version and map the the current directory into the /var/project folder in the container
+1. Start a Node container with the desired version and map the current directory into the `/var/project` folder in the container.
 
 .. code-block:: bash
 
     docker run --rm --interactive --tty --volume ${PWD}:/var/project node:14.16.0 /bin/bash
 
-    # for completion: using another node version is possible by adjusting the tag of the node image
+    # For completion: using another Node.js version is possible by adjusting the tag of the Node image.
     # docker run --rm --interactive --tty --volume ${PWD}:/var/project node:12.21.0 /bin/bash
 
-2. Cleanup previously created node_modules folders and package-lock.json files
+2. Clean up previously created `node_modules` folders and `package-lock.json` files
 
 .. code-block:: bash
 
@@ -52,15 +52,14 @@ Solution 2: Build manually with docker
     npm install
     npm run build
 
-Solution 3: Build manually locally
+Solution 3: Build Manually Locally
 ----------------------------------
 
 1. Install Node
 
-If not yet installed on your computer you would need to install `node`_
-on your computer.
+If not yet installed on your computer, you will need to install Node.js.
 
-2. Cleanup previously created node_modules folders and package-lock.json files
+2. Clean up previously created `node_modules` folders and `package-lock.json` files
 
 .. code-block:: bash
 
@@ -76,18 +75,17 @@ on your computer.
     npm install
     npm run build
 
-Solution 4: Build manually locally with bun
+Solution 4: Build Manually Locally with Bun
 -------------------------------------------
 
-As an alternative to node/npm Sulu also supports to use `bun`_ to build the administration interface.
-The support for bun is experimental and can be removed in future versions of Sulu.
+As an alternative to Node.js/npm, Sulu also supports using Bun to build the administration interface.
+Support for Bun is experimental and may be removed in future versions of Sulu.
 
 1. Install Bun
 
-If not yet installed on your computer you would need to install `bun`_
-on your computer.
+If not yet installed on your computer, you will need to install Bun.
 
-2. Cleanup previously created node_modules folders and bun.lockb files
+2. Clean up previously created `node_modules` folders and `bun.lockb` files
 
 .. code-block:: bash
 
@@ -104,24 +102,24 @@ on your computer.
     bun install
     bun run build
 
-Common errors
+Common Errors
 -------------
 
-If the installation of the npm dependencies or the webpack build fails, you might want to try the following things:
+If the installation of the npm dependencies or the Webpack build fails, you might want to try the following things:
 
-1. Check your Node.js and npm version
+1. Check Your Node.js and npm Version
 
-You can check the officially supported and tested Node.js and npm version by looking at the `Test Application workflow`_ of the ``sulu/sulu`` package.
-At the time of writing, this includes Node.js 12, Node.js 14 and npm 6.
+You can check the officially supported and tested Node.js and npm versions by looking at the `Test Application workflow`_ of the `sulu/sulu` package.
+At the time of writing, this includes Node.js 12, Node.js 14, and npm 6.
 
 .. warning::
 
-    Because of a breaking change for linked packages, Sulu is not compatible with npm v7 at the moment. Have a look at the `issue in the sulu/skeleton repository`_ for more information about this..
+    Because of a breaking change for linked packages, Sulu is not compatible with npm v7 at the moment. Have a look at the `issue in the sulu/skeleton repository`_ for more information about this.
 
-2. Clear the npm cache on your machine
+2. Clear the npm Cache on Your Machine
 
-The webpack build might fail because of leftovers from previous builds our outdated packages.
-To prevent this, you should remove all the ``package-lock.json`` files and ``node_modules`` directories below your project root before installing the npm dependencies:
+The Webpack build might fail because of leftovers from previous builds or outdated packages.
+To prevent this, you should remove all the `package-lock.json` files and `node_modules` directories in your project root before installing the npm dependencies:
 
 .. code-block:: bash
 

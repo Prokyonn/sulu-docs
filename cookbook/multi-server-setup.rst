@@ -1,9 +1,9 @@
 Running Sulu in a Multi-Server Setup
 =====================================
 
-Sulu is built with horizontal scaling in mind and allows to distribute the load of your application between multiple servers.
+Sulu is built with horizontal scaling in mind and allows you to distribute the load of your application between multiple servers.
 In such a setup, it is important to configure your application to use centralized solutions for session management, cache management,
-search indexes and media storage.
+search indexes, and media storage.
 
 
 Media Storage
@@ -48,9 +48,9 @@ when the content of a page is changed. To prevent different cache entries on dif
 Application Cache
 -----------------
 
-The Symfony cache improves the speed of your application by caching metadata, doctrine results and PHPCR data.
-If your application runs on multiple servers, you need to `configure a centralized caching adapter`_ like ``redis`` for your ``app`` cache.
-Additionally, if the application runs in different directories on different servers, you need to set a static ``prefix_seed``:
+The Symfony cache improves the speed of your application by caching metadata, Doctrine results, and PHPCR data.
+If your application runs on multiple servers, you need to `configure a centralized caching adapter`_ like `redis` for your `app` cache.
+Additionally, if the application runs in different directories on different servers, you need to set a static `prefix_seed`:
 
 .. code-block:: yaml
 
@@ -60,7 +60,7 @@ Additionally, if the application runs in different directories on different serv
             app: cache.adapter.redis
             default_redis_provider: 'redis://192.168.0.10:6379'
 
-            # Set "prefix_seed" to use same cache namespace independent of project location:
+            # Set "prefix_seed" to use the same cache namespace independent of project location:
             # https://symfony.com/doc/current/reference/configuration/framework.html#prefix-seed
             prefix_seed: your_vendor_name/app_name
 
@@ -69,7 +69,7 @@ Search Index
 ------------
 
 Sulu uses the `MassiveSearchBundle`_ for its search functionality on the website and in the administration interface.
-By default the bundle creates an optimized search index in the filesystem of the current server.
+By default, the bundle creates an optimized search index in the filesystem of the current server.
 To prevent outdated search results, you need to `configure Elasticsearch as a centralized search adapter`_.
 
 .. code-block:: yaml
@@ -88,7 +88,7 @@ Session Management
 By default, Symfony stores active sessions in the filesystem of the current server. To prevent random logouts between requests,
 you need to manage your sessions in a centralized storage that is accessed by all your servers. Have a look at the
 `Store Sessions in a Database`_ section of the Symfony documentation to find out how to store sessions in a database like Redis or MySQL.
-Alternatively, you can set a centralized ``session.save_handler`` directly in your ``php.ini``:
+Alternatively, you can set a centralized `session.save_handler` directly in your `php.ini`:
 
 .. code-block:: ini
 

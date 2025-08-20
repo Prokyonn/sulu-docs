@@ -1,7 +1,7 @@
-Extend Entities
-===============
+Extending Entities
+==================
 
-Sulu allows to extend and replace the following internal entities.
+Sulu allows you to extend and replace the following internal entities:
 
 * User
 * Role
@@ -11,12 +11,12 @@ Sulu allows to extend and replace the following internal entities.
 * Media
 * Tag
 
-You can extend all of them in the same way. Therefore we explain it for `User` here.
+You can extend all of them in the same way. Therefore, we will explain it for the `User` entity here.
 
-Create a Entity
----------------
+Create an Entity
+----------------
 
-Create your own Entity that extends Sulu `User` class.
+Create your own entity that extends the Sulu `User` class.
 
 .. code-block:: php
 
@@ -58,20 +58,20 @@ Create your own Entity that extends Sulu `User` class.
 
 .. warning::
 
-    Your Entity can have own properties, but they should have at least default values.
-    Otherwise the normal features of Sulu could crash (like the
+    Your entity can have its own properties, but they should have at least default values.
+    Otherwise, the normal features of Sulu could crash (e.g., the
     `sulu:security:user:create` command).
 
 .. warning::
 
     The `#[ORM\\Table(...)]` attribute on your entity must match the table of the extended entity.
-    Otherwise, doctrine might run into errors when querying data of the entity.
+    Otherwise, Doctrine might run into errors when querying data from the entity.
 
 Configuration
 -------------
 
-Configure Sulu to use your own entity instead in the respective file in the
-``config/packages/*`` folder. If the file does not exist, you need to create it.
+Configure Sulu to use your own entity in the respective file in the
+`config/packages/*` folder. If the file does not exist, you need to create it.
 
 For the `User` entity (`se_users`):
 
@@ -86,9 +86,9 @@ For the `User` entity (`se_users`):
 
 .. note::
 
-   Symfony keeps the user object in the session, clearing the sessions is so sometimes required
-   when running into ``php.CRITICAL: Uncaught Error: Failed opening required /var/project/var/cache/website/prod/doctrine/orm/Proxies/__CG__SuluBundleSecurityBundleEntityUser.php``.  
-   If use the native session storage you can use ``(php -i && php bin/console debug:config framework session) | grep save_path`` to get the configured save paths of sessions.
+   Symfony keeps the user object in the session, so clearing the session is sometimes required
+   when running into the following error: `php.CRITICAL: Uncaught Error: Failed opening required /var/project/var/cache/website/prod/doctrine/orm/Proxies/__CG__SuluBundleSecurityBundleEntityUser.php`.
+   If you use the native session storage, you can use `(php -i && php bin/console debug:config framework session) | grep save_path` to get the configured save paths of the sessions.
 
 For the `Role` entity (`se_roles`):
 

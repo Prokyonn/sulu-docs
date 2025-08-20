@@ -1,34 +1,34 @@
-Provider for XML-Sitemap
+Provider for XML Sitemap
 ========================
 
-`SitemapProvider` are used to load data for the XML-Sitemap. It returns
+`SitemapProvider`s are used to load data for the XML sitemap. They return
 an array of `SitemapUrl` instances. This API has to be paginated because
-Google only allows 50000 urls in a single Sitemap. The `SitemapController`
-takes care of generating a `sitemapindex` if more than one Provider or
-more than one pages are available. Otherwise it will deliver a the Sitemap
-of the first Provider.
+Google only allows 50,000 URLs in a single sitemap. The `SitemapController`
+takes care of generating a `sitemapindex` if more than one provider or
+more than one page of results is available. Otherwise, it will deliver the sitemap
+of the first provider.
 
 The `SitemapUrl` consists of the following properties:
 
-* loc - Url to page.
-* locale - Locale of the page
-* defaultLocale - Default locale of the page
-* lastmod (optional) - Latest modification datetime.
-* changefreq (optional) - Frequency of change (see
-  `SitemapUrl::CHANGE_FREQUENCY_*` constants)
-* priority (optional) - Priority of page in relation to other pages.
-* alternateLinks (optional) - Alternate links like other representations
-  or translations
+* `loc` - The URL to the page.
+* `locale` - The locale of the page.
+* `defaultLocale` - The default locale of the page.
+* `lastmod` (optional) - The latest modification datetime.
+* `changefreq` (optional) - The frequency of change (see the
+  `SitemapUrl::CHANGE_FREQUENCY_*` constants).
+* `priority` (optional) - The priority of the page in relation to other pages.
+* `alternateLinks` (optional) - Alternate links, such as other representations
+  or translations.
 
-The Sulu core provides a single Provider for pages (including homepage).
-Custom modules can provide their own Providers that this URLs also will
-be published over the `sitemap.xml`.
+The Sulu core provides a single provider for pages (including the homepage).
+Custom modules can provide their own providers so that these URLs will also
+be published via the `sitemap.xml`.
 
 Example
 -------
 
-This is a simple example which assumes that the logic to load entities is
-implemented in the Repository.
+This is a simple example that assumes that the logic to load entities is
+implemented in the repository.
 
 .. code-block:: php
 
@@ -75,7 +75,7 @@ implemented in the Repository.
         public function getMaxPage($scheme, $host)
         {
             if ($host !== 'example.org') {
-                // If the pages are only for a specific
+                // If the pages are only for a specific host
                 return 0;
             }
 
@@ -83,4 +83,4 @@ implemented in the Repository.
         }
     }
 
-If you are not using autowiring you need to tag the service with `sulu.sitemap.provider`.
+If you are not using autowiring, you need to tag the service with `sulu.sitemap.provider`.

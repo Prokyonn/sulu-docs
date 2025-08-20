@@ -1,31 +1,31 @@
 Securing your application
 =========================
 
-Sulu is delivered with two different possibilities to protect parts of your
-application. The first is the permissions based on security contexts, which
+Sulu is delivered with two different ways to protect parts of your
+application. The first is permissions based on security contexts, which
 allow you to restrict access to entire parts of your application or Sulu. The
-permissions for this kind of security are managed on a roles level. In addition
-to that the localization for which these permissions are valid has to be
+permissions for this kind of security are managed on a role level. In addition,
+the localization for which these permissions are valid has to be
 defined on the assignment of the role to the user.
 
-The second way is to protect the access on a per-object basis. These
+The second way is to protect access on a per-object basis. These
 permissions are set on the specific object. The user still has to have the
-correct localizations assigned in order to gain access.
+correct localizations assigned to gain access.
 
-This tutorial will show how to use Sulu's security functionality with your own
-application specific code.
+This tutorial will show you how to use Sulu's security functionality with your own
+application-specific code.
 
-Protect content using a security context
-----------------------------------------
+Protecting Content Using a Security Context
+-------------------------------------------
 
 This section describes how to protect an entire part of your application (but
 not a specific object).
 
-Define your security context
+Define Your Security Context
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-First of all you have to define the security context, which is represented by a
-simple string. This is done in the ``Admin`` class of your Bundle:
+First of all, you have to define the security context, which is represented by a
+simple string. This is done in the `Admin` class of your bundle:
 
 .. code-block:: php
 
@@ -61,20 +61,20 @@ simple string. This is done in the ``Admin`` class of your Bundle:
 
 This information is defined in the ``getSecurityContexts`` method, which should
 return an array. The first level describes the system to which the security
-context applies - this would either be Sulu (for stuff in the administration)
+context applies. This can either be Sulu (for things in the administration interface)
 or a different context that you have defined manually.
 
-The second level just defines the title for another separation used in the
-administration interface. The third level defines the name of the permissions
-themselves. This name follows a namespacing scheme based on the previously used
+The second level defines the title for another separation used in the
+administration interface. The third level defines the name of the permissions.
+This name follows a namespacing scheme based on the previously used
 names. This value is the key for an array containing all the available
 permission types for this security context.
 
 .. note::
 
-    Since the ``Admin`` class is registered as a service, you can make use of
-    different services to define the available security contexts. For example
-    the SuluPageBundle uses a service to create an own security context for
+    Since the `Admin` class is registered as a service, you can make use of
+    different services to define the available security contexts. For example,
+    the SuluPageBundle uses a service to create its own security context for
     all available webspaces in the system.
 
 Protect your controller

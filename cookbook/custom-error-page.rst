@@ -1,15 +1,15 @@
-Custom error page
+Custom Error Page
 =================
 
-With Sulu it is very easy to customize the error pages for your website users.
+With Sulu, it is very easy to customize the error pages for your website's users.
 You can define a template for each HTTP status code.
 
 Configuration
 -------------
 
 The following code block from the webspace configuration file shows a default
-configuration for the exception templates. If you want to add your own exception
-for example 404 you can simply add it to the list. You can specify that for
+configuration for the error templates. If you want to add your own template
+for a 404 error, for example, you can simply add it to the list. You can specify this for
 each theme.
 
 .. code-block:: xml
@@ -20,14 +20,14 @@ each theme.
     </templates>
 
 The `ErrorController` uses the status code of the response to determine
-which template is responsible for the exception. If no special template is
-defined it uses the template without an error code.
+which template is responsible for displaying the error. If no specific template is
+defined, it uses the template without an error code.
 
 Twig Template
 -------------
 
-In the twig template you can use your website base template to reuse your
-style.
+In the Twig template, you can use your website's base template to reuse your
+styles.
 
 .. code-block:: html
 
@@ -45,44 +45,44 @@ style.
 .. warning::
 
     Be careful which variables you use in your `base.html.twig`. If you use variables
-    which are not defined in the error template, the error page cannot be rendered.
+    that are not defined in the error template, the error page cannot be rendered.
 
-The following variables are available inside the exception template.
+The following variables are available inside the error template.
 
 +---------------------------------+------------------------------------------------------------------+
 | Name                            | Description                                                      |
 +=================================+==================================================================+
-| `status_code`                   | http-status-code                                                 |
+| `status_code`                   | The HTTP status code.                                            |
 +---------------------------------+------------------------------------------------------------------+
-| `status_text`                   | http-status-code message                                         |
+| `status_text`                   | The HTTP status text.                                            |
 +---------------------------------+------------------------------------------------------------------+
-| `exception`                     | complete exception object                                        |
+| `exception`                     | The complete exception object.                                   |
 +---------------------------------+------------------------------------------------------------------+
-| `urls`                          | localized urls to start page (e.g. for language-switcher)        |
+| `urls`                          | Localized URLs to the start page (e.g., for a language switcher).|
 +---------------------------------+------------------------------------------------------------------+
-| `request.webspaceKey`           | key of the current webspace                                      |
+| `request.webspaceKey`           | The key of the current webspace.                                 |
 +---------------------------------+------------------------------------------------------------------+
-| `request.defaultLocale`         | default locale of current portal                                 |
+| `request.defaultLocale`         | The default locale of the current portal.                        |
 +---------------------------------+------------------------------------------------------------------+
-| `request.locale`                | current locale                                                   |
+| `request.locale`                | The current locale.                                              |
 +---------------------------------+------------------------------------------------------------------+
-| `request.portalUrl`             | url of current portal                                            |
+| `request.portalUrl`             | The URL of the current portal.                                   |
 +---------------------------------+------------------------------------------------------------------+
-| `request.resourceLocatorPrefix` | prefix for resourcelocators of current portal                    |
+| `request.resourceLocatorPrefix` | The prefix for resource locators of the current portal.          |
 +---------------------------------+------------------------------------------------------------------+
-| `request.resourcelocator`       | current resourcelocator                                          |
+| `request.resourcelocator`       | The current resource locator.                                    |
 +---------------------------------+------------------------------------------------------------------+
-| `request.get`                   | array of get parameter                                           |
+| `request.get`                   | An array of GET parameters.                                      |
 +---------------------------------+------------------------------------------------------------------+
-| `request.post`                  | array of post parameter                                          |
+| `request.post`                  | An array of POST parameters.                                     |
 +---------------------------------+------------------------------------------------------------------+
-| `request.analyticsKey`          | analytics key of current webspace                                |
+| `request.analyticsKey`          | The analytics key of the current webspace.                       |
 +---------------------------------+------------------------------------------------------------------+
 
-Test it
+Testing
 -------
 
-To test your error pages you can use the following routes:
+To test your error pages, you can use the following URL pattern:
 
 .. code-block:: bash
 
@@ -90,8 +90,8 @@ To test your error pages you can use the following routes:
 
 .. note::
 
-    If you are not sure about your portal configuration you can get the routes with this
-    `bin/websiteconsole debug:router | grep _error` command
+    If you are not sure about your portal configuration, you can get the routes with the following command:
+    `bin/websiteconsole debug:router | grep _error`
 
 Examples:
 

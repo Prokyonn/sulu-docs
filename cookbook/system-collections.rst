@@ -1,14 +1,14 @@
 System-Collections
 ==================
 
-System-Collections are special collections which are not editable, deletable or
-movable. Apart from that they can be used like all other collections.
+System-Collections are special collections that are not editable, deletable, or
+movable. Apart from that, they can be used like all other collections.
 
 The System takes care of creating and upgrading them. Each bundle can request
-them, to save there images like avatar or logos in the contact section.
+them to save their images, like avatars or logos, in the contact section.
 
-Because of the usage of the configuration tree also the App itself can register
-system collection and use them.
+Because of the usage of the configuration tree, the App itself can also register
+a system collection and use it.
 
 .. code-block:: yaml
 
@@ -20,7 +20,7 @@ system collection and use them.
                     en: 'My Collection'
                     de: 'Meine Sammlung'
 
-                # optional you can also configure sub collections
+                # optional: you can also configure sub-collections
                 collections:
                     my_child_key:
                         meta_title:
@@ -35,7 +35,7 @@ This structure will be used to create a Collection Structure like this:
      |--> My Collection
      |     |--> Child Collection
 
-If you want to register a system collection in a bundle, you can use the PrependExtensionInterface
+If you want to register a system collection in a bundle, you can use the `PrependExtensionInterface`
 of Symfony to prepend the respective configuration:
 
 .. code-block:: php
@@ -83,7 +83,7 @@ of Symfony to prepend the respective configuration:
         }
     }
 
-To use this new Collection you can use the `sulu_media.system_collections.manager`
+To use this new Collection, you can use the `sulu_media.system_collections.manager`
 (`Sulu\Component\Media\SystemCollections\SystemCollectionManagerInterface`) service.
 The service will create the new collection on the first access of the collection.
 
@@ -91,16 +91,16 @@ The service will create the new collection on the first access of the collection
 
     <?php
 
-    // to get id of system collection
+    // to get the ID of a system collection
     $systemCollectionManager->getSystemCollection('my_key');
 
-    // to get id of a child system collection
+    // to get the ID of a child system collection
     $systemCollectionManager->getSystemCollection('my_key.my_child_key');
 
-    // to determine if id is a system collection (e.g. validation)
+    // to determine if an ID is a system collection (e.g., validation)
     $systemCollectionManager->isSystemCollection(1);
 
 .. note::
 
-    The key of sub collection is a combination with the parent key so its `parent_key.child_key`
-    e.g.: `my_key.my_child_key`.
+    The key of a sub-collection is a combination with the parent key, so it's `parent_key.child_key`,
+    e.g., `my_key.my_child_key`.

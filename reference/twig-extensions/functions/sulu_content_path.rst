@@ -2,9 +2,9 @@
 =====================
 
 Returns the absolute URL for the content at the given path. The domain
-is taken from ``config/webspaces/*.xml`` and your current
+is taken from `config/webspaces/*.xml` and your current
 environment. In case you have multiple URLs in one environment, you can
-prioritize one by giving it ``<url main="true">``.
+prioritize one by giving it `<url main="true">`.
 
 .. code-block:: jinja
 
@@ -18,14 +18,14 @@ prioritize one by giving it ``<url main="true">``.
 
 **Arguments**:
 
-- **url**: *string* - Url to get path
-- **webspaceKey** *string* - If item is not in the same webspace as current
-  content (**optional**)
-- **locale** *string* - If item is not in the same locale as current
-  content (**optional**)
-- **domain** *string* - If a specific domain should be used to generate the url
-  (**optional**)
-- **scheme** *string* - If a different scheme (as the current scheme) should be
-  used to generate the url (**optional**)
+- **url**: *string* - The URL to get the path.
+- **webspaceKey**: *string* - If the item is not in the same webspace as the current
+  content (**optional**).
+- **locale**: *string* - If the item is not in the same locale as the current
+  content (**optional**).
+- **domain**: *string* - If a specific domain should be used to generate the URL
+  (**optional**).
+- **scheme**: *string* - If a different scheme (than the current scheme) should be
+  used to generate the URL (**optional**).
 
-**Returns**: *string* - Absolute URL
+**Returns**: *string* - The absolute URL.

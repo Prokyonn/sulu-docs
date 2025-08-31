@@ -7,14 +7,14 @@
 
 .. note::
     
-    This method is deprecated, use :doc:`sulu_seo` instead
+    This method is deprecated. Use :doc:`sulu_seo` instead.
 
-Return alternate links for the given URLs
+Returns alternate links for the given URLs.
 
 **Arguments**:
 
-- **urls**: *string* - Urls
+- **urls**: *string* - The URLs.
 
 **Returns**:
 
-Alternate links
+The alternate links.

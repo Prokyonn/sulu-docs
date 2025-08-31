@@ -1,15 +1,14 @@
 Creating Documents
 ==================
 
-The Sulu Document Manager uses interfaces to determine how a document is
-handled. These interfaces are known as *behaviors*. Behaviors
-act upon documents.
+The Sulu Document Manager uses interfaces, known as *behaviors*, to determine
+how a document is handled. Behaviors act upon documents.
 
 .. note::
 
-    It is equally possible to implement what is now the conventional mapping
-    pattern using XML, YAML, annotation, etc. But for now only behavioral
-    interfaces are supported.
+    It is also possible to implement the conventional mapping pattern using XML,
+    YAML, annotations, etc., but for now, only behavioral interfaces are
+    supported.
 
 The Document
 ------------
@@ -50,27 +49,27 @@ The Document
         }
     }
 
-The above document will have the nodes path, UUID and node name populated. The
-properties are mandatory and the behaviors will expect them to be there, if
-they are not then an exception will be thrown explaining which properties need
+The above document will have the node's path, UUID, and node name populated. The
+properties are mandatory, and the behaviors will expect them to be there. If
+they are not, an exception will be thrown explaining which properties need
 to be added.
 
 .. note::
 
-    The behaviors will often use Reflection to set the value of an objects
+    The behaviors will often use Reflection to set the value of an object's
     properties, bypassing any protection that property may have.
 
 .. note::
 
     Because the Document Manager uses interfaces and does not depend on metadata
-    mapping you can put your document anywhere you want without changing any
+    mapping, you can put your document anywhere you want without changing any
     configuration.
 
 Defining the alias and type
 ---------------------------
 
-In order for the document manager to recognize existing managed documents and
-persist new ones, you must add some mapping to your configuration.
+For the Document Manager to recognize existing managed documents and persist new
+ones, you must add mapping to your configuration.
 
 The following configuration should be added to the ``config/packages/sulu_document_manager.yaml`` file:
 
@@ -83,12 +82,12 @@ The following configuration should be added to the ``config/packages/sulu_docume
                 phpcr_type: acme:somedocument
                 class: Acme\Bundle\FooBundle\Document\SomeDocument
 
-Above we define three things:
+Above, we define three things:
 
 1. The alias of the document as ``my_new_document``. This alias can
-   be used instead of the long class name when managing the document.
+   be used instead of the fully qualified class name when managing the document.
 
-2. A PHPCR type which will be used to map the document to the class
+2. A PHPCR type, which will be used to map the document to the class
    name.
 
-3. The class which should be managed.
+3. The class that should be managed.

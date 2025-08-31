@@ -1,7 +1,7 @@
 Using the Document Manager
 ==========================
 
-Finding documents
+Finding Documents
 -----------------
 
 Documents can be located using either their UUID or their path:
@@ -27,7 +27,7 @@ Additionally, options can be specified:
         'my_option' => 'foobar',
     ));
 
-Persisting documents
+Persisting Documents
 --------------------
 
 The Sulu Document Manager requires that you ``persist()`` documents and then
@@ -39,7 +39,7 @@ The Sulu Document Manager requires that you ``persist()`` documents and then
     the document in its current state and maps the data to the PHPCR node.
 
     Changes made to the document after calling ``persist`` will not be taken
-    in to account when ``flush`` is called.
+    into account when ``flush`` is called.
 
 Below is a simple persist operation:
 
@@ -57,14 +57,14 @@ Below is a simple persist operation:
 
 This persists the document in the French language at the path. The path is
 given as an **option**. The ``path`` option comes from the
-``ExplicitPathSubscriber`` subscriber. The amount of options available depends
+``ExplicitPathSubscriber`` subscriber. The number of options available depends
 on which subscribers you have registered.
 
 See the :doc:`subscribers` chapter for more information.
 
 .. note::
 
-    Be aware that documents can only be created in the admin context, not in the website context. For CLI commands, this means you must use ﻿``bin/adminconsole`` to execute the command. Alternatively, you can execute a command that dispatches messages via the Symfony Messenger. In this case, the consumer that consumes the dispatched message must also run in the admin context.
+    Be aware that documents can only be created in the admin context, not in the website context. For CLI commands, this means you must use ``bin/adminconsole`` to execute the command. Alternatively, you can execute a command that dispatches messages via the Symfony Messenger. In this case, the consumer that consumes the dispatched message must also run in the admin context.
 
     .. code-block:: bash
 
@@ -74,7 +74,7 @@ The Path Builder
 ----------------
 
 The structure of the Sulu content repository is configurable. This means
-that if you hard code a path ``/cmf/sulu_io/contents`` then your code could
+that if you hard-code a path like ``/cmf/sulu_io/contents``, then your code could
 break, as both the ``cmf`` and ``contents`` segments of this path are
 configurable.
 
@@ -87,7 +87,7 @@ paths by passing an array of path *segments*:
     $path = $pathBuilder->build(array('%base%', 'sulu_io', '%content%', 'path/to/article');
 
 The above code would produce the path
-``/cmf/sulu_io/contents/path/to/article`` using the default configuration.k
+``/cmf/sulu_io/contents/path/to/article`` using the default configuration.
 
 Path segments enclosed within `%` characters are resolved by the
 ``PathSegmentRegistry``, which uses configuration to map path segment names to

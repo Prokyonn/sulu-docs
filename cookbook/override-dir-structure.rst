@@ -1,13 +1,13 @@
-How to Override Sulu's default Directory Structure
+How to Override Sulu's Default Directory Structure
 ==================================================
 
-As Sulu is Symfony based you can read about overriding the default structure in the `Symfony documentation`_.
-Keep in mind that the cache folder of Sulu needs to be different for Kernel::getContext() website and admin.
+As Sulu is Symfony-based, you can read about overriding the default structure in the `Symfony documentation`_.
+Keep in mind that the cache folder of Sulu needs to be different for the `Kernel::getContext()` website and admin.
 
 Override admin js/css build basePath
 ------------------------------------
 
-If you not only want to override the `public-dir`_ but also the path where the js/css for the admin is built,
+If you not only want to override the `public-dir`_, but also the path where the JS/CSS for the admin is built,
 you need to change the following in your webpack configuration:
 
 .. code-block:: js
@@ -24,7 +24,7 @@ you need to change the following in your webpack configuration:
         return webpackConfig(env, argv);
     };
 
-Also you need to tell the framework bundle where it will find the new ``manifest.json`` after you
+Also, you need to tell the framework bundle where it will find the new ``manifest.json`` after you have
 generated it with ``npm install`` and ``npm run build`` into your new directory.
 
 .. code-block:: yaml
@@ -43,8 +43,8 @@ generated it with ``npm install`` and ``npm run build`` into your new directory.
 Overwrite templates configuration files path
 --------------------------------------------
 
-To use another directory then the default ``config/templates/pages``. You need to create a ``sulu_core.yaml`` file in ``config/packages`` and add the following parameters.
-(Subdirectories are not included by design, this allows the use of subdirectories for something else like ``<xi:include .../>`` see :doc:`../book/templates`.)
+To use a directory other than the default ``config/templates/pages``, you need to create a ``sulu_core.yaml`` file in ``config/packages`` and add the following parameters.
+(Subdirectories are not included by design; this allows the use of subdirectories for something else, like ``<xi:include .../>``, see :doc:`../book/templates`.)
 
 .. code-block:: yaml
 

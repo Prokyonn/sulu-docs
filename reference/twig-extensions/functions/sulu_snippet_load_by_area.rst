@@ -10,9 +10,9 @@ Returns the content of the default snippet for the given :doc:`snippet area <../
 
 **Arguments**:
 
-- **area**: *string* - The area to search for snippet.
-- **webspaceKey**: *string* - optional: The webspace to get area snippet settings.
-- **locale**: *string* - optional: The locale to load snippet.
+- **area**: *string* - The area in which to search for the snippet.
+- **webspaceKey**: *string* - The optional webspace from which to get area snippet settings.
+- **locale**: *string* - The optional locale to load the snippet.
 
 **Returns**:
 

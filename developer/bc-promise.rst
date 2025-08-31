@@ -1,8 +1,8 @@
 Backwards Compatibility Promise
 ===============================
 
-Sulu is a stable software used in production. It is however still under heavy
-development and therefore a full backwards compatibility can not be guaranteed
+Sulu is a stable software used in production. It is, however, still under heavy
+development, and therefore, full backwards compatibility cannot be guaranteed
 at the current stage.
 
 We do our best to keep backwards compatibility for the most used extension
@@ -17,18 +17,18 @@ PHP
 Twig
 ~~~~
 
-The most important extension point is twig as its templates are used in any
+The most important extension point is Twig, as its templates are used in any
 project using Sulu for content management. We guarantee that the variables
-passed to the twig template as described in
+passed to the Twig template as described in
 :doc:`../book/twig` will keep their
-structure and that all the twig extensions as described in
+structure and that all the Twig extensions as described in
 :doc:`../reference/twig-extensions/index` will continue to work using the same
 calls.
 
 Configuration
 ~~~~~~~~~~~~~
 
-There are several configuration files responsible for Sulu's behaviour for which
+There are several configuration files responsible for Sulu's behavior for which
 backwards compatibility is promised:
 
 * Webspace (see :doc:`../book/webspaces`)
@@ -40,8 +40,8 @@ backwards compatibility is promised:
 Events
 ~~~~~~
 
-Using events for extending Sulu is quite common so we will keep backwards
-compatibility here. There might be new data added to some events but the current
+Using events for extending Sulu is quite common, so we will keep backwards
+compatibility here. There might be new data added to some events, but the current
 data will not be removed. The events are also guaranteed not to change names.
 
 Sulu-Admin

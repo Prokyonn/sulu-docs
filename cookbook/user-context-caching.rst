@@ -2,14 +2,14 @@ User context caching
 ====================
 
 HTTP caching does not work out of the box when a session comes into play.
-Fortunately the FOSHttpCacheBundle has a feature called `User Context`_.
+Fortunately, the FOSHttpCacheBundle has a feature called `User Context`_.
 
-In this document we will quickly go through the steps necessary to activate the
+In this document, we will quickly go through the steps necessary to activate the
 User Context feature in Sulu.
 
 .. note::
 
-    For more information about this topic visit the `User Context`_ page in the
+    For more information about this topic, visit the `User Context`_ page in the
     FOSHttpCacheBundle documentation.
 
 1. Uncomment the ``user_context_hash`` route in `config/routes/fos_http_cache.yaml`
@@ -29,7 +29,7 @@ User Context feature in Sulu.
             role_provider: true
             hash_cache_ttl: 0
 
-3. Uncomment the registration of the  ``UserContextListener`` in `src/Kernel.php`
+3. Uncomment the registration of the ``UserContextListener`` in `src/Kernel.php`.
 
 .. code-block:: php
 
@@ -75,7 +75,7 @@ User Context feature in Sulu.
         firewalls:
             website:
                 pattern: ^/
-                anonymous: true # only required for Symfony 5 projects in Symfony 6 this can be removed
+                anonymous: true # only required for Symfony 5 projects; in Symfony 6, this can be removed
                 lazy: true
                 provider: sulu
                 form_login:
@@ -94,7 +94,7 @@ User Context feature in Sulu.
             enabled: true
 
 5. Make sure that Symfony's ``SecurityBundle`` is registered for all contexts
-   (by default it is only registered for the admin context) in `config/bundles.php`
+   (by default, it is only registered for the admin context) in `config/bundles.php`.
 
 .. code-block:: php
 
@@ -130,7 +130,7 @@ User Context feature in Sulu.
 .. note::
 
     The previous two steps could also be replaced by the `SuluCommunityBundle`_,
-    which helps you with creating login and registration forms. Additionally it
+    which helps you with creating login and registration forms. Additionally, it
     helps you with creating opt-in emails and other tasks.
 
 8. Activate Permission Check for pages (optional)

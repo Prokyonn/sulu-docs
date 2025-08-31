@@ -1,9 +1,9 @@
-How to use the RequestAnalyzer with ESI requests?
--------------------------------------------------
+How to Use the RequestAnalyzer with ESI Requests
+------------------------------------------------
 
-The `symfony documentation`_ already describes how to use `edge side includes`_
-to cache parts of pages with different life times. However, if you are using
-the ``render_esi`` function in combination with the ``controller`` function as
+The `Symfony documentation`_ already describes how to use `edge side includes`_
+to cache parts of pages with different lifetimes. However, if you are using
+the ``render_esi`` function in combination with the ``controller`` function, as
 shown in the following code, you might encounter issues:
 
 .. code-block:: jinja
@@ -11,7 +11,7 @@ shown in the following code, you might encounter issues:
     {{ render_esi(controller('AppBundle:News:latest', { 'maxPerPage': 5 })) }}
 
 This will probably work for most controllers, but if the ``latestAction`` of
-the ``NewsController`` makes use of the ``RequestAnalyzer`` it might fail,
+the ``NewsController`` makes use of the ``RequestAnalyzer``, it might fail,
 because the ``RequestAnalyzer`` can't analyze the request. This is caused by
 the fact that Symfony generates a special URL for this ``render_esi`` call.
 

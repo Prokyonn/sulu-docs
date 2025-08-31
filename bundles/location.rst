@@ -38,18 +38,18 @@ Nominatim
 .. note::
 
     `Nominatim`_ (from the Latin, 'by name') is a tool to search OSM data by name and
-    address and to generate synthetic addresses of OSM points (reverse geocoding)
+    address and to generate synthetic addresses of OSM points (reverse geocoding).
 
 There are several available Nominatim providers that can be configured via the ``endpoint`` configuration.
 Some of them might require an authentication token that can be configured via the ``api_key`` configuration.
-Have a look at the `OpenStreetMap Wiki`_ for an up-to-date list of providers.
+Take a look at the `OpenStreetMap Wiki`_ for an up-to-date list of providers.
 
 **Configuration:**
 
-- ``endpoint``: The endpoint to use (eg. ``http://open.mapquestapi.com/nominatim/v1/search.php`` for the
+- ``endpoint``: The endpoint to use (e.g., ``http://open.mapquestapi.com/nominatim/v1/search.php`` for the
   Mapquest provider)
 - ``api_key``: Authentication key for the configured Nominatim endpoint.
-  (Can be created via `Developer portal of Mapquest`_ for the Mapquest provider).
+  (Can be created via the `Developer portal of Mapquest`_ for the Mapquest provider).
 
 Google Maps
 """""""""""
@@ -58,7 +58,7 @@ Google Maps
 
 **Configuration:**
 
-- ``api_key``: Create the api-key in the `Google Cloud Console`_
+- ``api_key``: Create the API key in the `Google Cloud Console`_.
 
 .. _Nominatim: http://wiki.openstreetmap.org/wiki/Nominatim
 .. _OpenStreetMap Wiki: http://wiki.openstreetmap.org/wiki/Nominatim

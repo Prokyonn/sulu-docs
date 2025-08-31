@@ -2,11 +2,11 @@ SearchBundle
 ============
 
 The SuluSearchBundle is mainly an integration of the `MassiveSearchBundle`_
-into Sulu. There is also the `MassiveSearchBundle Documentation`_ explaining
+into Sulu. There is also the `MassiveSearchBundle Documentation`_, which explains
 this Bundle in more detail. This documentation is also valid for using it with
 Sulu, although there are some extensions made by the SuluSearchBundle. It
 offers a controller to provide a web API to search through the system, adds
-more fields - like creator and changer - to the search documents and also
+more fields—like creator and changer—to the search documents, and also
 handles the security provided by Sulu. But the most important thing is that it
 also contains the administration user interface.
 
@@ -14,11 +14,11 @@ Configuration
 -------------
 
 The configuration of this bundle contains some more metadata about each index
-created by the `MassiveSearchBundle`_ consisting of the following values:
+created by the `MassiveSearchBundle`_, consisting of the following values:
 
 - ``name``: Can contain a name for the index, which will be used in the UI.
-  Useful if the index represents something a non-translatable literal can
-  describe.
+  This is useful if the index represents something a non-translatable literal
+  can describe.
 - ``security_context``: This setting is used to describe which security context
   (see :doc:`security/index`) the user has to have ``view`` permission in, in order
   to search through this index.
@@ -29,7 +29,7 @@ created by the `MassiveSearchBundle`_ consisting of the following values:
   map called ``result_to_view``, which maps fields from the search result to
   the edit form.
 
-So a sample configuration would look like this:
+So, a sample configuration would look like this:
 
 .. code-block:: yaml
 
@@ -48,17 +48,17 @@ So a sample configuration would look like this:
 
 .. note::
 
-    It is also possible to use `PrependExtensions`_ or in more complicated
-    cases to change the value of the ``sulu_search.indexes`` parameter in a
-    `CompilerPass`_. Actually that is what most of the Sulu bundles are doing
+    It is also possible to use `PrependExtensions`_ or, in more complicated
+    cases, to change the value of the ``sulu_search.indexes`` parameter in a
+    `CompilerPass`_. Actually, that is what most of the Sulu bundles are doing
     to minimize the configuration effort of the application.
 
 Website Search
 ^^^^^^^^^^^^^^
 
 This bundle also provides configuration for the website search. By default,
-when using the website search, only pages will be listed as result. If you
-want e.g. a custom entity to be found in the website search, you have to
+when using the website search, only pages will be listed as a result. If you
+want, e.g., a custom entity to be found in the website search, you have to
 register the corresponding index.
 
 The configuration looks like the following:
@@ -101,7 +101,7 @@ Templating
 ----------
 
 The SuluSearchBundle has a `WebsiteSearchController`, which loads the template
-from the currently loaded webspace. It therefore uses the `RequestAnalyzer`,
+from the currently loaded webspace. It, therefore, uses the `RequestAnalyzer`,
 and asks the webspace for its template of type ``search``. This template can
 then be defined for every webspace in its XML configuration:
 
@@ -119,10 +119,10 @@ Reindexing
 Re-indexing is the process of reading all of the documents in the system and
 regenerating their search records. This is necessary when changes are made to
 the metadata and it is desirable to propagate these changes over all of the
-indexed documents / entities in the system -- or when you import new data
-(e.g. from a backup) and need to index that data.
+indexed documents/entities in the system—or when you import new data
+(e.g., from a backup) and need to index that data.
 
-To re-index all entities (Contacts, Media, etc.) and documents (Pages, Snippets)
+To re-index all entities (Contacts, Media, etc.) and documents (Pages, Snippets),
 simply run the following:
 
 .. code-block:: bash
@@ -131,17 +131,17 @@ simply run the following:
 
 .. warning::
 
-    At the moment it is required to also execute
+    At the moment, it is required to also execute
     `php bin/websiteconsole massive:search:reindex --env=prod` to reindex the pages
-    also for the website.
+    for the website as well.
 
-This may take anywhere between a minute and several hours depending on how
+This may take anywhere between a minute and several hours, depending on how
 much data you have in your system.
 
 To increase speed and reduce memory consumption:
 
 - Use the ``--env=prod`` (see note below) switch to force the production settings: This will
-  reduce logging and increase speed and lead to lower memory consumption.
+  reduce logging, increase speed, and lead to lower memory consumption.
 - Ensure that the document manager has the ``debug: false`` option. This
   reduces logging dramatically.
 
@@ -149,11 +149,11 @@ To recover if the process is interrupted:
 
 - You may *resume* the task simply by running it again.
 - Use the ``--provider`` option to limit the reindexing to a certain reindex provider,
-  for example ``--provider=doctrine_orm``.
+  for example, ``--provider=doctrine_orm``.
 
 .. important::
 
-    In recomending the ``prod`` environment we assume that you have not
+    In recommending the ``prod`` environment, we assume that you have not
     changed the default environment configuration. The important point is that
     logging increases memory consumption and should be disabled.
 

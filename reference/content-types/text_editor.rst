@@ -1,10 +1,10 @@
-Text editor
+Text Editor
 ===========
 
 Description
 -----------
 
-Shows a rich text editor, capable of formatting text as well. The output of the
+Shows a rich text editor, which is also capable of formatting text. The output of the
 editor will be stored as HTML in a string field.
 
 Example
@@ -21,7 +21,7 @@ Example
 Twig
 -----
 
-When outputting the text editor field in twig the `raw filter`_ need to be used:
+When outputting the text editor field in Twig, the `raw` filter needs to be used:
 
 .. code-block:: twig
 

@@ -5,7 +5,7 @@ Sulu is delivered with two different possibilities to protect parts of your
 application. The first is the permissions based on security contexts, which
 allow you to restrict access to entire parts of your application or Sulu. The
 permissions for this kind of security are managed on a roles level. In addition
-to that the localization for which these permissions are valid has to be
+to that, the localization for which these permissions are valid has to be
 defined on the assignment of the role to the user.
 
 The second way is to protect the access on a per-object basis. These
@@ -13,7 +13,7 @@ permissions are set on the specific object. The user still has to have the
 correct localizations assigned in order to gain access.
 
 This tutorial will show how to use Sulu's security functionality with your own
-application specific code.
+application-specific code.
 
 Protect content using a security context
 ----------------------------------------
@@ -24,7 +24,7 @@ not a specific object).
 Define your security context
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-First of all you have to define the security context, which is represented by a
+First of all, you have to define the security context, which is represented by a
 simple string. This is done in the ``Admin`` class of your Bundle:
 
 .. code-block:: php
@@ -61,7 +61,7 @@ simple string. This is done in the ``Admin`` class of your Bundle:
 
 This information is defined in the ``getSecurityContexts`` method, which should
 return an array. The first level describes the system to which the security
-context applies - this would either be Sulu (for stuff in the administration)
+context applies—this would either be Sulu (for stuff in the administration)
 or a different context that you have defined manually.
 
 The second level just defines the title for another separation used in the
@@ -73,16 +73,16 @@ permission types for this security context.
 .. note::
 
     Since the ``Admin`` class is registered as a service, you can make use of
-    different services to define the available security contexts. For example
-    the SuluPageBundle uses a service to create an own security context for
+    different services to define the available security contexts. For example,
+    the SuluPageBundle uses a service to create its own security context for
     all available webspaces in the system.
 
 Protect your controller
 ~~~~~~~~~~~~~~~~~~~~~~~
 
-After defining a security context, you can use it to  protect the actions
+After defining a security context, you can use it to protect the actions
 of one of your controllers. All you have to do is to implement the
-``SecuredControllerInterface`` telling the ``SuluSecurityListener`` which
+``SecuredControllerInterface``, telling the ``SuluSecurityListener`` which
 security context and locale to use for the permission check:
 
 .. code-block:: php
@@ -125,25 +125,25 @@ somehow by the request, and the ``getSecurityContext`` method defines which
 security context is required to access this type of resource.
 
 The ``SuluSecurityListener`` appends the information on which type of
-permission (`view`, `add`, `edit`, `delete`, ...) is required, and
+permission (`view`, `add`, `edit`, `delete`, etc.) is required, and
 automatically takes care of the permission check and returns a page with a
-status code of `403` in case the permissions for the currently logged in user
-where not sufficient.
+status code of `403` in case the permissions for the currently logged-in user
+were not sufficient.
 
 Protecting specific objects
 ---------------------------
 
-For some parts of your application you might want to protect specific objects.
+For some parts of your application, you might want to protect specific objects.
 This section will describe how this is done with the possibilities Sulu offers.
 
 Adding the permission tab to your form
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-First of all you have to add the permission tab to your form to enable the user
+First of all, you have to add the permission tab to your form to enable the user
 to set up the permissions accordingly. The permission tab presents a list of
 the available user roles and a few permission icons, which can be activated.
 
-Therefore the `Admin` class you have created for your own business objects
+Therefore, the `Admin` class you have created for your own business objects
 needs some updating. You can add the permission tab as shown below:
 
 .. code-block:: php
@@ -182,7 +182,7 @@ needs some updating. You can add the permission tab as shown below:
 
 The important option here is set in the ``addRequestParameters`` call, which
 defines for which resource this permission form is used. In order for that to
-work the relation between the ``resourceKey`` and the security context and the
+work, the relation between the ``resourceKey``, the security context, and the
 security class has to be configured:
 
 .. code-block:: yaml
@@ -195,7 +195,7 @@ security class has to be configured:
             security_context: 'sulu_admin.example'
             security_class: 'App\\Entity\\Example'
 
-After this addition the permission tab should already be visible in the edit
+After this addition, the permission tab should already be visible in the edit
 form.
 
 Configure the controller
@@ -262,8 +262,8 @@ The `SecuredObjectControllerInterface` requires three different methods. The
 `getLocale` method is the same as in the `SecuredControllerInterface`, and the
 implementation can be shared. The `getSecuredClass` method has to return the
 same identifier for the type of object as used in the resources configuration.
-Finally the `getSecuredObjectId` receives the request object, and has to return
-the id of the object from it.
+Finally, the `getSecuredObjectId` receives the request object, and has to return
+the ID of the object from it.
 
 The rest of the work will be done by the `SuluSecurityListener` in the same way
 as for the check of the security contexts.

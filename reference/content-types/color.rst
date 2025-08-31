@@ -4,13 +4,13 @@ Color
 Description
 -----------
 
-Shows a text line with an attached color picker, the inserted content will be
-saved as simple string.
+Shows a text line with an attached color picker. The inserted content will be
+saved as a simple string.
 
 Parameters
 ----------
 
-No parameters available
+No parameters available.
 
 Example
 -------

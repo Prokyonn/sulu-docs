@@ -1,7 +1,7 @@
 Extend Entities
 ===============
 
-Sulu allows to extend and replace the following internal entities.
+Sulu allows you to extend and replace the following internal entities.
 
 * User
 * Role
@@ -11,12 +11,12 @@ Sulu allows to extend and replace the following internal entities.
 * Media
 * Tag
 
-You can extend all of them in the same way. Therefore we explain it for `User` here.
+You can extend all of them in the same way. Therefore, we will explain it for `User` here.
 
 Create a Entity
 ---------------
 
-Create your own Entity that extends Sulu `User` class.
+Create your own Entity that extends the Sulu `User` class.
 
 .. code-block:: php
 
@@ -58,14 +58,14 @@ Create your own Entity that extends Sulu `User` class.
 
 .. warning::
 
-    Your Entity can have own properties, but they should have at least default values.
-    Otherwise the normal features of Sulu could crash (like the
+    Your Entity can have its own properties, but they should have at least default values.
+    Otherwise, the normal features of Sulu could crash (like the
     `sulu:security:user:create` command).
 
 .. warning::
 
     The `#[ORM\\Table(...)]` attribute on your entity must match the table of the extended entity.
-    Otherwise, doctrine might run into errors when querying data of the entity.
+    Otherwise, Doctrine might run into errors when querying data of the entity.
 
 Configuration
 -------------
@@ -86,9 +86,9 @@ For the `User` entity (`se_users`):
 
 .. note::
 
-   Symfony keeps the user object in the session, clearing the sessions is so sometimes required
-   when running into ``php.CRITICAL: Uncaught Error: Failed opening required /var/project/var/cache/website/prod/doctrine/orm/Proxies/__CG__SuluBundleSecurityBundleEntityUser.php``.  
-   If use the native session storage you can use ``(php -i && php bin/console debug:config framework session) | grep save_path`` to get the configured save paths of sessions.
+   Symfony keeps the user object in the session, so clearing the sessions is sometimes required
+   when running into ``php.CRITICAL: Uncaught Error: Failed opening required /var/project/var/cache/website/prod/doctrine/orm/Proxies/__CG__SuluBundleSecurityBundleEntityUser.php``.
+   If you use the native session storage, you can use ``(php -i && php bin/console debug:config framework session) | grep save_path`` to get the configured save paths of sessions.
 
 For the `Role` entity (`se_roles`):
 

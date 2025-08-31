@@ -15,7 +15,7 @@ properties:
 * **article** of type **text_editor**
 
 When a content manager opens a page in the administration interface, they can
-change the values of these properties. At last, frontend designers can access
+change the values of these properties. Finally, front-end designers can access
 these values and render them according to the desired design.
 
 Each page template is defined by two files:
@@ -23,7 +23,7 @@ Each page template is defined by two files:
 * an **XML file** that contains the page structure
 * a **Twig file** that contains the HTML code
 
-For example, the default template -- named "default" -- is defined by the files
+For example, the default template—named "default"—is defined by the files
 ``config/templates/pages/default.xml`` and
 ``templates/pages/default.html.twig``. The Sulu Skeleton
 also contains a second template named "homepage", which you can find in the
@@ -43,7 +43,7 @@ The template of a page can be selected in the admin interface:
 .. note::
 
     If you don't want a template to appear in this list, use the ``excluded-templates`` node in the webspace configuration file.
-    Have a closer look at `Setup a Webspace <webspaces.html#urls>`_ for more details.
+    Take a closer look at `Setup a Webspace <webspaces.html#urls>`_ for more details.
 
 The name displayed in the dropdown is configured in the ``<meta>`` section of
 the XML:
@@ -90,7 +90,7 @@ identifier of the template:
 
 .. caution::
 
-    Currently the ``<key>`` has to be identical to the filename of the template
+    Currently, the ``<key>`` has to be identical to the filename of the template
     minus the ``.xml`` suffix.
 
 The second thing you have to customize is the ``<view>``. This element stores
@@ -113,9 +113,9 @@ the Twig file that is used to render the template:
 .. Note::
 
     Sulu automatically adds the ``.<format>.twig`` suffix to the view string,
-    depending on the format requested by the client (HTML, JSON, XML, ...).
+    depending on the format requested by the client (HTML, JSON, XML, etc.).
 
-    Instead of the folder notation with the ``/`` you can use the
+    Instead of the folder notation with the ``/``, you can use the
     `Symfony's naming convention`_ without the file extension for Twig
     templates.
 
@@ -125,8 +125,8 @@ adding properties to our page template.
 Properties
 ----------
 
-Properties make up the structure of a page. They are defined in the element
-``<properties>``:
+Properties make up the structure of a page. They are defined in the ``<properties>``
+element:
 
 .. code-block:: xml
 
@@ -156,7 +156,7 @@ A property has three essential attributes:
 * a ``type`` that defines what kind of content can be stored
 * a ``title`` that is shown in the administration interface
 
-Here is a table with the content types shipped in Sulu core:
+Here is a table with the content types shipped in the Sulu core:
 
 +------------------------------+---------------------------------------------+
 | Key                          | Appearance in the administration            |
@@ -232,8 +232,8 @@ Here is a table with the content types shipped in Sulu core:
 
         php bin/adminconsole sulu:content:types:dump
 
-Many content types can be configured by passing parameters in the element
-``<params>``. For a single select, for example, you need to set the possible
+Many content types can be configured by passing parameters in the ``<params>``
+element. For a single select, for example, you need to set the possible
 choices:
 
 .. code-block:: xml
@@ -271,14 +271,14 @@ choices:
         </properties>
     </template>
 
-More detail about the content types and their parameters can be found in the
+More details about the content types and their parameters can be found in the
 :doc:`../reference/content-types/index`.
 
 Mandatory/Optional Properties
 -----------------------------
 
 Properties are optional by default. If a content manager *must* fill out a
-property, set the attribute ``mandatory`` to ``true``:
+property, set the ``mandatory`` attribute to ``true``:
 
 .. code-block:: xml
 
@@ -305,9 +305,9 @@ Visible/Disabled Conditions
 ---------------------------
 
 It is possible to hide or disable specific properties based on the current values of
-the template by setting the ``visibleCondition`` and ``disabledCondition`` attribute.
+the template by setting the ``visibleCondition`` and ``disabledCondition`` attributes.
 
-Inside of these attributes, you can utilize the `jexl`_ syntax for expressing your conditions.
+Inside of these attributes, you can utilize the `Jexl`_ syntax for expressing your conditions.
 
 .. code-block:: xml
 
@@ -338,7 +338,7 @@ Inside of these attributes, you can utilize the `jexl`_ syntax for expressing yo
     </template>
 
 The ``isCode`` variable in these conditions is relative to the root of the form. If you want to check a property
-relative from your position, you can use the nestable ``__parent`` variable. This is especially useful when working
+relative to your position, you can use the nestable ``__parent`` variable. This is especially useful when working
 from within a block.
 
 .. code-block:: xml
@@ -378,24 +378,24 @@ from within a block.
 
 .. note::
 
-    Mind that you can call the ``__parent`` (something like ``__parent.__parent.hasImage``) variable multiple times if
+    Mind that you can call the ``__parent`` variable (something like ``__parent.__parent.hasImage``) multiple times if
     you use nested blocks.
 
 .. note::
 
     Because the ``&`` character needs to be escaped inside of XML files, you have to use ``AND`` instead of ``&&``
-    if you want to connect conditions using a logical and. Additionally, you can use ``OR`` instead of ``||``.
+    if you want to connect conditions using a logical AND. Additionally, you can use ``OR`` instead of ``||``.
 
 .. caution::
 
-    Conditional fields can not be used in combination with the ``mandatory`` attribute. While conditions are evaluated
-    on the client side in JEXL language, the ``mandatory`` attribute is evaluated on the server side via JSON Schema.
-    As it is not possible to validate JEXL in a JSON Schema it is not possible to combine these two features.
+    Conditional fields cannot be used in combination with the ``mandatory`` attribute. While conditions are evaluated
+    on the client-side in the Jexl language, the ``mandatory`` attribute is evaluated on the server-side via JSON Schema.
+    As it is not possible to validate Jexl in a JSON Schema, it is not possible to combine these two features.
 
 Language Independent Properties
 -------------------------------
 
-Some content like article numbers or other metadata might be the same for every
+Some content, like article numbers or other metadata, might be the same for every
 language. In that case, you can mark properties as not multilingual using
 ``multilingual="false"``:
 
@@ -428,8 +428,8 @@ language. In that case, you can mark properties as not multilingual using
 Sections
 --------
 
-Properties can be grouped together in *sections*. Sections are visible in the
-administration interface only and have no other effect on the data model:
+Properties can be grouped together in *sections*. Sections are visible only in the
+administration interface and have no other effect on the data model:
 
 .. figure:: ../img/templates-section.png
 
@@ -658,7 +658,7 @@ Aligning Fields on the Grid
 ---------------------------
 
 Sulu's administration interface uses a basic twelve-column grid for the
-properties. By default, each property is all the twelve columns wide. If you
+properties. By default, each property is twelve columns wide. If you
 reduce that width, properties automatically float next to each other if they fit
 within the twelve columns:
 
@@ -771,9 +771,9 @@ element:
 
     The ``href`` contains a relative path to the included file.
 
-The fragment itself should use a ``<template>`` or a ``<properties>`` element as root
-to pass the XML schema validation in your IDE. In this example, we'll use a ``<properties>``
-container:
+The fragment itself should use a ``<template>`` or ``<properties>`` element as the
+root to pass the XML schema validation in your IDE. In this example, we'll use a
+``<properties>`` container:
 
 .. code-block:: xml
 
@@ -797,7 +797,7 @@ If you want to pick single properties or sections of another template, use an
 `XPointer`_. XPointers are similar to CSS selectors and match a specific part of
 an XML document.
 
-As example, imagine that you have a generic "Event" template and a more
+As an example, imagine that you have a generic "Event" template and a more
 specific "Concert" template that reuses the properties of the "Event" template.
 Let's look at the "Event" template first:
 
@@ -872,7 +872,7 @@ possible:
     </template>
 
 This XPointer starts with the root element ``<properties>`` in the ``sulu``
-namespace and selects all ``<property>`` children with the attribute ``name``
+namespace and selects all ``<property>`` children with the ``name`` attribute
 set to "startDate".
 
 You can also match multiple elements of different types. Use the wildcard
@@ -903,7 +903,7 @@ You can also match multiple elements of different types. Use the wildcard
 Using Global blocks
 -------------------
 
-Global blocks define a set of properties that can be used as type inside of a block or any other property. This is
+Global blocks define a set of properties that can be used as a type inside of a block or any other property. This is
 useful if you want to reuse a block type in multiple templates.
 
 To define a global block, you have to create a new XML file in the ``config/templates/blocks`` directory. The following
@@ -954,15 +954,15 @@ node and the ``ref`` attribute:
 
 .. note::
 
-    Mixing global and local block types is supported, but it is recommended to keep your block type names unique
+    Mixing global and local block types is supported, but it is recommended that you keep your block type names unique
     to avoid confusion. This approach also simplifies the transition to global blocks in the future, eliminating the need
     for data migrations.
 
 Caching
 -------
 
-Eventually you will start tweaking your pages for performance. Caching pages
-on the client is one of the easiest performance improvements you can do.
+Eventually, you will start tweaking your pages for performance. Caching pages
+on the client is one of the easiest performance improvements you can make.
 
 You can configure a different caching strategy for each template. Add a
 ``<cacheLifetime>`` element with the number of seconds that your page should be
@@ -990,13 +990,13 @@ send a new request to your server to update its cache.
 .. caution::
 
     When you use client-side caching, be aware that there is no way to
-    invalidate the client-side cache on demand. Prepare for having to wait
+    invalidate the client-side cache on demand. Prepare to have to wait
     for the given cache lifetime until all clients receive an updated version
     of your website. To shorten this time, it's generally a good idea not to set
     the cache lifetime too high.
 
 There is a second ``type`` that you can use to specify the cache lifetime:
-``expression``. With that type, you can pass the lifetime as `cron expression`_.
+``expression``. With that type, you can pass the lifetime as a `cron expression`_.
 For example, if you know that your homepage changes its content each day at
 8:00 AM, set the value to ``0 8 * * *``:
 
@@ -1017,7 +1017,7 @@ For example, if you know that your homepage changes its content each day at
 Search
 ------
 
-That a property is indexed in the search the property need to be tagged.
+For a property to be indexed in the search, the property needs to be tagged.
 
 .. code-block:: xml
 
@@ -1056,8 +1056,8 @@ That a property is indexed in the search the property need to be tagged.
 The tag can have specific attributes:
 
  - `role`: The role for the property
- - `type`: Type how the data need to be stored
- - `index`: Is indexed need only to be set to deactivate index
+ - `type`: The type of how the data needs to be stored
+ - `index`: Is indexed, and needs only to be set to deactivate the index
 
 **Roles**:
 
@@ -1071,11 +1071,11 @@ The tag can have specific attributes:
 
  - `string`: For simple fields
  - `array`: For multiple fields
- - `tags`: Special type for `tag_selection` content type
+ - `tags`: Special type for the `tag_selection` content type
  - `category`: Special type for `single_category_selection` and `category_selection` content types
  - `date`: For indexing the `date` content type
  - `json`: For indexing raw data in the search
- - `structure`: Special type for all kinds of embedded structure (e.g. `single_snippet_selection`, `page_selection`, ...)
+ - `structure`: Special type for all kinds of embedded structures (e.g., `single_snippet_selection`, `page_selection`, etc.)
 
 Next Steps
 ----------

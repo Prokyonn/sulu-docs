@@ -4,12 +4,12 @@ Route
 Description
 -----------
 
-The ``route`` content type allows to generate urls for **custom entities**.
+The `route` content type allows generating URLs for **custom entities**.
 Have a look at :doc:`/bundles/route/index` to see how to implement routing for your custom entity.
 
 .. note::
 
-    The ``route`` content type should not be used on page templates. For pages, use the :doc:`resource_locator`
+    The `route` content type should not be used on page templates. For pages, use the :doc:`resource_locator`
     content type instead.
 
 Parameters
@@ -23,14 +23,14 @@ Parameters
       - Description
     * - mode
       - string
-      - Defines the mode of the input field, can either be "full" or "leaf". Default value is "full".
+      - Defines the mode of the input field. Can be either "full" or "leaf". The default value is "full".
     * - entity_class
       - string
-      - Class that is used for loading the history urls of entity.
+      - The class that is used for loading the history URLs of the entity.
         If not set, the :doc:`/bundles/route/index` mapping for the resource key of the form is used.
     * - route_schema
       - string
-      - Route schema that is used for generating the url.
+      - The route schema that is used for generating the URL.
         If not set, the :doc:`/bundles/route/index` mapping for the resource key of the form is used.
 
 
@@ -62,8 +62,8 @@ Example
 Twig
 ----
 
-You need to use the :doc:`../twig-extensions/functions/sulu_content_path` twig extension
-to render the full url.
+You need to use the :doc:`../twig-extensions/functions/sulu_content_path` Twig extension
+to render the full URL.
 
 .. code-block:: twig
 

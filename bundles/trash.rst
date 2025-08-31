@@ -2,14 +2,14 @@ TrashBundle
 ===========
 
 The ``TrashBundle`` implements the trash functionality that is used by most built-in Sulu entities.
-It allows to store entities into a trash item and to restore them from the trash at a later point
+It allows you to store entities in a trash item and to restore them from the trash at a later point
 in time. Furthermore, the bundle adds a trash view that allows the user to restore and remove
 trash items via the administration interface.
 
 The bundle uses the `TrashItem entity`_ to store the data of entities that were moved into the trash.
-``TrashItem`` entities contain all data that is necessary to restore the original entity and
+``TrashItem`` entities contain all the data that is necessary to restore the original entity and
 are identified by a ``resourceKey`` and a ``resourceId``.
-To manage these entities, the bundle provides a `TrashManager service`_ that allows to create
+To manage these entities, the bundle provides a `TrashManager service`_ that allows you to create
 new trash items and restore and delete existing trash items.
 
 Integrating the TrashBundle with a custom entity
@@ -36,11 +36,11 @@ Create a trash item for an entity
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 When creating a new ``TrashItem`` entity, the ``TrashManager`` service looks for a service
-that implements the `StoreTrashItemHandlerInterface interface`_ and supports the given entity.
+that implements the `StoreTrashItemHandlerInterface`_ and supports the given entity.
 
 To implement this functionality for your custom entity, you create a ``TrashItemHandler`` service that
 implements the ``StoreTrashItemHandlerInterface`` and creates a ``TrashItem`` entity.
-The created entity contains all data that is needed to restore our custom entity at a later point
+The created entity contains all the data that is needed to restore our custom entity at a later point
 in time.
 
 .. code-block:: php
@@ -76,7 +76,7 @@ in time.
 
 .. Tip::
 
-    If you're using the default `services.yaml configuration from Symfony`_, the example should work as is.
+    If you're using the default `services.yaml` configuration from Symfony, the example should work as is.
     However, if you've created a custom ``TrashItemHandler`` in a separate bundle, be sure to tag the service with
     ``sulu_trash.store_trash_item_handler`` to ensure proper functionality.
 
@@ -84,7 +84,7 @@ Restore an entity from a trash item
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 When restoring an existing ``TrashItem`` entity, the ``TrashManager`` service looks for a service
-that implements the `RestoreTrashItemHandlerInterface interface`_ and supports the given trash item.
+that implements the `RestoreTrashItemHandlerInterface`_ and supports the given trash item.
 
 To integrate the restore functionality with your custom entity, you can extend the ``TrashItemHandler``
 service created in the previous step to implement the ``RestoreTrashItemHandlerInterface``.
@@ -125,7 +125,7 @@ with the correct data.
 
 .. Tip::
 
-    If you're using the default `services.yaml configuration from Symfony`_, the example should work as is.
+    If you're using the default `services.yaml` configuration from Symfony, the example should work as is.
     However, if you've created a custom ``TrashItemHandler`` in a separate bundle, be sure to tag the service with
     ``sulu_trash.restore_trash_item_handler`` to ensure proper functionality.
 
@@ -133,12 +133,12 @@ with the correct data.
 (Optional) Add restore configuration for your entity
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-The behaviour of the ``TrashBundle`` integration an entity can be configured by registering a
-service that implements the `RestoreConfigurationProviderInterface interface`_.
+The behavior of the ``TrashBundle`` integration an entity can be configured by registering a
+service that implements the `RestoreConfigurationProviderInterface`_.
 
 To do this for your custom entity, you can extend the ``TrashItemHandler`` service created in the
 previous steps to implement the ``RestoreConfigurationProviderInterface`` and return a
-`RestoreConfiguration object`_ from the ``getConfiguration`` method.
+`RestoreConfiguration`_ object from the ``getConfiguration`` method.
 
 .. code-block:: php
 
@@ -173,12 +173,12 @@ previous steps to implement the ``RestoreConfigurationProviderInterface`` and re
 
 .. Tip::
 
-    If you're using the default `services.yaml configuration from Symfony`_, the example should work as is.
+    If you're using the default `services.yaml` configuration from Symfony, the example should work as is.
     However, if you've created a custom ``TrashItemHandler`` with the restore functionality in a separate bundle,
-    be sure to tag the service also with ``sulu_trash.restore_configuration_provider`` to ensure proper functionality.
+    be sure to also tag the service with ``sulu_trash.restore_configuration_provider`` to ensure proper functionality.
 
-The ``RestoreConfiguration`` class allows to set the following configuration properties.
-All configuration properties are optional an can be set to ``null``.
+The ``RestoreConfiguration`` class allows you to set the following configuration properties.
+All configuration properties are optional and can be set to ``null``.
 
 .. list-table::
     :header-rows: 1
@@ -189,14 +189,14 @@ All configuration properties are optional an can be set to ``null``.
       - Defines a form key that should be displayed when a trash item is restored.
         The data of the form will be passed to the ``RestoreTrashItemHandlerInterface::restore``
         method.
-        For example, this allows to select a new parent entity when restoring a nested entity
+        For example, this allows you to select a new parent entity when restoring a nested entity,
         like a page.
     * - view
       - Defines a view key to which the user is redirected after restoring a trash item.
     * - resultToView
       - Defines which properties should be used as view attributes when redirecting the user to
         the configured view after an entity was restored.
-        For example, this allows to set the ``id`` attribute of a route to the identifier of
+        For example, this allows you to set the ``id`` attribute of a route to the identifier of
         the restored entity.
     * - resultSerializationGroups
       - Defines the serialization groups that are used to serialize a restored entity.
@@ -206,19 +206,19 @@ All configuration properties are optional an can be set to ``null``.
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 When removing an existing ``TrashItem`` entity, the ``TrashManager`` service looks for a service
-that implements the `RemoveTrashItemHandlerInterface interface`_ and supports the given trash item.
+that implements the `RemoveTrashItemHandlerInterface`_ and supports the given trash item.
 If such a service is found, the ``remove`` method of the service is called with the ``TrashItem``
 entity that will be removed.
 
-This extension point allows to clean up external data when a trash item is removed and therefore
+This extension point allows you to clean up external data when a trash item is removed and, therefore,
 cannot be restored anymore. For example, this can be used to clean up associated files on the hard
 drive or related data in an external system.
 
 .. Tip::
 
-    If you're using the default `services.yaml configuration from Symfony`_, the example should work as is.
+    If you're using the default `services.yaml` configuration from Symfony, the example should work as is.
     However, if you've created a custom ``TrashItemHandler`` with the restore functionality in a separate bundle,
-    be sure to tag the service also with ``sulu_trash.remove_trash_item_handler`` to ensure proper functionality.
+    be sure to also tag the service with ``sulu_trash.remove_trash_item_handler`` to ensure proper functionality.
 
 .. _TrashItem entity: https://github.com/sulu/sulu/blob/2.x/src/Sulu/Bundle/TrashBundle/Domain/Model/TrashItem.php
 .. _TrashManager service: https://github.com/sulu/sulu/blob/2.x/src/Sulu/Bundle/TrashBundle/Application/TrashManager/TrashManager.php

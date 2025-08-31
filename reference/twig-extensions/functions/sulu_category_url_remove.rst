@@ -3,14 +3,14 @@
 ``sulu_category_url_remove``
 ============================
 
-Returns current URL and removes given category from GET parameters.
+Returns the current URL and removes the given category from the GET parameters.
 
 **Arguments**:
 
-- **category**: *array* - Serialized Category instance to determine value
-- **categoryParameter**: *string* - optional "category": parameter name
+- **category**: *array* - A serialized `Category` instance to determine the value.
+- **categoryParameter**: *string* - The optional `category` parameter name.
 
-**Returns**: string - current URL without given category in categories parameter
+**Returns**: *string* - The current URL without the given category in the `categories` parameter.
 
 **See also**:
 

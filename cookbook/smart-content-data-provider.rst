@@ -3,9 +3,9 @@ DataProvider for SmartContent
 
 DataProviders are used to load data for SmartContent. It returns data filtered
 by a configuration array. This array can be configured with an overlay in the
-backend form.
+back-end form.
 
-This configuration array includes following values:
+This configuration array includes the following values:
 
 .. list-table::
     :header-rows: 1
@@ -13,21 +13,21 @@ This configuration array includes following values:
     * - Name
       - Description
     * - dataSource
-      - Additional constraint - like page-"folder".
+      - An additional constraint—like a page "folder".
     * - tags
-      - Multiple selection of tags, which a item should have.
+      - Multiple selection of tags, which an item should have.
     * - tagOperator
       - The item has any or all of the selected tags.
     * - categories
-      - Multiple selection of categories, which a item should have.
+      - Multiple selection of categories, which an item should have.
     * - categoryOperator
       - The item has any or all of the selected categories.
     * - types
-      - Multiple selection of types (e.g. templates), which a item should have
+      - Multiple selection of types (e.g., templates), which an item should have.
 
 Tags (websiteTags) and Categories (websiteCategories) can also be "injected" by
 GET parameters from the website. This can be handled separately from the
-admin-selected. Also different operators (websiteTagsOperator and
+admin-selected. Also, different operators (websiteTagsOperator and
 websiteCategoryOperator) are available.
 
 Additional features, which can be provided with a DataProvider:
@@ -38,36 +38,36 @@ Additional features, which can be provided with a DataProvider:
     * - Name
       - Description
     * - presentAs
-      - Value can be used in the website for display options - like one or two
-        column - these values can be freely configured by developers.
+      - The value can be used on the website for display options—like one or two
+        columns—and these values can be freely configured by developers.
     * - page & pageSize
       - Pagination of items.
     * - limit
       - Maximum items for (if pagination is active) over all pages or overall.
 
-How to create a custom DataProvider?
-------------------------------------
+How to Create a Custom DataProvider
+-----------------------------------
 
-To create a custom data provider you have to create a service which
-implements the Interface `DataProviderInterface`. This Interface provides
-functions to resolve the configured filters for the backend API with
+To create a custom data provider, you have to create a service that
+implements the `DataProviderInterface`. This Interface provides
+functions to resolve the configured filters for the back-end API with
 standardized objects and for the website with array and entity access.
-Additionally the DataProvider returns a configuration object to enable or
+Additionally, the DataProvider returns a configuration object to enable or
 disable features.
 
 There exists an abstraction layer for ORM DataProviders. This layer provides the
-implementation of basic DataProvider functionality and Database query.
+implementation of basic DataProvider functionality and a Database query.
 
-If you want to create a DataProvider for the ExampleEntity you have todo
+If you want to create a DataProvider for the ExampleEntity, you have to do the
 following steps.
 
 1. Repository
 ~~~~~~~~~~~~~
 
-The repository has to implement the DataProviderRepositoryInterface and provide
-the findByFilters function. If the default implementation is good enough, you
+The repository has to implement the `DataProviderRepositoryInterface` and provide
+the `findByFilters` function. If the default implementation is good enough, you
 can include the trait `DataProviderRepositoryTrait`, which needs the functions
-`createQueryBuilder` (is default in repositories) and `appendJoins` where you
+`createQueryBuilder` (which is the default in repositories) and `appendJoins`, where you
 are able to configure eager loading for the entity.
 
 The rest of the functionality and Query generation is done in the Trait.
@@ -97,11 +97,11 @@ The rest of the functionality and Query generation is done in the Trait.
 
 .. note::
 
-    Be sure that the returned entities has valid serialization configuration for
+    Be sure that the returned entities have a valid serialization configuration for
     JMS\Serializer.
 
 There are the following hooks to influence the query generation. These are
-functions which are optional to override in the repository.
+functions that are optional to override in the repository.
 
 .. list-table::
     :header-rows: 1
@@ -109,11 +109,11 @@ functions which are optional to override in the repository.
     * - Name
       - Description
     * - append(QueryBuilder $queryBuilder, $alias, $locale, $options = [])
-      - Additional `select`, `where` or `joins` can be added to the query to
-        match given options. The options can be generated by the data-provider
-        and can contain for example additional filter parameter.
+      - Additional `select`, `where`, or `joins` can be added to the query to
+        match given options. The options can be generated by the data provider
+        and can contain, for example, additional filter parameters.
     * - appendTagsRelation(QueryBuilder $queryBuilder, $alias)
-      - If your entity is not directly connected to the tags (entity.tags) you
+      - If your entity is not directly connected to the tags (entity.tags), you
         can append here all needed joins and return the path to the tag
         relation.
     * - appendCategoriesRelation(QueryBuilder $queryBuilder, $alias)
@@ -122,14 +122,14 @@ functions which are optional to override in the repository.
       - Same as tags.
     * - appendDatasource($datasource, $includeSubFolders, QueryBuilder
         $queryBuilder, $alias)
-      - If your dataprovider can handle datasources you can add the
-        functionality to filter by the datasource here.
+      - If your data provider can handle data sources, you can add the
+        functionality to filter by the data source here.
 
 2. DataItem
 ~~~~~~~~~~~
 
-The DataItem will be used in the backend to display the filtered items. This
-class implements the Interface `ItemInterface`.
+The DataItem will be used in the back-end to display the filtered items. This
+class implements the `ItemInterface`.
 
 .. code-block:: php
 
@@ -189,14 +189,14 @@ class implements the Interface `ItemInterface`.
 
 .. note::
 
-    If you return an image within the `getImage` function it will be displayed
-    in the admin ui. You should be sure that the image is not bigger than 50x50.
+    If you return an image within the `getImage` function, it will be displayed
+    in the admin UI. You should be sure that the image is not bigger than 50x50.
 
 3. DataProvider
 ~~~~~~~~~~~~~~~
 
 The DataProvider is mostly abstracted by the SmartContent component. For further
-optimization, you can disable or enable the form-elements in the configuration
+optimization, you can disable or enable the form elements in the configuration
 to avoid filtering for these values.
 
 .. code-block:: php
@@ -245,7 +245,7 @@ to avoid filtering for these values.
         }
 
         /**
-         * Decorates result as data item.
+         * Decorates the result as a data item.
          *
          * @param array $data
          *
@@ -282,9 +282,9 @@ to avoid filtering for these values.
 
 .. note::
 
-    The ``ConfigurationBuilder`` also has a ``enableDatasource`` function, which
-    allows to choose a source for the request. This is very useful in tree
-    structures, because it allows to filter e.g. only for pages below a certain
+    The ``ConfigurationBuilder`` also has an ``enableDatasource`` function, which
+    allows you to choose a source for the request. This is very useful in tree
+    structures because it allows you to filter, e.g., only for pages below a certain
     page.
 
 There are multiple `enable...` calls, which allow you to enable certain features in the administration interface:
@@ -302,30 +302,30 @@ There are multiple `enable...` calls, which allow you to enable certain features
     * - enableCategories(bool $enable = true)
       - Enables the category filtering functionality.
     * - enableLimit(bool $enable = true)
-      - Allows to limit the output items to a specified number.
+      - Allows you to limit the output items to a specified number.
     * - enablePagination(bool $enable = true)
-      - Allows to enable pagination and specify items per page.
+      - Allows you to enable pagination and specify items per page.
     * - enablePresentAs(bool $enable = true)
-      - Allows to enable multiple options for the view. These options
-        can be configured in the xml configuration of the SmartContent.
+      - Allows you to enable multiple options for the view. These options
+        can be configured in the XML configuration of the SmartContent.
     * - enableDatasource(string $resourceKey, string $listKey, string $adapter)
-      - Allows to choose a source for the request. This is useful in tree
-        structures, because it allows to filter e.g. for pages below a certain parent page.
+      - Allows you to choose a source for the request. This is useful in tree
+        structures because it allows you to filter, e.g., for pages below a certain parent page.
     * - enableAudienceTargeting(bool $enable = true)
-      - Enables the filtering through the audience targeting.
+      - Enables filtering through audience targeting.
     * - enableSorting(array $sorting)
       - Enables sorting functionality. The sorting options have to be passed
         into this method.
     * - enableView(string $view, array $resultToView)
-      - Allows you to define to which `View` the application should navigate, when clicking on
-        a resulting item. The first parameter describes the view defined in an `Admin` class and
-        the second parameter is a mapping from a json pointer. The mapping defines how the values of
+      - Allows you to define to which `View` the application should navigate when clicking on
+        a resulting item. The first parameter describes the view defined in an `Admin` class, and
+        the second parameter is a mapping from a JSON pointer. The mapping defines how the values of
         the clicked item should be sent to the `View`'s path.
 
 4. Service Definition
 ~~~~~~~~~~~~~~~~~~~~~
 
-Define a service with your Repository and DataProvider and add the tag
+Define a service with your Repository and DataProvider, and add the tag
 `sulu.smart_content.data_provider` with an alias to your DataProvider service
 definition.
 
@@ -344,15 +344,15 @@ definition.
             <tag name="sulu.smart_content.data_provider" alias="example"/>
         </service>
 
-Afterwards you can use your new DataProvider within a normal SmartContent
+Afterwards, you can use your new DataProvider within a normal SmartContent
 property.
 
 .. note::
 
-    Mind that the `class` property should set to a sensible value, but it has
-    no influence in the actual result (see the `Factory service documentation`_
-    of Symfony for more details). So it is very important to set the repository
-    class correct in the `doctrine metadata`_ for this to work.
+    Mind that the `class` property should be set to a sensible value, but it has
+    no influence on the actual result (see the `Factory service documentation`_
+    of Symfony for more details). So, it is very important to set the repository
+    class correctly in the `doctrine metadata`_ for this to work.
 
 .. _Factory service documentation: http://symfony.com/doc/current/service_container/factories.html
 .. _doctrine metadata: https://symfony.com/doc/current/doctrine/repository.html

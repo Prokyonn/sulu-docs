@@ -1,7 +1,7 @@
 ``sulu_snippet_load``
 =====================
 
-Returns content array for given snippet uuid.
+Returns a content array for a given snippet UUID.
 
 .. code-block:: jinja
 
@@ -10,8 +10,8 @@ Returns content array for given snippet uuid.
 
 **Arguments**:
 
-- **uuid**: *string* - The uuid of requested content.
-- **locale**: *string* - optional: Locale to load snippet.
+- **uuid**: *string* - The UUID of the requested content.
+- **locale**: *string* - An optional locale to load the snippet.
 
 **Returns**:
 

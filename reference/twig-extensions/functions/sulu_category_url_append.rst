@@ -3,14 +3,14 @@
 ``sulu_category_url_append``
 ============================
 
-Returns current URL and append given category to GET parameter.
+Returns the current URL and appends the given category to the GET parameter.
 
 **Arguments**:
 
-- **category**: *array* - Serialized Category instance to determine value
-- **categoryParameter**: *string* - optional "category": parameter name
+- **category**: *array* - A serialized `Category` instance to determine the value.
+- **categoryParameter**: *string* - The optional `category` parameter name.
 
-**Returns**: string - current URL with given category in categories parameter
+**Returns**: *string* - The current URL with the given category in the `categories` parameter.
 
 **See also**:
 

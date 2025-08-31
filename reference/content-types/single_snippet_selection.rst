@@ -4,9 +4,9 @@ Single Snippet Selection
 Description
 -----------
 
-Allows to select a single snippet. Snippets are reusable pieces of content that can be included on multiple pages.
+Allows selecting a single snippet. Snippets are reusable pieces of content that can be included on multiple pages.
 
-Currently this content type does not support multiple areas and types.
+Currently, this content type does not support multiple areas and types.
 
 Parameters
 ----------
@@ -19,27 +19,26 @@ Parameters
       - Description
     * - types
       - string
-      - If set, only snippets of the type can be selected.
+      - If set, only snippets of this type can be selected.
     * - default
       - string
-      - If set, the default snippet of the given area will be used as fallback value if no snippet is selected.
+      - If set, the default snippet of the given area will be used as a fallback value if no snippet is selected.
     * - loadExcerpt
       - boolean
-      - If set to true, the taxonomies information of the snippet is loaded into a "taxonomies" property.
+      - If set to `true`, the taxonomies information of the snippet is loaded into a "taxonomies" property.
     * - item_disabled_condition
       - string
-      - Allows to set a `jexl`_ expression that evaluates if an item should be displayed as disabled.
+      - Allows setting a `jexl`_ expression that evaluates whether an item should be displayed as disabled.
         Disabled items cannot be selected.
     * - allow_deselect_for_disabled_items
       - bool
-      - Defines if the user should be able to deselect an item that is disabled. Default value is true.
+      - Defines if a user can deselect a disabled item. The default value is `true`.
     * - request_parameters
       - collection
-      - Collection of parameters that are appended to the requests sent by the selection.
+      - A collection of parameters that are appended to the requests sent by the selection.
     * - resource_store_properties_to_request
       - collection
-      - Collection of property names.
-        The value of the respective properties are appended to the requests sent by the selection.
+      - A collection of property names whose values are appended to the requests sent by the selection.
 
 Example
 -------

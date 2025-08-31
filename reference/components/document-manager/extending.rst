@@ -1,14 +1,14 @@
 Extending the Document Manager
 ==============================
 
-Where to put things?
+Where to Put Things?
 --------------------
 
-Any classes which relate to the documents or the document manager should
-first, by convention, be placed within a `Document` namespace.
+Any classes that relate to the documents or the Document Manager should, by
+convention, be placed within a `Document` namespace.
 
-Documents themselves should be placed directly under this namespace and other
-types of class should be placed in sub namespaces with appropriate names. For
+Documents themselves should be placed directly under this namespace, and other
+types of classes should be placed in sub-namespaces with appropriate names. For
 example:
 
 .. code-block:: bash

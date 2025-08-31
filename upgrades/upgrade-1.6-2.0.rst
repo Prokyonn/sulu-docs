@@ -1,42 +1,42 @@
 Upgrading from Sulu 1.6 to 2.0
 ==============================
 
-We provide a very extensive `UPGRADE.md file`_ in the ``sulu/sulu`` repository containing almost every breaking change
-we made during the development of Sulu 2.0. However, this is a huge list and most projects won't be affected by the
-majority of these breaking changes. Therefore this guide provides a list of the most important changes. By following
-the steps of this guide you should be able to update most Sulu 1.6 projects to Sulu 2.0. Please be aware that this
+We provide a very extensive `UPGRADE.md file`_ in the `sulu/sulu` repository containing almost every breaking change
+we made during the development of Sulu 2.0. However, this is a huge list, and most projects won't be affected by the
+majority of these breaking changes. Therefore, this guide provides a list of the most important changes. By following
+the steps of this guide, you should be able to update most Sulu 1.6 projects to Sulu 2.0. Please be aware that this
 guide does not contain any steps needed if your project overrides Sulu's internal mechanisms.
 
-**1. Create a new** `sulu/skeleton`_ **project and import your projects** ``.git`` **folder**
+**1. Create a new** `sulu/skeleton`_ **project and import your project's** ``.git`` **folder**
 
-In our experience it makes more sense and will save you future headache if you start over with a new project based on
-`sulu/skeleton`_ which is the preferred project template for starting a Sulu 2.0 project. The old `sulu/sulu-minimal`_
+In our experience, it makes more sense and will save you future headaches if you start over with a new project based on
+`sulu/skeleton`_, which is the preferred project template for starting a Sulu 2.0 project. The old `sulu/sulu-minimal`_
 and the deprecated `sulu/sulu-standard`_ project templates are not recommended for running a Sulu 2.0 project. You
 could also take your existing `sulu/sulu-minimal`_ project and restructure it to match the `sulu/skeleton`_ repository,
 but that is probably going to be more work than doing it the other way around.
 
-The recommended way to achieve this, is to create a new project using ``composer create-project`` and copy the old
-``.git`` folder to the root of the new project.
+The recommended way to achieve this is to create a new project using `composer create-project` and copy the old
+`.git` folder to the root of the new project.
 
 .. code-block:: bash
 
     composer create-project sulu/skeleton <project-name>
     cp <old-project-path>/.git <project-name>
 
-Afterwards a ``git status`` in the new folder should reveal all the changes from your old repository to the new
-`sulu/skeleton`_ installation, since ``git`` is doing a very good job on recognizing the file changes here.
+Afterwards, a `git status` in the new folder should reveal all the changes from your old repository to the new
+`sulu/skeleton`_ installation, since `git` does a very good job of recognizing the file changes here.
 
 .. note::
-    Theoretically these changes could already be commited now, but we recommend to do this at the end of this guide.
+    Theoretically, these changes could already be committed now, but we recommend doing this at the end of this guide.
     That will create a single commit containing the whole upgrade.
 
 **2. Copy over your old project files to the new project**
 
-This is probably the trickiest part of the upgrade. You have to move all of your project specific files from the old
+This is probably the trickiest part of the upgrade. You have to move all of your project-specific files from the old
 project folder to the new one.
 
-These files are not always located in the same place as previously, because we adapted to the new folder structure
-Symfony has introduced with `Symfony Flex`_. Use the below table to get an idea how to move these files:
+These files are not always located in the same place as previously because we adapted to the new folder structure
+Symfony has introduced with `Symfony Flex`_. Use the below table to get an idea of how to move these files:
 
 .. list-table::
     :header-rows: 1
@@ -46,11 +46,11 @@ Symfony has introduced with `Symfony Flex`_. Use the below table to get an idea 
       - Note
     * - ``src``
       - ``src``
-      - This folder changed from the empty to the ``App`` namespace. Consider that in all classes.
+      - This folder changed from the empty to the `App` namespace. Consider that in all classes.
     * - ``app/config``
       - ``config``
-      - Content changed because of Symfony Flex as well. Instead of ``admin`` and ``website`` sub folders files are now
-        suffixed with ``admin`` and ``website``.
+      - The content changed because of Symfony Flex as well. Instead of `admin` and `website` subfolders, files are now
+        suffixed with `_admin` and `_website`.
     * - ``app/Resources/templates``
       - ``config/templates``
       -
@@ -64,19 +64,19 @@ Symfony has introduced with `Symfony Flex`_. Use the below table to get an idea 
 .. note::
 
     Mind that we have also updated a few dependencies, which might include some BC breaks. If your code is not working
-    anymore it might be related to the BC breaks inside these dependencies.
+    anymore, it might be related to the BC breaks inside these dependencies.
 
 .. note::
 
-    When copying over the config files make sure you also copy over the configuration values for ``security.encoders``.
-    If the new installation has a different value than the old one you have to change them, because otherwise you
-    won't be able to login later. You will find this configuration in ``config/packages/security_admin.yaml`` in the
-    new project resp. in ``app/config/admin/security.yml`` in the old project.
+    When copying over the config files, make sure you also copy over the configuration values for `security.encoders`.
+    If the new installation has a different value than the old one, you have to change them, because otherwise, you
+    won't be able to log in later. You will find this configuration in `config/packages/security_admin.yaml` in the
+    new project and in `app/config/admin/security.yml` in the old project.
 
 **3. Upgrade your existing templates to use the new content types**
 
-We have normalized the name of the content types, therefore you might have to change the ``types`` in your templates
-located in ``config/templates``. The following table shows how the names changed:
+We have normalized the names of the content types; therefore, you might have to change the `types` in your templates
+located in `config/templates`. The following table shows how the names changed:
 
 .. list-table::
     :header-rows: 1
@@ -98,20 +98,20 @@ located in ``config/templates``. The following table shows how the names changed
     * - tag_list
       - tag_selection
 
-**4. Change the encoding of your mysql database to utf8mb4**
+**4. Change the encoding of your MySQL database to utf8mb4**
 
 .. note::
 
-    At this point you should absolutely make a backup of your database, in case something goes wrong when executing
+    At this point, you should absolutely make a backup of your database, in case something goes wrong when executing
     the commands below.
 
-The following commands only change the charset to ``utf8mb4`` for tables that come with Sulu. If you have added your
-own entities resp. tables you have to add additional statements for these tables. There is an excellent guide on
+The following commands only change the charset to `utf8mb4` for tables that come with Sulu. If you have added your
+own entities or tables, you have to add additional statements for these tables. There is an excellent guide on
 `switching to utf8mb4`_ available online explaining what is required.
 
 .. note::
 
-    Mind that these steps are only necessary for MySQL, PostgreSQL is not affected of this issue.
+    Mind that these steps are only necessary for MySQL; PostgreSQL is not affected by this issue.
 
 .. code-block:: sql
 
@@ -214,8 +214,8 @@ own entities resp. tables you have to add additional statements for these tables
     ALTER TABLE we_analytics_domains CONVERT TO CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
     ALTER TABLE we_domains CONVERT TO CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 
-If you are using jackalope with doctrine-dbal instead of jackrabbit you also have to execute the following statements
-to update the jackalope tables:
+If you are using Jackalope with doctrine-dbal instead of Jackrabbit, you also have to execute the following statements
+to update the Jackalope tables:
 
 .. code-block:: sql
 
@@ -241,7 +241,7 @@ to update the jackalope tables:
 
 **5. Execute the following SQL statements to migrate your data**
 
-In Sulu 2.0 we slightly adjusted our database schema. Therefore you have to execute the following statements to get
+In Sulu 2.0, we slightly adjusted our database schema. Therefore, you have to execute the following statements to get
 your database schema in sync:
 
 .. code-block:: sql

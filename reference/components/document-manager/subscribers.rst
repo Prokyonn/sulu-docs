@@ -1,21 +1,21 @@
 Behaviors
 =========
 
-The document manager interacts with objects (documents) with event
+The Document Manager interacts with objects (documents) through event
 subscribers. The event subscribers use interfaces to determine if they should
 apply themselves to a document. These interfaces are known as *Behaviors*.
 
-This chapter will explain all of the behaviors which are available in Sulu.
+This chapter will explain all of the behaviors that are available in Sulu.
 
 Each section will show, according to need, the **behavior** interface required to
-implement the behavior, the **properties** which you MUST implement and any
-**options** which will be available.
+implement the behavior, the **properties** that you MUST implement, and any
+**options** that will be available.
 
 Auditing
 --------
 
 Auditing subscribers record and provide access to details of when the document
-was modified and the user that modified it.
+was modified and the user who modified it.
 
 Blame
 ~~~~~
@@ -23,21 +23,21 @@ Blame
 **Behavior**: ``Sulu\Component\DocumentManager\Behavior\BlameBehavior``
 
 This behavior will record the identifier of the user who created the object
-and when the document is updated, the user who updated it.
+and, when the document is updated, the user who updated it.
 
-The user identifier will be retrieved from the Symfony session, or can be
+The user identifier will be retrieved from the Symfony session or can be
 explicitly specified with an option.
 
 If no user identifier is available, no action will be taken.
 
 **Properties**:
 
-- ``$creator``: The identifier of the user that created the object.
-- ``$changer``: The identifier the last user to have changed the object.
+- ``$creator``: The identifier of the user who created the object.
+- ``$changer``: The identifier of the last user to have changed the object.
 
 **Options**:
 
-- ``blame.user_id``: Specify or override the identifier which will be
+- ``blame.user_id``: Specify or override the identifier that will be
   recorded.
 
 Timestamp
@@ -45,13 +45,13 @@ Timestamp
 
 **Behavior**: ``Sulu\Component\DocumentManager\Behavior\Audit\TimestampBehavior``
 
-Record the time when the object was created and the time when the object was
+Records the time when the object was created and the time when the object was
 updated.
 
 **Properties**:
 
 - ``$created``: The date the object was created.
-- ``$changed``: The data the object was changed.
+- ``$changed``: The date the object was changed.
 
 Mapping
 -------
@@ -63,8 +63,8 @@ Children
 
 **Behavior**: ``Sulu\Component\DocumentManager\Behavior\Mapping\ChildrenBehavior``
 
-Provides access from the document to the children of the document in the
-content tree. The property will be populated with a collection object.
+Provides access from the document to its children in the content tree. The
+property will be populated with a collection object.
 
 .. note::
 
@@ -80,7 +80,7 @@ Locale
 
 **Behavior**: ``Sulu\Component\DocumentManager\Behavior\Mapping\LocaleBehavior``
 
-Provides access to the documents Locale at the time the object was hydrated
+Provides access to the document's locale at the time the object was hydrated,
 according to the ``DocumentRegistry``.
 
 **Properties**:
@@ -96,24 +96,24 @@ Maps the PHPCR node name.
 
 **Properties**:
 
-- ``$nodeName``: The locale the document is currently loaded in.
+- ``$nodeName``: The name of the PHPCR node.
 
 Parent
 ~~~~~~
 
 **Behavior**: ``Sulu\Component\DocumentManager\Behavior\Mapping\ParentBehavior``
 
-Map and assign the parent document through ``getParent`` and ``setParent``
+Maps and assigns the parent document through the ``getParent`` and ``setParent``
 methods.
 
-Unmanaged parent documents with a UUID will be returned ``UnknownDocument``
+Unmanaged parent documents with a UUID will be returned as ``UnknownDocument``
 instances. Unmanaged parent documents with no UUID will **not be hydrated**
-(they will be ``NULL``).
+(they will be ``null``).
 
 .. warning::
 
-    This event currently incurs a performance penalty as it needs to eagerly
-    load the parent PHPCR node. This could potentially have a noticable impact when
+    This event currently incurs a performance penalty, as it needs to eagerly
+    load the parent PHPCR node. This could potentially have a noticeable impact when
     loading a large number of nodes.
 
 Path
@@ -121,7 +121,7 @@ Path
 
 **Behavior**: ``Sulu\Component\DocumentManager\Behavior\Mapping\PathBehavior``
 
-Map the path of the document within the content repository.
+Maps the path of the document within the content repository.
 
 **Properties**:
 
@@ -132,7 +132,7 @@ Title
 
 **Behavior**: ``Sulu\Component\DocumentManager\Behavior\Mapping\TitleBehavior``
 
-Map the title of the document.
+Maps the title of the document.
 
 **Properties**:
 
@@ -143,7 +143,7 @@ Uuid
 
 **Behavior**: ``Sulu\Component\DocumentManager\Behavior\Mapping\UuidBehavior``
 
-Map the UUID (Universally Unique Identifier) of the document.
+Maps the UUID (Universally Unique Identifier) of the document.
 
 **Properties**:
 
@@ -160,12 +160,12 @@ AliasFiling
 
 **Behavior**: ``Sulu\Component\DocumentManager\Behavior\Path\AliasFilingBehavior``
 
-This is a filing behavior which will automatically place the document at given
-path as a child of a node named after the documents *alias* as defined in the
-configuraiton mapping.
+This is a filing behavior that will automatically place the document at a given
+path as a child of a node named after the document's *alias* as defined in the
+configuration mapping.
 
-For example, if the base path is ``/cms/content`` and the document has an alias
-of ``article`` and the name ``my-article`` then the document will be stored at
+For example, if the base path is ``/cms/content``, and the document has an alias
+of ``article`` and the name ``my-article``, then the document will be stored at
 ``/cms/content/article/my-article``.
 
 AutoName
@@ -180,10 +180,10 @@ the ``TitleBehavior``).
 Explicit
 ~~~~~~~~
 
-**Behavior**: None. This behavior is depends entirely on options.
+**Behavior**: None. This behavior depends entirely on options.
 
 This subscriber allows the path of the document to be set explicitly through
-the use of options. This subscriber requires no interfaces, it is available on
+the use of options. This subscriber requires no interfaces; it is available on
 all documents automatically.
 
 For example:
@@ -199,12 +199,12 @@ For example:
 
 - ``path``: Absolute path to where the document should be stored.
 - ``parent_path``: Specify only the parent path (the node name could then be
-  determined through another mechanism, e.g. the ``AutoName`` behavior.
-- ``node_name``: Specify only the node name
+  determined through another mechanism, e.g., the ``AutoName`` behavior).
+- ``node_name``: Specify only the node name.
 - ``auto_create``: If any "missing" parent nodes should be automatically
   created.
 
-Sulu Specific
+Sulu-Specific
 -------------
 
 The following behaviors are specific to Sulu.
@@ -214,7 +214,7 @@ Content
 
 **Behavior**: ``Sulu\Component\Content\Document\Behavior\ContentBehavior``
 
-Maps the structure content to the document. The content is mapped as a
+Maps the structure's content to the document. The content is mapped as a
 ``ContentContainer`` instance.
 
 **Properties**:
@@ -233,7 +233,7 @@ LocalizedContent
 
 **Behavior**: ``Sulu\Component\Content\Document\Behavior\LocalizedContentBehavior``
 
-Allows the document to potentially have different structure type for each locale.
+Allows the document to potentially have a different structure type for each locale.
 
 NavigationContext
 ~~~~~~~~~~~~~~~~~
@@ -248,15 +248,15 @@ Order
 **Behavior**: ``Sulu\Component\Content\Document\Behavior\OrderBehavior``
 
 Documents implementing this behavior will have a ``sulu:order`` property added
-to the PHP node which will enable the document the order to remain constant in
-both the tree  and in query results.
+to the PHPCR node, which will enable the document's order to remain constant in
+both the tree and in query results.
 
 Page
 ~~~~
 
 **Behavior**: ``Sulu\Component\Content\Document\Behavior\PageBehavior``
 
-Documents implementing this behavior will be treated as "pages" - that is they
+Documents implementing this behavior will be treated as "pages"—that is, they
 are expected to represent a single webpage with an associated route.
 
 This behavior extends the Webspace behavior.
@@ -266,7 +266,7 @@ RedirectType
 
 **Behavior**: ``Sulu\Component\Content\Document\Behavior\RedirectTypeBehavior``
 
-Documents implementing this behavior are able to optionally redirect to either
+Documents implementing this behavior can optionally redirect to either
 an internal or an external resource.
 
 ResourceSegmentBehavior
@@ -274,7 +274,7 @@ ResourceSegmentBehavior
 
 **Behavior**: ``Sulu\Component\Content\Document\Behavior\ResourceSegmentBehavior``
 
-Maps a resource segment which will be used when generating the URI for the
+Maps a resource segment that will be used when generating the URI for the
 document.
 
 Route
@@ -283,7 +283,7 @@ Route
 **Behavior**: ``Sulu\Component\Content\Document\Behavior\RouteBehavior``
 
 Documents implementing this behavior will act as routes. Routes are documents
-which are located at a path representing one of the URIs of a page document.
+that are located at a path representing one of the URIs of a page document.
 The route contains a reference to the page.
 
 ShadowLocale
@@ -307,7 +307,7 @@ Webspace
 
 **Behavior**: ``Sulu\Component\Content\Document\Behavior\WebspaceBehavior``
 
-Provides access to the documents webspace name.
+Provides access to the document's webspace name.
 
 WorkflowStage
 ~~~~~~~~~~~~~
@@ -315,4 +315,4 @@ WorkflowStage
 **Behavior**: ``Sulu\Component\Content\Document\Behavior\WorkflowStageBehavior``
 
 Documents implementing this interface can have a workflow stage applied to
-them. For example "test" and "published" are workflow stages.
+them. For example, "test" and "published" are workflow stages.

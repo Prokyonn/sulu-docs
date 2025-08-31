@@ -67,20 +67,20 @@ Enable this feature via configuration:
 Tags
 """"
 
-The tags feature is the most comprehensive cache invalidation strategy, it will
-invalidate both the URLs of the structure and the URLs of the pages which
+The tags feature is the most comprehensive cache invalidation strategy; it will
+invalidate both the URLs of the structure and the URLs of the pages that
 display references to the structure. It must be used in conjunction with a
-proxy client which supports Banning.
+proxy client that supports Banning.
 
-This works by sending all of the UUIDs of the structures which are
+This works by sending all of the UUIDs of the structures that are
 contained in a page response to the proxy client. The proxy client can then
 store this information along with the cached HTML response.
 
-When you update any structure in the admin interface it will instruct the HTTP proxy
-to purge all the caches which have a reference to the UUID of the structure you
+When you update any structure in the admin interface, it will instruct the HTTP proxy
+to purge all the caches that have a reference to the UUID of the structure you
 have updated.
 
-Example header sent by the tags handler (which will be removed by varnish):
+Example header sent by the tags handler (which will be removed by Varnish):
 
 .. code-block:: bash
 
@@ -88,7 +88,7 @@ Example header sent by the tags handler (which will be removed by varnish):
 
 This header will be written at the end of the response by using the
 :doc:`website/reference-store`. This service collects the
-entities/documents which were used to render the page.
+entities/documents that were used to render the page.
 
 Enable this feature via configuration:
 
@@ -101,7 +101,7 @@ Enable this feature via configuration:
 Proxy Clients
 -------------
 
-At the moment Sulu works with following proxy clients:
+At the moment, Sulu works with the following proxy clients:
 
 Symfony Http Cache
 """"""""""""""""""
@@ -109,7 +109,7 @@ Symfony Http Cache
 The Symfony HTTP cache is the default caching client for Sulu. It is integrated directly into Sulu.
 
 It works by "wrapping" the kernel. This is done by the kernel itself, but in the front controller
-at ``public/index.php`` the cache kernel has to be used:
+at ``public/index.php``, the cache kernel has to be used:
 
 .. code-block:: php
 
@@ -118,15 +118,15 @@ at ``public/index.php`` the cache kernel has to be used:
         $kernel = $kernel->getHttpCache();
     }
 
-It will need to be disabled (i.e. the lines need to be removed) when using varnish.
+It will need to be disabled (i.e., the lines need to be removed) when using Varnish.
 
 Varnish
 """""""
 
-The varnish proxy client is provided by the `FOSHttpCache`_ component.
+The Varnish proxy client is provided by the `FOSHttpCache`_ component.
 
 See :doc:`../../cookbook/caching-with-varnish` for more information about setting up
-varnish.
+Varnish.
 
 Default configuration
 ---------------------

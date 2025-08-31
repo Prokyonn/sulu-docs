@@ -113,7 +113,7 @@ Shown below is an example that creates a simple data fixture.
 
 .. note::
 
-    When not using the symfony autoconfigure feature the service need to be tagged with ``sulu.document_manager_fixture``
+    When not using the Symfony autoconfigure feature, the service needs to be tagged with ``sulu.document_manager_fixture``.
 
 You can now execute your data fixture using the
 ``sulu:document:fixtures:load``
@@ -123,7 +123,7 @@ command.
 
     $ php bin/console sulu:document:fixtures:load
 
-By default this command will purge and re-initialize the workspace before
+By default, this command will purge and re-initialize the workspace before
 loading all of the fixtures.
 
 .. warning::
@@ -159,13 +159,13 @@ You can define groups to run only specific fixtures:
 
     $ php bin/console sulu:document:fixtures:load --group=Group1
 
-To load only a specific class you can use its classname as group:
+To load only a specific class, you can use its class name as a group:
 
 .. code-block:: bash
 
     $ php bin/console sulu:document:fixtures:load --group=SomeFixture
 
-You can also specify if fixtures should be *appended* (i.e. the repository will
+You can also specify if fixtures should be *appended* (i.e., the repository will
 not be purged) and if the initializer should be executed.
 
 Append fixtures:
@@ -181,12 +181,12 @@ Do not initialize:
     $ php bin/console sulu:document:fixtures:load --no-initialize
 
 
-Common mistakes
+Common Mistakes
 ---------------
 
-Sulu is very lenient in what data it accepts. This means that if the data for a property is missing
-Sulu will just assumed that it is null. Furthermore, Sulu does not check the data for unknown
-properties and therefore data for properties that dont exist is ignored.
-If you have created a document with fixtures and some part of the data is missing, it is a good idea
+Sulu is very lenient in what data it accepts. This means that if the data for a property is missing,
+Sulu will just assume that it is null. Furthermore, Sulu does not check the data for unknown
+properties, and therefore, data for properties that don't exist is ignored.
+If you have created a document with fixtures and some of the data is missing, it is a good idea
 to check for spelling mistakes in the property names.
 

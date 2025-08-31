@@ -3,7 +3,7 @@ Contributing
 
 All contributions are welcome!
 
-We try and stand on the shoulders of giants, this means that we generally copy the
+We try and stand on the shoulders of giants; this means that we generally copy the
 existing coding and documentation standards of the Symfony project (with some
 minor differences).
 
@@ -14,21 +14,21 @@ All contributed code must abide by the `Symfony coding standards`_. But don't
 let this be an obstacle to contributing. When in doubt, copy the standards of
 the code that you are changing.
 
-After you have submitted your PR our team will review the code.
+After you have submitted your PR, our team will review the code.
 
-When making a `pull request`_ please refer to the :doc:`pull-requests` article.
+When making a `pull request`_, please refer to the :doc:`pull-requests` article.
 
 Contributing documentation
 --------------------------
 
-Again see the `Symfony documentation standard`_ as a guide, but when in doubt
-just submit the PR and we will review it.
+Again, see the `Symfony documentation standard`_ as a guide, but when in doubt,
+just submit the PR, and we will review it.
 
 Contributing translations
 -------------------------
 
-We use `Crowdin`_ to translate the administration inteface of Sulu. To be able
-to translate you have to create a user account there. Please don't hesitate to
+We use `Crowdin`_ to translate the administration interface of Sulu. To be able
+to translate, you have to create a user account there. Please don't hesitate to
 `contact us`_ if the language you want to translate is missing.
 
 .. toctree::

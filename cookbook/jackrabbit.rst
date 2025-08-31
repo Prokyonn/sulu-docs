@@ -1,9 +1,9 @@
 Using Jackrabbit
 ================
 
-If you maintain a bigger website, it might make sense to use Jackrabbit instead of
+If you maintain a larger website, it might make sense to use Jackrabbit instead of
 the ``doctrine-dbal`` implementation of Jackalope. Jackrabbit performs better in many
-cases, and as a bonus it also supports :doc:`../bundles/page/versioning` of content.
+cases, and as a bonus, it also supports :doc:`../bundles/page/versioning` of content.
 
 Installation
 ------------
@@ -14,15 +14,15 @@ Use the following command to install the ``jackrabbit`` adapter:
 
    composer require jackalope/jackalope-jackrabbit
 
-In addition to the previous command you also have to make sure that `Jackrabbit`_ is running
+In addition to the previous command, you also have to make sure that `Jackrabbit`_ is running
 on your server.
 
 Configuration
 -------------
 
-Change the ``config/packages/sulu_document_manager.yaml`` file to something similar as
+Change the ``config/packages/sulu_document_manager.yaml`` file to something similar to what is shown
 below. Mind that it is recommended to pass the URL via an `environment variable`_, which
-can e.g. be set in your ``.env`` file.
+can, e.g., be set in your ``.env`` file.
 
 .. code-block:: yaml
 
@@ -56,22 +56,22 @@ can e.g. be set in your ``.env`` file.
 
 .. note::
 
-    The ``PHPCR_WORKSPACE`` is something similar as a database name so it is best practice
-    to have a similar value for it, for example: ``su_myproject`` in your ``.env`` files.
+    The ``PHPCR_WORKSPACE`` is something similar to a database name, so it is best practice
+    to have a similar value for it, for example, ``su_myproject`` in your ``.env`` files.
 
-    The ``JACKRABBIT_URL`` needs to point to your jackrabbit backend.
-    Depending on your OS and jackrabbit version, the default should be `http://127.0.0.1:8080/server/`
+    The ``JACKRABBIT_URL`` needs to point to your Jackrabbit back-end.
+    Depending on your OS and Jackrabbit version, the default should be `http://127.0.0.1:8080/server/`
     or `http://127.0.0.1:8080/jackrabbit/server/`.
 
-    The ``JACKRABBIT_VERSION`` allows to enable additional functionality such as UTF-8 support for storing  `emoticons`_ 🐣.
-    You can use the following curl request to gather the version of your jackrabbit backend:
+    The ``JACKRABBIT_VERSION`` allows you to enable additional functionality, such as UTF-8 support for storing  `emoticons`_ 🐣.
+    You can use the following cURL request to gather the version of your Jackrabbit back-end:
 
     `curl -XGET http://127.0.0.1:8080/server/`
 
 Migration
 ---------
 
-In order to migrate from ``doctrinedbal`` to ``jackrabbit`` you have to export your
+In order to migrate from ``doctrinedbal`` to ``jackrabbit``, you have to export your
 data before changing the configuration:
 
 .. code-block:: bash
@@ -80,25 +80,25 @@ data before changing the configuration:
     php bin/websiteconsole doctrine:phpcr:workspace:export -p /cmf cmf_live.xml
     php bin/adminconsole doctrine:phpcr:workspace:export -p /jcr:versions jcr.xml
 
-Then change the configuration as explained in the above Configuration section, and
-then execute the following command to initialize the jackrabbit workspaces for sulu:
+Then, change the configuration as explained in the above Configuration section, and
+then execute the following command to initialize the Jackrabbit workspaces for Sulu:
 
 .. code-block:: bash
 
     php bin/adminconsole cache:clear
     php bin/adminconsole sulu:document:initialize
 
-Now executed these commands to clear any previously existing data (first you should make
+Now, execute these commands to clear any previously existing data (first, you should make
 sure that you really don't need this data anymore).
 
 .. code-block:: bash
 
     php bin/adminconsole doctrine:phpcr:node:remove /cmf
     php bin/websiteconsole doctrine:phpcr:node:remove /cmf
-    # the following command can fail if the node not exist ignore the error then:
+    # the following command can fail if the node does not exist; ignore the error then:
     php bin/adminconsole doctrine:phpcr:node:remove /jcr:versions
 
-After that you can import the exported data from ``doctrinedbal`` into ``jackrabbit``
+After that, you can import the exported data from ``doctrinedbal`` into ``jackrabbit``
 by running the following commands:
 
 .. code-block:: bash

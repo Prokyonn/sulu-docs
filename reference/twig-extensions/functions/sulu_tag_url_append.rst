@@ -1,11 +1,11 @@
 ``sulu_tag_url_append``
 =======================
 
-Returns current URL and append given tag to GET parameter.
+Returns the current URL and appends the given tag to the GET parameter.
 
 **Arguments**:
 
-- **tag**: *array* - Serialized Tag instance to determine value
-- **tagsParameter**: *string* - optional "tags": parameter name
+- **tag**: *array* - A serialized `Tag` instance to determine the value.
+- **tagsParameter**: *string* - The optional `tags` parameter name.
 
-**Returns**: string - current URL with given tag in tags parameter
+**Returns**: *string* - The current URL with the given tag in the `tags` parameter.

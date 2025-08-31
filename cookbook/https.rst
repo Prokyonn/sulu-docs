@@ -1,21 +1,22 @@
 HTTPS
 =====
 
-Sulu generates URLs in the same way as Symfony does.
-If the requested protocol is ``https`` it will use automatically ``https`` to generate its URLs.
+Sulu generates URLs in the same way that Symfony does.
+If the requested protocol is ``https``, it will automatically use ``https`` to generate its URLs.
 
-If this does not work propertly, your setup probably includes some kind of proxy, e.g. a load balancer or a HTTP cache like Varnish.
-In that case you should add the IP address of your trusted proxy as explained in the `Symfony Proxy Documentation`_.
+If this does not work properly, your setup probably includes some kind of proxy, e.g., a load balancer or an HTTP
+cache like Varnish. In that case, you should add the IP address of your trusted proxy as explained in the
+`Symfony Proxy Documentation`_.
 
-If it still doesn't work you should debug the Symfony `Request::isSecure`_  method,
+If it still doesn't work, you should debug the Symfony `Request::isSecure`_  method,
 which represents which protocol is used by Symfony in its `Request::getScheme`_  method.
 
-It is also possible to force the protocol in your vhost of your websebserver:
+It is also possible to force the protocol in your vhost of your web server:
 
 Apache
 ------
 
-Add the following to your apache vhost:
+Add the following to your Apache vhost:
 
 .. code-block:: apache
 
@@ -24,7 +25,7 @@ Add the following to your apache vhost:
 Nginx
 -----
 
-Add the following to your nginx vhost php-fpm param configuration:
+Add the following to your Nginx vhost php-fpm param configuration:
 
 .. code-block:: nginx
 

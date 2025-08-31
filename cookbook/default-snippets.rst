@@ -1,18 +1,18 @@
 Using default snippets for managing page-independent data
 =========================================================
 
-The :doc:`snippet feature<../bundles/snippet>` of Sulu allows to create and manage reusable pieces of content.
-These pieces of content cannot only be assigned to a page using the ``snippet_selection``
-content type, but they can also be associated to a webspace.
+The :doc:`snippet feature<../bundles/snippet>` of Sulu allows you to create and manage reusable pieces of content.
+These pieces of content can not only be assigned to a page using the ``snippet_selection``
+content type, but they can also be associated with a webspace.
 
-To do this, Sulu allows to define **snippet areas** which then can be assigned to a
+To do this, Sulu allows you to define **snippet areas**, which can then be assigned to a
 **default snippet** on the ``Default Snippets`` tab of the webspace in the administration
 interface. After assigning default snippets to snippet areas via the administration
 interface, Sulu provides different solutions for loading the data of the configured snippet
 for a specific area and webspace.
 
-This functionality is especially helpful to allow the content manager to managing
-webspace-wide data such as social media links or contact information.
+This functionality is especially helpful to allow the content manager to manage
+webspace-wide data, such as social media links or contact information.
 
 Defining possible areas for a snippet type
 ------------------------------------------
@@ -48,19 +48,19 @@ and can be assigned to a snippet that uses the respective template.
         </area>
     </areas>
 
-For each area you can also define if the cache should be invalidated when either the snippet is
+For each area, you can also define if the cache should be invalidated when either the snippet is
 changed or the snippet assigned to the area is modified/removed. This can be done by setting the
-``cache-invalidation`` attribute of the area to ``true`` or ``false``, the default value is ``true``.
+``cache-invalidation`` attribute of the area to ``true`` or ``false``; the default value is ``true``.
 
 .. note::
 
-        Be aware that if a default-snippet is used in a base twig template, modifying the snippet or the
+        Be aware that if a default snippet is used in a base Twig template, modifying the snippet or the
         area may result in a full cache invalidation of the website.
 
 Loading the default snippet inside of a twig template
 -----------------------------------------------------
 
-Sulu includes a ``sulu_snippet_load_by_area`` twig function that allows to load the content of
+Sulu includes a ``sulu_snippet_load_by_area`` Twig function that allows you to load the content of
 the default snippet for a given area. The usage of the function is documented in
 :doc:`/reference/twig-extensions/functions/sulu_snippet_load_by_area`.
 
@@ -68,6 +68,6 @@ Using the default snippet as fallback value in a ``snippet_selection``
 ----------------------------------------------------------------------
 
 The ``snippet_selection`` content type can be configured to use the default snippet of a
-specific area as fallback value when no snippet is selected. To do this, the ``default``
+specific area as a fallback value when no snippet is selected. To do this, the ``default``
 param needs to be set as described in :doc:`../reference/content-types/snippet_selection`.
 

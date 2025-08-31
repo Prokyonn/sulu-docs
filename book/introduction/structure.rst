@@ -1,7 +1,7 @@
-How Sulu is structured?
+How is Sulu Structured?
 =======================
 
-This graphic shows how the core of Sulu is setup.
+This graphic shows how the core of Sulu is set up.
 
 .. image:: ../../img/system-architecture.png
     :align: center
@@ -23,5 +23,5 @@ Sulu is based on Symfony and the Symfony CMF.
 Sulu
 ----
 
-Everything else is Sulu. In the next step there is more information
+Everything else is Sulu. In the next step, there is more information
 about the components.

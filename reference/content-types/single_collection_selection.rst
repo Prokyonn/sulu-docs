@@ -1,17 +1,17 @@
-Single Collection selection
+Single Collection Selection
 ===========================
 
 Description
 -----------
 
-Let you assign one collection from the media section.
+Lets you assign one collection from the media section.
 
 .. note::
 
-    This content type passes a Collection_ entity to the twig template. It does not provide the media
-    entities inside of the selected collections.
+    This content type passes a Collection_ entity to the Twig template. It does not provide the media
+    entities inside the selected collection.
     If you want to access the media entities of a collection, you should use a :doc:`smart_content property <smart_content>`
-    with the ``media`` data provider or load the matching media entities in a  :doc:`custom controller <../../cookbook/custom-controller>`
+    with the ``media`` data provider, load the matching media entities in a  :doc:`custom controller <../../cookbook/custom-controller>`,
     or in a `custom twig extension`_.
 
 Parameters
@@ -25,20 +25,19 @@ Parameters
       - Description
     * - item_disabled_condition
       - string
-      - Allows to set a `jexl`_ expression that evaluates if an item should be displayed as disabled.
+      - Allows setting a `jexl`_ expression that evaluates whether an item should be displayed as disabled.
         Disabled items cannot be selected.
     * - allow_deselect_for_disabled_items
       - bool
-      - Defines if the user should be able to deselect an item that is disabled. Default value is true.
+      - Defines if a user can deselect a disabled item. The default value is `true`.
     * - request_parameters
       - collection
-      - Collection of parameters that are appended to the requests sent by the selection.
+      - A collection of parameters that are appended to the requests sent by the selection.
     * - resource_store_properties_to_request
       - collection
-      - Collection of property names.
-        The value of the respective properties are appended to the requests sent by the selection.
+      - A collection of property names whose values are appended to the requests sent by the selection.
 
-Return value
+Return Value
 ------------
 
 See the Collection_ class for available variables and functions.

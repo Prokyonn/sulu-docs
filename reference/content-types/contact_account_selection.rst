@@ -1,17 +1,17 @@
-Contact account selection
+Contact Account Selection
 =========================
 
 Description
 -----------
 
-Shows a list with the possibility to assign some people or organizations from
-the contact section to a page. Also allows to define a position, which can be
+Shows a list with the possibility to assign people or organizations from
+the contacts section to a page. It also allows defining a position, which can be
 handled later in the template.
 
 Parameters
 ----------
 
-No parameters available
+No parameters available.
 
 Example
 -------

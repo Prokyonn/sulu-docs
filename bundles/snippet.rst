@@ -8,28 +8,30 @@ What is a Snippet
 
 As the name suggests, a snippet is a small fragment on a page.
 However, unlike blocks, for example, which would also fit this description, the idea with snippets is reusability.
-As a section of a web page a snippet must be first universally maintained, and thereafter be reused anywhere on the website.
-An example on a website would be a social media section.
+As a section of a webpage, a snippet must be first universally maintained, and thereafter be reused anywhere on the
+website. An example on a website would be a social media section.
 
-In this section there would be logos of social services like Facebook and a link to the profile on the service.
-This section could of course also be built conventionally in a page template, but you would have to maintain it on each page.
+In this section, there would be logos of social services like Facebook and a link to the profile on the service.
+This section could, of course, also be built conventionally in a page template, but you would have to maintain it on
+each page.
 
 This is where snippets come into play.
-A snippet could be configured to cover exactly this use case and you would only have to maintain the profiles once and could reuse them at any point.
+A snippet could be configured to cover exactly this use case, and you would only have to maintain the profiles once and
+could reuse them at any point.
 
 Creating a Snippet Template
 ---------------------------
 
-In this example we'll creating a "Social Media" snippet to the page of Sulu.
+In this example, we'll be creating a "Social Media" snippet for the Sulu page.
 
 .. figure:: ../img/snippet-social-media.png
 
-Creating a snippet Template isn't really different like Page :doc:`../book/templates`.
-Create a XML File in your `config/template/snippets/` folder like the following example
+Creating a snippet Template isn't really different from a Page :doc:`../book/templates`.
+Create an XML File in your `config/template/snippets/` folder, like the following example:
 
 .. note::
 
-    The <key> and the name of the XML must be the same!
+    The `<key>` and the name of the XML must be the same!
 
 .. code-block:: xml
 
@@ -107,7 +109,9 @@ Implement a Snippet in your Template
 
 Snippets are stored separately and are not accessible via the web page URL.
 
-So if we want to use a snippet on a page, we need to add the content type ":doc:`../reference/content-types/single_snippet_selection`" if we want to link one or ":doc:`../reference/content-types/snippet_selection`" for more snippets.
+So, if we want to use a snippet on a page, we need to add the content type
+":doc:`../reference/content-types/single_snippet_selection`" if we want to link one, or
+":doc:`../reference/content-types/snippet_selection`" for more snippets.
 
 .. figure:: ../img/social-media-snippet-selection.png
 
@@ -125,7 +129,7 @@ So if we want to use a snippet on a page, we need to add the content type ":doc:
 
 Load Snippets from a Subfolder
 ------------------------------
-By the means of configuration in `config/packages/sulu_admin.yaml` according to the following scheme
+By means of configuration in `config/packages/sulu_admin.yaml`, according to the following scheme,
 it is also possible to load snippet templates from custom folders.
 
 .. code-block:: yaml

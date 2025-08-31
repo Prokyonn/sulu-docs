@@ -3,7 +3,7 @@
 
 .. note::
 
-    This documentation is a incomplete.
+    This documentation is incomplete.
 
 .. note::
 
@@ -11,13 +11,13 @@
     deprecated. Use the predefined template as described in
     :doc:`../../../book/twig`.
 
-Return SEO metatags with fallbacks
+Returns SEO metatags with fallbacks.
 
 **Arguments**:
 
-- **extension**: *array*
-- **content**: *array*
+- **extension**: *array* - The extension data.
+- **content**: *array* - The content data.
 
 **Returns**:
 
-Seo fallbacks
+The SEO fallbacks.

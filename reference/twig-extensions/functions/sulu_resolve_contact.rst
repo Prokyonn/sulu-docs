@@ -1,7 +1,7 @@
 ``sulu_resolve_contact``
 ========================
 
-Returns user entity.
+Returns a contact entity.
 
 .. code-block:: jinja
 
@@ -9,6 +9,6 @@ Returns user entity.
 
 **Arguments**:
 
-- **id**: *int* - Id of the requested contact.
+- **id**: *int* - The ID of the requested contact.
 
-**Returns**: *Contact* - Object with all needed properties.
+**Returns**: `Contact` - An object with all the needed properties.

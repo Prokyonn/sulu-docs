@@ -1,8 +1,8 @@
 Teaser Selection
 ================
 
-The "teaser_selection" content type is used for displaying teasers to other
-content in your website. These teasers could be arranged as list or grid, like
+The `teaser_selection` content type is used for displaying teasers to other
+content on your website. These teasers can be arranged as a list or grid, as
 in this example:
 
 .. figure:: ../../img/teaser-selection-web.png
@@ -10,8 +10,8 @@ in this example:
 
 In the administration interface, the widget is displayed as a selector for the
 teasers. Content managers can choose a number of target contents. By default,
-the text from the "Excerpt & Categories" tab of the target content is shown.
-You can however customize the text of the teaser if you like.
+the text from the `Excerpt and Taxonomies` tab of the target content is shown.
+You can, however, customize the text of the teaser if you like.
 
 .. figure:: ../../img/teaser-selection-admin.png
     :align: center
@@ -19,7 +19,7 @@ You can however customize the text of the teaser if you like.
 Configuration
 -------------
 
-Add a field of type "teaser_selection" to your page template:
+Add a field of type `teaser_selection` to your page template:
 
 .. code-block:: xml
 
@@ -48,7 +48,7 @@ Add a field of type "teaser_selection" to your page template:
 Twig
 ----
 
-In Twig, the field contains an array of teasers. Iterate the array and format
+In Twig, the field contains an array of teasers. Iterate over the array and format
 the teasers as you like:
 
 .. code-block:: twig
@@ -87,34 +87,34 @@ Each teaser is an object with the following properties:
       - Description
     * - id
       - string
-      - The ID of the teaser
+      - The ID of the teaser.
     * - type (e.g. content or article)
       - string
-      - The type of the teaser
+      - The type of the teaser.
     * - locale
       - string
-      - The locale, e.g. "de_AT"
+      - The locale, e.g., `de_AT`.
     * - title
       - string
-      - The title of the teaser. This is usually taken from the "Excerpt
-        & Categories" tab of the target content, but can be changed for each
-        teaser
+      - The title of the teaser. This is usually taken from the `Excerpt
+        and Taxonomies` tab of the target content, but it can be changed for each
+        teaser.
     * - description
       - string
-      - The description of the teaser. This is usually taken from the "Excerpt
-        & Categories" tab of the referenced content, but can be changed for
-        each teaser
+      - The description of the teaser. This is usually taken from the `Excerpt
+        and Taxonomies` tab of the referenced content, but it can be changed for
+        each teaser.
     * - moreText
       - string
-      - The text of the "More" link
+      - The text of the "More" link.
     * - mediaId
       - string
       - The ID of the image displayed with the teaser. Defaults to the first
-        image in the tab "Excerpt & Categories", but can be changed for each
-        teaser
+        image in the `Excerpt and Taxonomies` tab, but it can be changed for each
+        teaser.
     * - url
       - string
-      - The relative URL of the target content
+      - The relative URL of the target content.
 
 Parameters
 ----------
@@ -130,14 +130,14 @@ The following parameters can be used to customize the field in the page template
     * - present_as
       - collection
       - A collection of strings. Each string is typically a CSS class that is
-        used to render the teaser list. You can configure the ``<title>`` of
-        each entry that is shown in the admin
+        used to render the teaser list. You can configure the `<title>` of
+        each entry that is shown in the admin.
     * - min
       - string
-      - The minimum number of selected teasers
+      - The minimum number of selected teasers.
     * - max
       - string
-      - The maximum number of selected teasers
+      - The maximum number of selected teasers.
 
 Configurable Presentation
 -------------------------
@@ -146,7 +146,7 @@ Sometimes, a content manager wants to control exactly how a list of teasers
 is presented. You can plan for different rendering variants in your design and
 let the content manager choose one variant in the administration interface.
 
-Use the ``present_as`` option to configure the rendering variants:
+Use the `present_as` option to configure the rendering variants:
 
 .. code-block:: xml
 
@@ -207,7 +207,7 @@ Custom Content with Teaser Providers
 ------------------------------------
 
 If you want to display teasers of custom data, create an implementation of
-``TeaserProviderInterface``. For example, we'll make it possible to select
+`TeaserProviderInterface`. For example, we'll make it possible to select
 from a list of recipes:
 
 .. code-block:: php
@@ -224,27 +224,27 @@ from a list of recipes:
     {
         /**
          * Returns the configuration for rendering the teaser provider in the
-         * administration interface
+         * administration interface.
          *
          * @return TeaserProvider
          */
         public function getConfiguration()
         {
             return new TeaserConfiguration(
-                'Recipe', // The title in the dropdown of the administration interface
-                'recipes', // The resourceKey of the entities to load for this type of teaser
-                'table', // The list adapter in which the entities should be shown
-                ['title'], // The properties which should be shown
-                'Recipe', // The title of the overlay that shows when this entity is assigned
-                'app.recipe_edit_form', // The view to which a click on an item in the Admin UI will navigate (optional)
-                ['id' => 'id'], // The mapping of the teaserItem to the path parameters of the above view (optional)
+                'Recipe', // The title in the dropdown of the administration interface.
+                'recipes', // The `resourceKey` of the entities to load for this type of teaser.
+                'table', // The list adapter in which the entities should be shown.
+                ['title'], // The properties that should be shown.
+                'Recipe', // The title of the overlay that shows when this entity is assigned.
+                'app.recipe_edit_form', // The view to which a click on an item in the Admin UI will navigate (optional).
+                ['id' => 'id'], // The mapping of the `teaserItem` to the path parameters of the above view (optional).
             );
         }
 
         /**
          * Returns the actual teaser data.
          *
-         * @return Teaser[] The teasers
+         * @return Teaser[] The teasers.
          */
         public function find(array $ids, $locale): array
         {
@@ -252,7 +252,7 @@ from a list of recipes:
                 return [];
             }
 
-            $items = ...; // load items by id
+            $items = ...; // load items by ID
 
             foreach ($items as $item) {
                 $result[] = new Teaser(...);
@@ -263,7 +263,7 @@ from a list of recipes:
     }
 
 Register the provider in Symfony's service container and tag it with
-``sulu.teaser.provider`` to make it functional:
+`sulu.teaser.provider` to make it functional:
 
 .. code-block:: xml
 

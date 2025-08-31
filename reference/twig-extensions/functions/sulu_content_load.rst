@@ -1,7 +1,7 @@
 ``sulu_content_load``
 =====================
 
-Returns a Structure for the given UUID
+Returns a `Structure` for the given UUID.
 
 .. code-block:: jinja
 
@@ -13,8 +13,8 @@ Returns a Structure for the given UUID
 
 **Arguments**:
 
-- **uuid**: *string* - UUID of structure
-- **properties**: *array* - Array of properties of the structure that should be loaded
+- **uuid**: *string* - The UUID of the structure.
+- **properties**: *array* - An array of properties of the structure that should be loaded.
 
 **Returns**:
 
@@ -22,6 +22,6 @@ Returns a Structure for the given UUID
 
 .. note::
 
-    Calling the ``sulu_content_load`` twig extension without the ``properties`` argument
+    Calling the `sulu_content_load` Twig extension without the `properties` argument
     loads and resolves all properties of the target. This is an expensive operation that has
-    a negative impact on the performance and therefore is deprecated.
+    a negative impact on performance and is therefore deprecated.

@@ -1,22 +1,22 @@
 Caching with Varnish
 ====================
 
-Varnish is a HTTP `caching proxy`_  server which can be used to radically
+Varnish is an HTTP `caching proxy`_ server that can be used to radically
 improve the response time of your website.
 
 Sulu is bundled with a "soft" `caching proxy`_, the Symfony `HttpCache`_, but
 using Varnish is a more optimal solution for a large website, especially if it
-has lots of traffic.
+has a lot of traffic.
 
-In addition to being twice as fast as the default caching implementation it
+In addition to being twice as fast as the default caching implementation, it
 also supports better cache invalidation, which means that your website will
 appear more up-to-date.
 
 .. note::
 
     "Twice as fast" is relative. The default cache implementation can respond
-    in 0.02s compared to varnishes 0.01s - the difference here is
-    imperceptible - but varnish will scale better and supports better
+    in 0.02s compared to Varnish's 0.01s—the difference here is
+    imperceptible—but Varnish will scale better and supports better
     invalidation.
 
 This tutorial will walk you through the process of setting up Varnish on
@@ -32,7 +32,7 @@ The steps should apply equally to other variants.
 Install Varnish
 ---------------
 
-On Ubuntu/Debian install Varnish as follows:
+On Ubuntu/Debian, install Varnish as follows:
 
 .. code-block:: bash
 
@@ -48,7 +48,7 @@ Web Server
 
 .. note::
 
-    You may skip this section if you intend to run varnish in a development
+    You may skip this section if you intend to run Varnish in a development
     environment and do not want to change the default port of your web server.
 
 For a caching server to serve pages to your users, it will need to "pretend"
@@ -58,8 +58,8 @@ listen on a different port.
 
 .. note::
 
-    We are going to make the web server listen on port `8090` but there is
-    nothing special about this port and it can be anything as long as it does
+    We are going to make the web server listen on port `8090`, but there is
+    nothing special about this port, and it can be anything as long as it does
     not conflict with any existing services.
 
 Change the ``Listen`` directive in ``/etc/apache2/ports.conf`` to ``Listen 8090``:
@@ -80,7 +80,7 @@ And change any and all virtual hosts to now listen on ``8090``:
         # ...
     </VirtualHost>
 
-Now you will need to configure varnish.
+Now you will need to configure Varnish.
 
 Varnish
 ~~~~~~~
@@ -88,10 +88,10 @@ Varnish
 .. note::
 
     Skip this section if you are in a development environment and prefer to
-    access varnish via. its default port (explained later).
+    access Varnish via its default port (explained later).
 
-By default Varnish will listen for connections on port ``6081`` (at least on
-Debian systems). If you are running a production system you will need to
+By default, Varnish will listen for connections on port ``6081`` (at least on
+Debian systems). If you are running a production system, you will need to
 change this to the default HTTP port, port ``80``.
 
 Verify which port Varnish is listening to:
@@ -102,9 +102,9 @@ Verify which port Varnish is listening to:
     6585 ?        SLs    0:00 varnishd -f /home/daniel/.varnish/sulu.vcl -s malloc,1G -T 127.0.0.1:2000 -a 0.0.0.0:6081
     6609 ?        Sl     0:07 varnishd -f /home/daniel/.varnish/sulu.vcl -s malloc,1G -T 127.0.0.1:2000 -a 0.0.0.0:6081
 
-The ``-a`` option indicates where Varnish is listening - it is listening on port ``6081``, which is incorrect.
+The ``-a`` option indicates where Varnish is listening—it is listening on port ``6081``, which is incorrect.
 
-Under Debian/Ubuntu we can change the initialization script:
+Under Debian/Ubuntu, we can change the initialization script:
 
 .. code-block:: bash
 
@@ -118,7 +118,7 @@ Under Debian/Ubuntu we can change the initialization script:
                  -s malloc,256m \
                  -p "vcc_allow_inline_c=on"
 
-Now restart the daemon:
+Now, restart the daemon:
 
 .. code-block:: bash
 
@@ -194,7 +194,7 @@ Restart Varnish:
 
     $ /etc/init.d/varnish restart
 
-And now have a look at the headers on your website:
+And now, take a look at the headers on your website:
 
 .. code-block:: bash
 
@@ -204,7 +204,7 @@ And now have a look at the headers on your website:
     Via: 1.1 varnish
     # ...
 
-If you see the above ``Via`` header, then all is good and your are ready to go forward.
+If you see the above ``Via`` header, then all is good and you are ready to go forward.
 
 Configuring Sulu Invalidation
 -----------------------------
@@ -222,11 +222,11 @@ ensure that the following lines are commented out:
 
 .. warning::
 
-    If you do not comment out the above lines caching will not work correctly as you
-    will be using 2 caches.
+    If you do not comment out the above lines, caching will not work correctly, as you
+    will be using two caches.
 
-Now edit ``config/packages/sulu_http_cache.yml`` and change the proxy client
-from ``symfony`` to ``varnish`` and set the address of your varnish server
+Now, edit ``config/packages/sulu_http_cache.yml`` and change the proxy client
+from ``symfony`` to ``varnish`` and set the address of your Varnish server
 (assuming that your Varnish server is on localhost and listening on port ``80``):
 
 .. code-block:: yaml
@@ -242,23 +242,23 @@ Using XKey
 ----------
 
 Xkey is an efficient way to invalidate Varnish cache entries based on tagging. The advantage of
-the feature is that you can use the ``grace mode`` feature of varnish, which allows varnish to 
-serve expired cache entries while fetching an update from the backend transparently. 
-Have a look at the varnish documentation for more information about
+the feature is that you can use the ``grace mode`` feature of Varnish, which allows Varnish to
+serve expired cache entries while transparently fetching an update from the back-end.
+Take a look at the Varnish documentation for more information about
 the `Grace mode`_.
 
 
-Unfortunately, varnish does not support XKey invalidation out of the box. 
+Unfortunately, Varnish does not support XKey invalidation out of the box.
 To be able to use it, you need to install ``varnish-modules``:
 
 .. code-block:: bash
 
     apt-get install varnish-modules
 
-Or build it from sources see the documentation at the github repository `varnish/varnish-modules`_.
+Or build it from sources; see the documentation at the GitHub repository `varnish/varnish-modules`_.
 
-When the installation was successfull you can use following configuration to enable
-xkey:
+When the installation was successful, you can use the following configuration to enable
+XKey:
 
 .. code-block:: varnish4
 
@@ -297,7 +297,7 @@ xkey:
         call sulu_deliver;
     }
 
-Additionally, you need to configure Sulu to use the XKey feature of varnish:
+Additionally, you need to configure Sulu to use the XKey feature of Varnish:
 
 .. code-block:: yaml
 
@@ -312,7 +312,7 @@ Additionally, you need to configure Sulu to use the XKey feature of varnish:
 Optimal configuration
 ---------------------
 
-To get the most out of the Varnish cache you should enable the ``tags`` option in the configuration.
+To get the most out of the Varnish cache, you should enable the ``tags`` option in the configuration.
 
 .. code-block:: yaml
 

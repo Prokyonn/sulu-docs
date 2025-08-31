@@ -11,13 +11,13 @@ Google Cloud Storage).
 AWS-S3
 ------
 
-First install dependencies.
+First, install the dependencies.
 
 .. code-block:: bash
 
     composer require "league/flysystem:^1.0" "league/flysystem-aws-s3-v3:^1.0.1"
 
-Configure the storage with following yaml-snippet:
+Configure the storage with the following YAML snippet:
 
 .. code-block:: yaml
 
@@ -31,13 +31,13 @@ Configure the storage with following yaml-snippet:
                 path_prefix: 'optional path prefix'
                 region: 'eu-west-1'
 
-If you use s3 compatible services (e.g. minio) you can pass additional ``arguments`` and ``endpoint`` to the
+If you use S3-compatible services (e.g., Minio), you can pass additional ``arguments`` and an ``endpoint`` to the
 configuration.
 
 Google Cloud-Storage
 --------------------
 
-First follow this the `Google Cloud Documentation`_ to setup a System-Account and download the json-key.
+First, follow the `Google Cloud Documentation`_ to set up a System-Account and download the JSON key.
 
 .. code-block:: json
 
@@ -61,7 +61,7 @@ Install the dependencies:
 
     composer require "league/flysystem:^1.0" "superbalist/flysystem-google-storage:^7.1"
 
-Dump this file to a readable folder on your machine and configure the storage with following yaml-snippet:
+Dump this file to a readable folder on your machine and configure the storage with the following YAML snippet:
 
 .. code-block:: yaml
 
@@ -79,13 +79,13 @@ Dump this file to a readable folder on your machine and configure the storage wi
 Azure Blob Storage
 ------------------
 
-First install dependencies.
+First, install the dependencies.
 
 .. code-block:: bash
 
     composer require "league/flysystem:^1.0" "league/flysystem-azure-blob-storage:^0.1"
 
-Configure the storage with following yaml-snippet:
+Configure the storage with the following YAML snippet:
 
 .. code-block:: yaml
 
@@ -104,24 +104,24 @@ What About Image Formats?
 
 .. note::
 
-    Only the original files will be uploaded to the external storage. Image Formats / Thumbnails will still be generated
-    in the local directory. This is because image formats are generated in Sulu on demand, to explain in detail: when
+    Only the original files will be uploaded to the external storage. Image Formats/Thumbnails will still be generated
+    in the local directory. This is because image formats are generated in Sulu on demand. To explain in detail: when
     an image format is requested for the first time, Sulu generates the image from the original file and stores it in the public
     directory. The web server then acts as a kind of proxy. If the image is requested again, it checks the public
     directory and directly returns the previously generated image instead of regenerating it. External storages like S3,
-    Google Cloud Storage or Azure Blob Storage do not support some kind of proxy or CDN functionality.
+    Google Cloud Storage, or Azure Blob Storage do not support some kind of proxy or CDN functionality.
 
-    If you want to store the image formats in an external service you have to use a CDN like Fastly, Cloudflare or others
-    that support caching generated image formats for a long time. Some hosters allow to configure CDN directly on specific URLs
-    in Sulu all URLs under ``/uploads/media/*`` need to be routed through a proxy or CDN. If your chosen CDN
+    If you want to store the image formats in an external service, you have to use a CDN like Fastly, Cloudflare, or others
+    that support caching generated image formats for a long time. Some hosters allow you to configure a CDN directly on specific URLs;
+    in Sulu, all URLs under ``/uploads/media/*`` need to be routed through a proxy or CDN. If your chosen CDN
     requires a custom Domain, you can use Symfony's CDN feature via:
 
     ``{{ asset(media.thumbnail['40x40']) }}``
 
-    and `configure a CDN Domain`_ in the Symfony configuration ``framework.assets`` configuration. If you have tested your proxy or CDN and it correctly
+    and `configure a CDN Domain`_ in the Symfony ``framework.assets`` configuration. If you have tested your proxy or CDN and it correctly
     caches the generated images for a long time, you can disable saving the thumbnails to the local filesystem by setting
-    ``sulu_media.format_cache.save_image`` to ``false`` in ``config/packages/sulu_media.yaml``, it is recommend to use an ENV variable
-    to locally still use it.
+    ``sulu_media.format_cache.save_image`` to ``false`` in ``config/packages/sulu_media.yaml``. It is recommended to use an ENV variable
+    to still use it locally.
 
     Important: Never disable the format cache unless you have set up a CDN or proxy. Otherwise, your server will
     regenerate the image format on every request, which can overwhelm your server, as image generation is resource-intensive.

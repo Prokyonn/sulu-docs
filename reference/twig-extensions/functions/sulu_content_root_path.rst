@@ -7,4 +7,4 @@ Returns the absolute URL for the content root of the current webspace.
 
      <a href="{{ sulu_content_root_path() }}">Home</a>
 
-**Returns**: *string* - Absolute URL
+**Returns**: *string* - The absolute URL.

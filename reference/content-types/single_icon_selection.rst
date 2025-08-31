@@ -1,10 +1,10 @@
-Single Icon selection
+Single Icon Selection
 ======================
 
 Description
 -----------
 
-Lets you select a single icon from a configured icon set. The selected icon is passed to the twig template as an object.
+Lets you select a single icon from a configured icon set. The selected icon is passed to the Twig template as an object.
 The configured icon sets can be either icon fonts or SVGs.
 
 .. warning::
@@ -22,17 +22,17 @@ Parameters
       - Description
     * - icon_set
       - string
-      - Defines which icon set should be used. This parameter is required and needs to be configured.
+      - Defines which icon set should be used. This parameter is required and must be configured.
 
-Return value
+Return Value
 ------------
 
-Returns the name of the selected icon or svg.
+Returns the name of the selected icon or SVG.
 
 Configuration
 ----------------
 
-By default, you can select Sulu icons in the single icon selection field. If you’d like to add your own icon font or SVGs, simply extend the configuration as shown below.
+By default, you can select Sulu icons in the single icon selection field. If you want to add your own icon font or SVGs, simply extend the configuration as shown below.
 
 .. code-block:: yaml
 
@@ -63,7 +63,7 @@ Twig
 
 .. code-block:: twig
 
-    {% set icons = content.icon %}
+    {% set icon = content.icon %}
     <span class="icon-{{ icon.icon }}"></span>
 
     {% set svg = content.svg %}

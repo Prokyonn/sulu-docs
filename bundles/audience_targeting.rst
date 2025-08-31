@@ -5,8 +5,8 @@ If you want to display different content on the same URL based on some
 characteristics of the visitor, you can use the AudienceTargetingBundle for
 that.
 
-It allows the content manager to define the audience target groups on his own.
-Each target group has one or multiple rules, which are used to determine the
+It allows the content manager to define the audience target groups on their own.
+Each target group has one or more rules, which are used to determine the
 target group of the visitor.
 
 Installation
@@ -39,11 +39,11 @@ And the routes for the website in the corresponding configuration file
     sulu_audience_targeting:
         resource: "@SuluAudienceTargetingBundle/Resources/config/routing_website.yml"
 
-Finally the cache has to be correctly configured. You have the choice between
+Finally, the cache has to be correctly configured. You have the choice between
 the Symfony Cache and Varnish.
 
-For the `Symfony cache`_ the audience targeting cache listener needs to be added.
-This is possible by adding a subscriber in the `getHttpCache()` method of the `src/Kernel.php`:
+For the `Symfony cache`_, the audience targeting cache listener needs to be added.
+This is possible by adding a subscriber in the `getHttpCache()` method of `src/Kernel.php`:
 
 .. code-block:: php
 
@@ -60,7 +60,7 @@ This is possible by adding a subscriber in the `getHttpCache()` method of the `s
 If you want to use the more powerful `Varnish`_ instead, you have to install it
 on your machine and configure it using a VCL.
 
-The following will add full caching support including audience targeting for Sulu:
+The following will add full caching support, including audience targeting for Sulu:
 
 .. code-block:: varnish4
 
@@ -97,14 +97,14 @@ The following will add full caching support including audience targeting for Sul
         call sulu_deliver;
     }
 
-Finally you have to make sure that the bundle is correctly initialized. This includes
+Finally, you have to make sure that the bundle is correctly initialized. This includes
 the following steps:
 
-* Clear the Symfony cache with the `cache:clear` command or manually
+* Clear the Symfony cache with the `cache:clear` command or by manually
   deleting the cache folder
 * Update the schema of your database with the `doctrine:schema:update` command or
   the `doctrine:migrations:diff` command
-* Make sure to have the correct permissions by enabling the feature `target-groups` in the user roles. The feature will be visible under `Settings` menu.
+* Make sure to have the correct permissions by enabling the `target-groups` feature in the user roles. The feature will be visible under the `Settings` menu.
 
 Manually set target group
 -------------------------
@@ -112,12 +112,12 @@ Manually set target group
 Sulu will try to determine a matching target group based on the rules the
 content manager defines. But it is also possible to set a target group
 manually. That might be useful if you want to divide visitors into separate
-target groups based on some behavior, e.g. filling out a form, starting a
+target groups based on some behavior, e.g., filling out a form, starting a
 download, etc.
 
-Therefore we have introduced the `TargetGroupStore`. You can simply call its
-`updateTargetGroupId` method and Sulu will do the rest for you. This would like
-this in an action of a Controller:
+Therefore, we have introduced the `TargetGroupStore`. You can simply call its
+`updateTargetGroupId` method, and Sulu will do the rest for you. This would look
+like this in an action of a Controller:
 
 .. code-block:: php
 
@@ -136,18 +136,18 @@ this in an action of a Controller:
 .. note::
 
     The target group that will be set manually should have quite a high
-    priority, otherwise another higher prioritized target group might override
+    priority; otherwise, another higher-prioritized target group might override
     that based on its defined rule.
 
 Create custom rules
 -------------------
 
-The cool thing about target groups are the rules you can define on them, which
-will automatically evaluated by Sulu. There are a few rules built-in, like a
-referrer rule, browser rule or a page rule. However, you might still have a
-very specific use case, which requires to implement your own custom rule.
+The cool thing about target groups is the rules you can define on them, which
+will be automatically evaluated by Sulu. There are a few rules built-in, like a
+referrer rule, a browser rule, or a page rule. However, you might still have a
+very specific use case, which requires you to implement your own custom rule.
 
-Luckily this possibility is also built-in into Sulu. First of all you have to
+Luckily, this possibility is also built into Sulu. First of all, you have to
 write your own implementation of the `RuleInterface`:
 
 .. code-block:: php
@@ -175,35 +175,35 @@ write your own implementation of the `RuleInterface`:
         }
     }
 
-The interface consists of three different methods, lets have a closer look at
+The interface consists of three different methods; lets have a closer look at
 each one of them:
 
-The easiest one is `getName`, whatever you return here will be shown in the
+The easiest one is `getName`; whatever you return here will be shown in the
 rules dropdown.
 
 The `getType` method returns how the rule is displayed in the admin. This is
-what the content manager will be facing, if this rule was chosen. There are a
+what the content manager will be facing if this rule was chosen. There are a
 few possibilities, represented by classes implementing the `RuleTypeInterface`.
-They usually take some kind of name as constructor parameter, which will be
-used as key when storing this information in a JSON field in the database. The
+They usually take some kind of name as a constructor parameter, which will be
+used as a key when storing this information in a JSON field in the database. The
 content of this JSON field is what will be passed to the `$options` argument of
-the `evaluate` method later. Until now there are implementations for `Text`,
-`Select`, `KeyValue` and for a `InternalLink`.
+the `evaluate` method later. Until now, there have been implementations for `Text`,
+`Select`, `KeyValue`, and for an `InternalLink`.
 
 The `evaluate` method will be called for every appearance of the rule in all
-the target groups, until one of the target groups matches. The `$options`
+the target groups until one of the target groups matches. The `$options`
 argument will be filled with the information from the conditions the content
-manager has configured as already mentioned above. Based on this information
+manager has configured, as already mentioned above. Based on this information,
 you have to define if the current request can be evaluated to `true`.
 
 .. note::
 
-    In most cases you need to inject other services to your rule, in order to
-    be able to evaluate them in a sensible way. Quite often this is the
+    In most cases, you need to inject other services into your rule in order to
+    be able to evaluate them in a sensible way. Quite often, this is the
     `RequestStack`, which allows you to get the current `Request` object and
     allows you to evaluate certain values against the request.
 
-Finally your implementation has to be registered as service using the
+Finally, your implementation has to be registered as a service using the
 `sulu.audience_target_rule` tag:
 
 .. code-block:: xml

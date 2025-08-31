@@ -2,12 +2,12 @@ Upgrading Sulu 2.x
 ==================
 
 This upgrade guide describes how to upgrade a Sulu 2.x project to any newer version below 3.0. In a majority of cases,
-these upgrades should be unproblematic, because backwards compatibility is only broken when it is really necessary to
+these upgrades should be unproblematic because backward compatibility is only broken when it is really necessary to
 fix a bug.
 
-Unrelated to Sulu changes, upgrades sometimes require first updating PHP, Symfony, or other dependencies. The following table
-should show you which versions of Sulu are compatible with which versions of PHP and Symfony. It is
-recommended to avoid big upgrades that tackle Sulu, PHP, and Symfony simultaneously. Instead, upgrade them and release 
+Unrelated to Sulu changes, upgrades sometimes first require updating PHP, Symfony, or other dependencies. The following table
+shows which versions of Sulu are compatible with which versions of PHP and Symfony. It is
+recommended to avoid big upgrades that tackle Sulu, PHP, and Symfony simultaneously. Instead, upgrade them and release
 the upgrade of your project in small, separate steps rather than one big step. This approach helps to better identify
 the cause of any problems.
 
@@ -45,9 +45,9 @@ The upgrade process of Sulu consists of the following steps:
 1. Update the sulu/sulu package
 -------------------------------
 
-The ``sulu/sulu`` package implements the functionality of the Sulu content management system. To update this package, you need to update the version constraint for the package in the ``composer.json`` of your project.
+The `sulu/sulu` package implements the functionality of the Sulu content management system. To update this package, you need to update the version constraint for the package in the `composer.json` of your project.
 
-To do this, you can replace the ``~x.x.x`` with the a version constraint like ``~2.5.22`` and execute the following
+To do this, you can replace the `~x.x.x` with a version constraint like `~2.5.22` and execute the following
 command in the root folder of your project:
 
 .. code-block:: bash
@@ -69,32 +69,32 @@ After this, you can update all dependencies of your project by executing the fol
 
 The `sulu/skeleton repository`_ contains the project template for Sulu projects. The template might be adjusted
 between different versions to include configuration for new features or keep up with the `Symfony best practices`_.
-It is advised to examine the changes in the ``sulu/skeleton`` repository between the versions you are upgrading and
+It is advised to examine the changes in the `sulu/skeleton` repository between the versions you are upgrading and
 apply them to your project if they make sense in your case.
 
-This step cannot be automated, because changes in sulu/skeleton repository could include BC breaks or might simply
+This step cannot be automated because changes in the sulu/skeleton repository could include BC breaks or might simply
 not fit your project.
 
 .. note::
 
     For a convenient view of all changes in the skeleton repository, open https://github.com/sulu/skeleton/compare/
-    and the select your current version as ``base`` and the target version as ``compare``.
+    and select your current version as `base` and the target version as `compare`.
 
 3. Check the UPGRADE.md file for BC breaks
 ------------------------------------------
 
-The `UPGRADE.md file`_ in the ``sulu/sulu`` repository contains all changes breaking backwards compatibility
+The `UPGRADE.md file`_ in the `sulu/sulu` repository contains all changes breaking backward compatibility
 between different versions. These changes might break your application if you have used the changed part of Sulu
 in a specific way.
 
-In a majority of cases, the changes should not affect your project because backwards compatibility is only broken
-when it is really necessary to fix a bug. However, if something goes south, this file should contain an explanation
+In a majority of cases, the changes should not affect your project because backward compatibility is only broken
+when it is really necessary to fix a bug. However, if something goes south, this file should contain an explanation of
 what to change.
 
 4. Update the Admin JavaScript build
 ------------------------------------
 
-Our administration interface requires a built version of its JavaScript code in the ``public/build/admin`` folder of
+Our administration interface requires a built version of its JavaScript code in the `public/build/admin` folder of
 the project. The JavaScript code might be adjusted between different versions to fix bugs or implement new features.
 When upgrading the project, you need to update the build to match the new Sulu version.
 To simplify this step, Sulu provides a command to update the JavaScript build in the project:
@@ -106,7 +106,7 @@ To simplify this step, Sulu provides a command to update the JavaScript build in
 .. note::
 
     Have a look at the :doc:`../cookbook/build-admin-frontend` documentation if you want to update the
-    JavaScript build in the project without using the ``sulu:admin:update-build`` command.
+    JavaScript build in the project without using the `sulu:admin:update-build` command.
 
 .. _Composer documentation: https://getcomposer.org/doc/articles/versions.md#writing-version-constraints
 .. _sulu/skeleton repository: https://github.com/sulu/skeleton

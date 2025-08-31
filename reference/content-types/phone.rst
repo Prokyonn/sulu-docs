@@ -4,12 +4,12 @@ Phone
 Description
 -----------
 
-Shows a text line, the inserted content will be saved as a simple string.
+Shows a text line. The inserted content will be saved as a simple string.
 
 Parameters
 ----------
 
-No parameters available
+No parameters available.
 
 Example
 -------

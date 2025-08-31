@@ -3,13 +3,13 @@
 ``sulu_category_url_clear``
 ===========================
 
-Returns current URL and clear the given GET parameter.
+Returns the current URL and clears the given GET parameter.
 
 **Arguments**:
 
-- **categoryParameter**: *string* - optional "category": parameter name
+- **categoryParameter**: *string* - The optional `category` parameter name.
 
-**Returns**: string - current URL removed category parameter
+**Returns**: *string* - The current URL with the category parameter removed.
 
 **See also**:
 

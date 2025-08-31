@@ -1,10 +1,10 @@
 ``sulu_tag_url_clear``
 ======================
 
-Returns current URL and clear the given GET parameter.
+Returns the current URL and clears the given GET parameter.
 
 **Arguments**:
 
-- **tagsParameter**: *string* - optional "tags": parameter name
+- **tagsParameter**: *string* - The optional `tags` parameter name.
 
-**Returns**: string - current URL removed tags parameter
+**Returns**: *string* - The current URL with the tags parameter removed.

@@ -1,7 +1,7 @@
 ``sulu_resolve_media``
 ======================
 
-Returns resolved media with needed properties for a given media object.
+Returns the resolved media with the needed properties for a given media object.
 
 .. code-block:: jinja
 
@@ -10,8 +10,8 @@ Returns resolved media with needed properties for a given media object.
 
 **Arguments**:
 
-- **media**: *object|int* - The media object or media id.
-- **locale**: *string* - Locale to resolve metadata.
+- **media**: *object|int* - The media object or media ID.
+- **locale**: *string* - The locale to resolve metadata.
 
-**Returns**: *object* - Object with all needed properties, like `thumbnails`,
-                        `title`, `description` and `url`.
+**Returns**: *object* - An object with all the needed properties, like `thumbnails`,
+                        `title`, `description`, and `url`.

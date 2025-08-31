@@ -2,7 +2,7 @@ Bundles
 =======
 
 The Sulu code is structured in Symfony Bundles. Some of them are more important
-to developers who work with Sulu than others. In this documentation we
+to developers who work with Sulu than others. In this documentation, we have
 documented the most important ones.
 
 **We documented the following bundles**
@@ -33,5 +33,5 @@ documented the most important ones.
     trash
     website/index
 
-When you get in touch with another bundle of Sulu, which is not documented in
-this place. Tell us. We'll provide the documentation.
+When you get in touch with another bundle of Sulu that is not documented in
+this place, tell us. We'll provide the documentation.

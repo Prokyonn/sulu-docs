@@ -1,11 +1,11 @@
-Single Category selection
+Single Category Selection
 =========================
 
 Description
 -----------
 
-Let you assign one category. Categories can be managed in the settings section of Sulu.
-The selection will be saved as a single id.
+Lets you assign one category. Categories can be managed in the Settings section of Sulu.
+The selection will be saved as a single ID.
 
 Parameters
 ----------
@@ -18,18 +18,17 @@ Parameters
       - Description
     * - item_disabled_condition
       - string
-      - Allows to set a `jexl`_ expression that evaluates if an item should be displayed as disabled.
+      - Allows setting a `jexl`_ expression that evaluates whether an item should be displayed as disabled.
         Disabled items cannot be selected.
     * - allow_deselect_for_disabled_items
       - bool
-      - Defines if the user should be able to deselect an item that is disabled. Default value is true.
+      - Defines if a user can deselect a disabled item. The default value is `true`.
     * - request_parameters
       - collection
-      - Collection of parameters that are appended to the requests sent by the selection.
+      - A collection of parameters that are appended to the requests sent by the selection.
     * - resource_store_properties_to_request
       - collection
-      - Collection of property names.
-        The value of the respective properties are appended to the requests sent by the selection.
+      - A collection of property names whose values are appended to the requests sent by the selection.
 
 Example
 -------
@@ -45,7 +44,7 @@ Example
 Extended Example
 ----------------
 
-Following example defines an entry category for the selection tree.
+The following example defines an entry category for the selection tree.
 
 .. code-block:: xml
 

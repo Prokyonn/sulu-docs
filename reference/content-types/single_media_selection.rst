@@ -1,11 +1,11 @@
-Single Media selection
+Single Media Selection
 ======================
 
 Description
 -----------
 
 Shows a list with the possibility to assign a single asset from the media section
-to a page. Also allows to define a position, which can be handled later in the
+to a page. It also allows defining a position, which can be handled later in the
 template.
 
 Parameters
@@ -19,17 +19,17 @@ Parameters
       - Description
     * - types
       - string
-      - A comma separated list of available asset types to assign. Each item in
-        the list must be one of ``document``, ``image``, ``video`` or ``audio``.
+      - A comma-separated list of available asset types to assign. Each item in
+        the list must be one of `document`, `image`, `video`, or `audio`.
     * - displayOptions
       - collection
       - A collection of booleans, which defines to which positions the assets
-        can be assigned (``leftTop``, ``top``, ``rightTop``, ...)
+        can be assigned (`leftTop`, `top`, `rightTop`, etc.).
     * - defaultDisplayOption
       - string
-      - Defines which of the displayOptions is the default one
+      - Defines which of the display options is the default one.
 
-Return value
+Return Value
 ------------
 
 See the Media_ object for available variables and functions.
@@ -82,8 +82,8 @@ Twig
     {% set image = content.image %}
     <img src="{{ image.thumbnails['400x400'] }}" alt="{{ image.description|default(image.title) }}">
 
-If your property defines ``displayOptions``, you can access the selected ``displayOption``
-via ``view.<property_name>.displayOptions``:
+If your property defines `displayOptions`, you can access the selected `displayOption`
+via `view.<property_name>.displayOption`:
 
 .. code-block:: twig
 
@@ -93,9 +93,9 @@ via ``view.<property_name>.displayOptions``:
         <img src="{{ image.thumbnails['400x400'] }}" alt="{{ image.description|default(image.title) }}">
     </div>
 
-If you want to provide a link for downloading a document, you can use ``.url`` attribute
+If you want to provide a link for downloading a document, you can use the `.url` attribute
 or wrap it with the :doc:`sulu_get_media_url <../twig-extensions/functions/sulu_get_media_url>`
-to control which `disposition header`_ the target url should use:
+to control which `disposition header`_ the target URL should use:
 
 .. code-block:: twig
 
@@ -105,9 +105,9 @@ to control which `disposition header`_ the target url should use:
 
 .. note::
 
-    For performance reasons you should never use the ``.url`` attribute to render ``images`` on your
-    website. Always use ``thumbnails`` and :doc:`configure your image formats <../../../book/image-formats>`
-    to provide fast optimized cacheable images.
+    For performance reasons, you should never use the `.url` attribute to render images on your
+    website. Always use thumbnails and :doc:`configure your image formats <../../../book/image-formats>`
+    to provide fast, optimized, cacheable images.
 
 .. _Media: https://github.com/sulu/sulu/blob/2.x/src/Sulu/Bundle/MediaBundle/Api/Media.php
 .. _`disposition header`: https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Disposition

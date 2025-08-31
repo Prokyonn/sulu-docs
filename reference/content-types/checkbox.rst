@@ -4,7 +4,7 @@ Checkbox
 Description
 -----------
 
-Shows a simple checkbox, the value of the checkbox can be ``null`` (not changed yet and no default value), ``false`` or ``true``.
+Shows a simple checkbox. The value of the checkbox can be `null` (not changed yet and no default value), `false`, or `true`.
 
 Parameters
 ----------
@@ -17,10 +17,10 @@ Parameters
       - Description
     * - type
       - string
-      - Defines the look of the checkbox, can either be "checkbox" or "toggler". Be aware of the difference between property type and parameter type.
+      - Defines the look of the checkbox. Can be either "checkbox" or "toggler". Be aware of the difference between the property type and the parameter `type`.
     * - default_value
       - bool
-      - Defines the default value of the checkbox. When not set the initial value of the checkbox is null.
+      - Defines the default value of the checkbox. When not set, the initial value of the checkbox is `null`.
     * - label
       -
       - Defines the label of the checkbox. This is recommended if the meta title should be next to the toggler instead of above it.

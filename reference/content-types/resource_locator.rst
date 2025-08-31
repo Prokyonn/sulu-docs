@@ -1,13 +1,13 @@
-Resource locator
+Resource Locator
 ================
 
 Description
 -----------
 
 Shows a text line with a non-editable prefix, which represents the routes to
-this position in the content tree. The part of the current page can be edited
-in the available text line. Additionally there is a button with the URL history
-of the current page, where parts of the history can also be deleted or
+this position in the content tree. The part for the current page can be edited
+in the available text line. Additionally, there is a button for the URL history
+of the current page, where parts of the history can be deleted or
 reactivated.
 
 Tags
@@ -19,15 +19,15 @@ Tags
     * - Tag
       - Description
     * - sulu.rlp
-      - The resource locator with this tag defines the URL to a specific page.
+      - The resource locator with this tag defines the URL for a specific page.
     * - sulu.rlp.part
       - Fields marked with this tag are used to generate the URL for a specific page.
-        If more than one field ist marked, the values of these fields will be concatenated into the resource locator.
+        If more than one field is marked, the values of these fields will be concatenated into the resource locator.
 
 Parameters
 ----------
 
-No parameters available
+No parameters available.
 
 Example
 -------
@@ -53,8 +53,8 @@ Example
 Twig
 ----
 
-You need to use the :doc:`../twig-extensions/functions/sulu_content_path` twig extension
-to render the full url.
+You need to use the :doc:`../twig-extensions/functions/sulu_content_path` Twig extension
+to render the full URL.
 
 .. code-block:: twig
 

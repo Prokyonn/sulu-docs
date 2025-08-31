@@ -1,10 +1,10 @@
-Account selection
+Account Selection
 ========================
 
 Description
 -----------
 
-Let you assign multiple account from the account section to the page.
+Lets you assign multiple accounts from the account section to the page.
 
 Parameters
 ----------
@@ -17,29 +17,28 @@ Parameters
       - Description
     * - item_disabled_condition
       - string
-      - Allows to set a `jexl`_ expression that evaluates if an item should be displayed as disabled.
+      - Allows setting a `jexl`_ expression that evaluates whether an item should be displayed as disabled.
         Disabled items cannot be selected.
     * - allow_deselect_for_disabled_items
       - bool
-      - Defines if the user should be able to deselect an item that is disabled. Default value is true.
+      - Defines if a user can deselect a disabled item. The default value is `true`.
     * - sortable
       - bool
-      - Defines if the user should be able to sort the selected items. Default value is true.
+      - Defines if a user can sort the selected items. The default value is `true`.
     * - request_parameters
       - collection
-      - Collection of parameters that are appended to the requests sent by the selection.
+      - A collection of parameters that are appended to the requests sent by the selection.
     * - resource_store_properties_to_request
       - collection
-      - Collection of property names.
-        The value of the respective properties are appended to the requests sent by the selection.
+      - A collection of property names whose values are appended to the requests sent by the selection.
     * - min
       - string
-      - The minimum number of selected accounts
+      - The minimum number of selected accounts.
     * - max
       - string
-      - The maximum number of selected accounts
+      - The maximum number of selected accounts.
 
-Return value
+Return Value
 ------------
 
 See the Account_ for available variables and functions.

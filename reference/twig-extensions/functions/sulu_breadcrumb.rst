@@ -1,7 +1,7 @@
 ``sulu_breadcrumb``
 ===================
 
-Returns the breadcrumb for a given node UUID
+Returns the breadcrumb for a given node UUID.
 
 **Example**:
 
@@ -13,13 +13,14 @@ Returns the breadcrumb for a given node UUID
 
 **Arguments**:
 
-- **uuid**: *string* - UUID of page node for which to show the breadcrumb
+- **uuid**: *string* - The UUID of the page node for which to show the breadcrumb.
 
 **Returns**:
 
-- `array`
-     - **id**: ID of page
-     - **title**: Title of page
-     - **url**: URL for page
-     - **nodeType**: Type of node
-     - **excerpt**: Excerpt
+An `array` containing:
+
+- **id**: The ID of the page.
+- **title**: The title of the page.
+- **url**: The URL for the page.
+- **nodeType**: The type of the node.
+- **excerpt**: The excerpt.

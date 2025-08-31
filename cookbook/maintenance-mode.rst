@@ -1,26 +1,26 @@
 Maintenance Mode
 ================
 
-When you need to deploy a new version of your project on a production environment
-it is often necessary to disable your sulu-application and inform your users
+When you need to deploy a new version of your project on a production environment,
+it is often necessary to disable your Sulu application and inform your users
 about it.
 
-Sulu maintenance mode displays a simple holding page which can be easily customized.
+Sulu maintenance mode displays a simple holding page that can be easily customized.
 
 Activate Maintenance Mode
 -------------------------
 
-Sulu is shipped with a simple maintenance page stored in `public/maintenance.php`_
-file which can be changed for your needs.
+Sulu is shipped with a simple maintenance page stored in the `public/maintenance.php`_
+file, which can be changed for your needs.
 
-To activate the maintenance mode you need to  set the environment variable SULU_MAINTENANCE to true.
-For example, in your ``.htaccess`` file or vhost file for apache:
+To activate the maintenance mode, you need to set the environment variable SULU_MAINTENANCE to `true`.
+For example, in your ``.htaccess`` file or vhost file for Apache:
 
 .. code-block:: apache
 
     SetEnv SULU_MAINTENANCE true
 
-For nginx you can configure the maintenance mode in the php part of your vhost by adding:
+For Nginx, you can configure the maintenance mode in the PHP part of your vhost by adding:
 
 .. code-block:: nginx
 
@@ -58,8 +58,8 @@ You can define translations for your template as follows:
 Default locale
 ~~~~~~~~~~~~~~
 
-By default, ``maintenance.php`` is automatically detecting your browsers language. If no translation for this language
-exists the default locale is being used. By default this is English:
+By default, ``maintenance.php`` automatically detects your browser's language. If no translation for this language
+exists, the default locale is used. By default, this is English:
 
 .. code-block:: php
 

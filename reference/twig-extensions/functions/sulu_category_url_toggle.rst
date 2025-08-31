@@ -3,15 +3,15 @@
 ``sulu_category_url_toggle``
 ============================
 
-Returns current URL and adds given category as GET parameter, if it's not already there
-or removes given category from GET parameters, if it is.
+Returns the current URL and adds the given category as a GET parameter if it's not already there,
+or removes the given category from the GET parameters if it is.
 
 **Arguments**:
 
-- **category**: *array* - Serialized Category instance to determine value
-- **categoryParameter**: *string* - optional "category": parameter name
+- **category**: *array* - A serialized `Category` instance to determine the value.
+- **categoryParameter**: *string* - The optional `category` parameter name.
 
-**Returns**: string - current URL with or without given category in categories parameter
+**Returns**: *string* - The current URL with or without the given category in the `categories` parameter.
 
 **See also**:
 

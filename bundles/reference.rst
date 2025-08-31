@@ -3,16 +3,17 @@ ReferenceBundle
 
 The ReferenceBundle is tasked with tracking references among entities within the application.
 It enables developers and maintainers to quickly determine the relationships between entities and understand the manner
-and location in which an entity is utilized. Presently, the ReferenceBundle is capable of monitoring the usage of Snippets and
-Media within PHPCR entities such as `pages` and `snippets`. These references are managed distinctly for the draft
-state within the `admin context` and the live state within the `website context`.
+and location in which an entity is utilized. Presently, the ReferenceBundle is capable of monitoring the usage of
+Snippets and Media within PHPCR entities, such as `pages` and `snippets`. These references are managed distinctly for
+the draft state within the `admin context` and the live state within the `website context`.
 
 The main reason we need this bundle is that, unlike traditional database references, our content management system
 operates on an unstructured data model. Therefore, we cannot rely solely on database references, which are usually preferred.
-It is essential to note that the ReferenceBundle should only be used for unstructured data, where database relations are
+It is essential to note that the ReferenceBundle should only be used for unstructured data where database relations are
 not feasible.
 
-Content maintainers are able to see the references to a specific entity in the `Insights` tab of an entity like `Snippet`.
+Content maintainers are able to see the references to a specific entity in the `Insights` tab of an entity, like
+`Snippet`.
 
 .. figure:: ../img/snippet-insights.png
     :alt: Snippet References
@@ -24,7 +25,7 @@ Refresh references
 
 The references are automatically updated upon saving an entity. You also have the option to manually update the
 references by executing the `bin/console sulu:reference:refresh` command. This command optionally accepts the
-<resource-key> argument. When this argument is provided, only the references for the specified resource key will be refreshed.
+`<resource-key>` argument. When this argument is provided, only the references for the specified resource key will be refreshed.
 
 .. code-block:: bash
 
@@ -40,7 +41,7 @@ Integrating references for custom content-types
 
 To integrate the ReferenceBundle for custom content-types, you need to implement the `ReferenceContentTypeInterface` in your
 content-type class. The interface requires you to implement the `getReferences` method. The method already receives the
-`ReferenceCollector` which you can use to add references to the collector.
+`ReferenceCollector`, which you can use to add references to the collector.
 
 Example implementation for a custom content-type:
 
@@ -87,8 +88,8 @@ Here’s an example implementation from the `SnippetAdmin` class, demonstrating 
 The `hasReferenceListPermission` method ensures that the current user has permission to view the references list.
 The `createReferenceListViewBuilder` method is used to create the view. It takes three parameters:
 
-    - The name of the new view, usually appended with .reference to indicate it is a reference view.
+    - The name of the new view, usually appended with `.reference` to indicate it is a reference view.
     - The URL path for the references table.
     - The resource key identifies the type of resource being referenced.
 
-The setParent method sets the parent view to integrate the references table into the existing admin view.
+The `setParent` method sets the parent view to integrate the references table into the existing admin view.

@@ -2,9 +2,9 @@ Provider for custom link type
 =============================
 
 ``LinkProvider`` services are used to resolve data for different types of internal links.
-The services are used in different parts of the system, including the `Link` content-type
-(see :doc:`../reference/content-types/link`), the internal link plugin of the CKEditor and
-the ``<sulu-link>`` tag inside of twig-templates (see :doc:`../bundles/markup/link`).
+The services are used in different parts of the system, including the `Link` content type
+(see :doc:`../reference/content-types/link`), the internal link plugin of the CKEditor, and
+the ``<sulu-link>`` tag inside of Twig templates (see :doc:`../bundles/markup/link`).
 
 The ``LinkProvider::preload`` method is responsible for resolving an array of ``LinkItem``
 instances for the given arguments. Each ``LinkItem`` consists of the following properties:
@@ -72,8 +72,8 @@ the list.
     }
 
 If the entities of the new link type cannot be selected via a list, the ``LinkProvider::getConfiguration``
-method of your service must return ``null`` and you need to register a custom overlay via
-the ``linkTypeRegistry`` Javascript service:
+method of your service must return ``null``, and you need to register a custom overlay via
+the ``linkTypeRegistry`` JavaScript service:
 
 .. code-block:: javascript
 

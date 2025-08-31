@@ -1,14 +1,14 @@
 ``sulu_sitemap_url``
 ====================
 
-Returns url for given Webspace and locale.
+Returns the URL for a given webspace and locale.
 
-**Arguments**;
+**Arguments**:
 
-- **url** *string* - The uuid of the current content
-- **locale** *string* - optional: locale for determine url
-- **webspaceKey** *string* - optional: webspace for determine url
+- **url**: *string* - The UUID of the current content.
+- **locale**: *string* - The optional locale for which to determine the URL.
+- **webspaceKey**: *string* - The optional webspace for which to determine the URL.
 
 **Returns**:
 
-Url for a given webspace and locale
+The URL for a given webspace and locale.

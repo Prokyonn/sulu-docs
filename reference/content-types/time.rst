@@ -4,13 +4,13 @@ Time
 Description
 -----------
 
-Shows a text line, the inserted content will be validated against a localized
+Shows a text line. The inserted content will be validated against a localized
 time string and saved as a simple string.
 
 Parameters
 ----------
 
-No parameters available
+No parameters available.
 
 Example
 -------

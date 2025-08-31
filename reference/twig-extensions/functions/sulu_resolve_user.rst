@@ -1,7 +1,7 @@
 ``sulu_resolve_user``
 =====================
 
-Returns user entity.
+Returns a user entity.
 
 .. code-block:: jinja
 
@@ -9,6 +9,6 @@ Returns user entity.
 
 **Arguments**:
 
-- **id**: *int* - Id of the requested user.
+- **id**: *int* - The ID of the requested user.
 
-**Returns**: *User* - Object with all needed properties.
+**Returns**: `User` - An object with all the needed properties.

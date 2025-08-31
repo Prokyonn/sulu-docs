@@ -3,7 +3,7 @@ Pass additional data to your template using a custom controller
 
 Templates include a ``controller`` tag that defines which controller is used for rendering pages of the template.
 Sulu includes a ``DefaultController`` that resolves the data of the properties of the template and passes it to
-your twig template. If you want to pass additional data to your twig template, you can configure a custom controller
+your Twig template. If you want to pass additional data to your Twig template, you can configure a custom controller
 class that provides this data.
 
 .. code-block:: xml
@@ -18,13 +18,13 @@ class that provides this data.
         ...
     </template>
 
-Inside of your controller implementation, you are free to harness the full power of the Symfony framework.
-If you want to access a service, you need to implement the ``getSubscribedServices`` method like described in the
+Inside your controller implementation, you are free to harness the full power of the Symfony framework.
+If you want to access a service, you need to implement the ``getSubscribedServices`` method as described in the
 `Service Subscribers Documentation`_.
 
-In most cases, you want your custom controller to extend the functionality of the ``DefaultController`` of Sulu.
+In most cases, you will want your custom controller to extend the functionality of the ``DefaultController`` of Sulu.
 When extending the ``DefaultController``, you only need to overwrite the ``getAttributes`` method to include the data
-that should be passed to your twig template.
+that should be passed to your Twig template.
 
 .. code-block:: php
 

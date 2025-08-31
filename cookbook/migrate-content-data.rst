@@ -6,7 +6,7 @@ When a page or a snippet is loaded from PHPCR, Sulu will use its template to res
 Because of this, if you change the name of a property in your template and want to keep the existing data
 for that property, you need to migrate the data inside of PHPCR to match the new property name.
 
-To preferred way for migrate existing data is creating a migration script using the
+The preferred way to migrate existing data is by creating a migration script using the
 `dantleech/phpcr-migrations-bundle`_ package. Inside of such a migration, you are able to iterate
 over all properties of existing pages and snippets and modify them to your needs.
 
@@ -19,11 +19,11 @@ inside of your project by adding a ``config/packages/phpcr_migrations.yaml`` fil
         paths:
             - '%kernel.project_dir%/phpcr-migrations'
 
-Before creating a migration, it is helpful to inspect the existing properties of a page inside of PHPCR
+Before creating a migration, it is helpful to inspect the existing properties of a page inside PHPCR
 using the interactive shell of the `phpcr/phpcr-shell`_ package that can be started via
 ``bin/console doctrine:phpcr:shell``.
 
-The following example migration renames the ``oldPropertyName`` property into ``newPropertyName`` for
+The following example migration renames the ``oldPropertyName`` property to ``newPropertyName`` for
 all existing pages that use the ``my-template-key`` template. It must be stored in the configured ``phpcr-migrations``
 directory of your project and is executed when running ``bin/console phpcr:migrations:migrate``.
 
@@ -76,7 +76,7 @@ directory of your project and is executed when running ``bin/console phpcr:migra
         }
 
         /**
-         * Upgrade all nodes in given session.
+         * Upgrade all nodes in a given session.
          */
         private function upgrade(SessionInterface $session, Localization $localization)
         {
@@ -94,7 +94,7 @@ directory of your project and is executed when running ``bin/console phpcr:migra
         }
 
         /**
-         * Downgrades all nodes in given session.
+         * Downgrades all nodes in a given session.
          */
         private function downgrade(SessionInterface $session, Localization $localization)
         {

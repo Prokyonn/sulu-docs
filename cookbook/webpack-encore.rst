@@ -1,21 +1,21 @@
 Using Webpack Encore for your website assets
 ============================================
 
-Webpack Encore is a tool to manage your javascript and css assets. It
-seamlessly integrates webpack into your symfony application.
+Webpack Encore is a tool to manage your JavaScript and CSS assets. It
+seamlessly integrates Webpack into your Symfony application.
 
 Installation
 ------------
 
-First add the `WebpackEncoreBundle`_ as a dependency to your
-composer.json file.
+First, add the `WebpackEncoreBundle`_ as a dependency to your
+`composer.json` file.
 
 .. code:: bash
 
    composer require symfony/webpack-encore-bundle
 
 To enable it, add the following line to the ``config/bundles.php`` file,
-if that has not been done already for you by Symfony Flex:
+if that has not already been done for you by Symfony Flex:
 
 .. code:: php
 
@@ -46,9 +46,9 @@ Flex:
 
 In a normal Symfony application, that would already work fine, but to
 use Webpack Encore with Sulu, some configuration has to be adjusted,
-because there is an additional Javascript application for Sulu’s admin interface.
+because there is an additional JavaScript application for Sulu’s admin interface.
 
-To continue, create a directory ``assets/website/`` and move the
+To continue, create a directory, ``assets/website/``, and move the
 newly added files and directories from ``assets/`` into ``assets/website``.
 
 Next, add the following changes to ``webpack.config.js``:
@@ -104,8 +104,8 @@ configuration files:
         # If multiple builds are defined (as shown below), you can disable the default build:
         # output_path: false
 
-Luckily, Webpack Encore provides a deadly simple way to link to your
-built assets inside your html. Therefore, change the following lines in
+Luckily, Webpack Encore provides a very simple way to link to your
+built assets inside your HTML. Therefore, change the following lines in
 your base template at ``templates/base.html.twig``:
 
 .. code:: diff
@@ -130,7 +130,7 @@ Build
 -----
 
 Now you are ready to add your scripts and styles in ``assets/website``.
-When you finished your changes, open your terminal in the root directory
+When you have finished your changes, open your terminal in the root directory
 and run the following command:
 
 .. code:: bash
@@ -142,13 +142,13 @@ Now you should be able to see the outcome in the browser.
 
 .. note::
 
-   If the website assets were accidentally build before changing the `public/build` to `public/website/build`
-   it could happen that all admin assets were removed. Use `git checkout public/build/admin` or the `bin/console sulu:admin:update-build` command to restore the admin build files: :doc:`build-admin-frontend`
+   If the website assets were accidentally built before changing the `public/build` to `public/website/build`,
+   it could happen that all admin assets were removed. Use `git checkout public/build/admin` or the `bin/console sulu:admin:update-build` command to restore the admin build files: :doc:`build-admin-frontend`.
 
 Optional: Install Web-JS
 ------------------------
 
-In order to install the UI-Library ``web-js`` you have to remove the ``stimulus``
+In order to install the UI-Library ``web-js``, you have to remove the ``stimulus``
 library from the generated files.
 
 Remove the following files / directories:
@@ -157,7 +157,7 @@ Remove the following files / directories:
 * ``assets/website/controllers/``
 * ``assets/website/controllers.json``
 
-And remove following lines from ``assets/website/app.js``:
+And remove the following lines from ``assets/website/app.js``:
 
 .. code:: diff
 
@@ -172,13 +172,13 @@ And comment out the following line in ``webpack.config.js``:
    -    .enableStimulusBridge('./assets/website/controllers.json')
    +    // .enableStimulusBridge('./assets/website/controllers.json')
 
-After that you are able to install ``web-js`` via the documentation
+After that, you are able to install ``web-js`` via the documentation
 of the `web-js repository`_.
 
 Customization
 -------------
 
-For further customization of your frontend setup, follow the `Webpack
+For further customization of your front-end setup, follow the `Webpack
 Encore Documentation`_.
 
 .. _WebpackEncoreBundle: https://github.com/symfony/webpack-encore-bundle

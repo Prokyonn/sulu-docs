@@ -6,7 +6,7 @@
     This method is deprecated. Use the predefined template as described in
     :doc:`../../../book/twig`.
 
-Returns all the SEO related HTML tags as one string, including:
+Returns all the SEO-related HTML tags as one string, including:
 
 - Title
 - Description
@@ -20,12 +20,12 @@ Returns all the SEO related HTML tags as one string, including:
 
 **Arguments**:
 
-- **extension**: *array* - The values of the SEO extension
-- **content**: *array* - The values of the actual content
-- **urls**: *array* - All urls in all localizations for this page
+- **extension**: *array* - The values of the SEO extension.
+- **content**: *array* - The values of the actual content.
+- **urls**: *array* - All URLs in all localizations for this page.
 - **shadowBaseLocale**: *string* - The locale the page shadows to, in case the
-  page is a shadow page
+  page is a shadow page.
 
 **Returns**:
 
-All HTML strings as a simple string
+All HTML tags as a single string.

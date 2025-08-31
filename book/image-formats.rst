@@ -1,19 +1,19 @@
 Configure image formats
 =======================
 
-Sulu supports to configure image formats for images that are uploaded via the administration interface.
-This allows to optimize the performance of your website by outputting images in the exact dimensions that
+Sulu supports the configuration of image formats for images that are uploaded via the administration interface.
+This allows you to optimize the performance of your website by outputting images in the exact dimensions that
 are needed. Furthermore, the content manager can select the cutout that should be used when outputting a
 specific image format for an uploaded image.
 
-To save space on your server, image formats for uploaded images are generated when they are requested the
+To save space on your server, image formats for uploaded images are generated when they are requested for the
 first time.
 
 Image formats can be defined in:
 
  - `config/image-formats.xml`
 
-Or when you use the SuluThemeBundle you can define the formats in your theme folder:
+Alternatively, when you use the SuluThemeBundle, you can define the formats in your theme folder:
 
  - `path/to/<theme>/config/image-formats.xml`
 
@@ -82,7 +82,7 @@ images.
 Using image formats in your Twig template
 -----------------------------------------
 
-The URLs for accessing specific image formats are passed to you twig template inside of the ``thumbnails`` property:
+The URLs for accessing specific image formats are passed to your Twig template inside of the ``thumbnails`` property:
 
 .. code-block:: twig
 
@@ -90,8 +90,8 @@ The URLs for accessing specific image formats are passed to you twig template in
         <img src="{{ image.thumbnails['200x100'] }}" alt="{{ image.title }}"/>
     </div>
     
-Per default, image formats will be outputted in the file format of the original file. 
-You can also use a specific file format (eg. ``png`` or ``webp``) by adding the extension to the format key:
+By default, image formats will be outputted in the file format of the original file.
+You can also use a specific file format (e.g., ``png`` or ``webp``) by adding the extension to the format key:
 
 .. code-block:: twig
 
@@ -105,8 +105,8 @@ Image Compression
 Global image compression
 ^^^^^^^^^^^^^^^^^^^^^^^^
 
-Images will not get compressed by default when you upload them. You can set the
-compression for images globally e.g. in the `config/packages/sulu_media.yml`.
+Images will not be compressed by default when you upload them. You can set the
+compression for images globally, e.g., in `config/packages/sulu_media.yml`.
 This file does not exist by default and must be created on your own.
 
 .. code-block:: yaml
@@ -119,12 +119,12 @@ This file does not exist by default and must be created on your own.
                 avif_quality: 80
                 png_compression_level: 6
 
-Its recommended to have `jpeg_quality` between 70-90 as this is the best compromise between quality and image size.
+It's recommended to have `jpeg_quality` between 70-90, as this is the best compromise between quality and image size.
 
 Specific image compression
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-A image compression can also be set on a specific image format the following way:
+Image compression can also be set on a specific image format in the following way:
 
 .. code-block:: xml
 
@@ -147,7 +147,7 @@ A image compression can also be set on a specific image format the following way
 Transformations
 ---------------
 
-There are several transformations available in sulu to add some effects to your images:
+There are several transformations available in Sulu to add some effects to your images:
 
 Blur
 ^^^^
@@ -177,7 +177,7 @@ Will blur the image by a given `sigma` parameter:
 Grayscale
 ^^^^^^^^^
 
-Will convert the image into a black/white image:
+Will convert the image into a black and white image:
 
 .. code-block:: xml
 
@@ -249,7 +249,7 @@ Will add a sharpen effect:
 Paste
 ^^^^^
 
-The paste transformation effect will add another image on top on the rendered image.
+The paste transformation effect will add another image on top of the rendered image.
 This can be used to add a border or a copyright to the image.
 
 .. code-block:: xml
@@ -273,7 +273,7 @@ This can be used to add a border or a copyright to the image.
         </format>
     </formats>
 
-The given image can be positioned by adding `x`, `y`, `w` `h` parameter:
+The given image can be positioned by adding `x`, `y`, `w`, and `h` parameters:
 
 .. code-block:: xml
 
@@ -303,7 +303,7 @@ The given image can be positioned by adding `x`, `y`, `w` `h` parameter:
 Combining Transformations
 ^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Transformation effect can also be combined the following way:
+Transformation effects can also be combined in the following way:
 
 .. code-block:: xml
 
@@ -332,7 +332,7 @@ Transformation effect can also be combined the following way:
 Editing existing image formats
 ------------------------------
 
-If you edit exist image formats you need to run the following command to regenerate exist images:
+If you edit existing image formats, you need to run the following command to regenerate existing images:
 
 If you modify an existing image format configuration, you need to regenerate already generated images
 by executing the following command:
@@ -354,7 +354,7 @@ of the image format.
 Remove obsolete images
 ----------------------
 
-In a multi server setup, when an image is removed via the administration interface, existing image formats are only
+In a multi-server setup, when an image is removed via the administration interface, existing image formats are only
 removed on the current server.
 Generated image formats of media that do not exist in the database can be removed by running the following command:
 

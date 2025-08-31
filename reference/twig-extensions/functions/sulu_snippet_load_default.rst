@@ -3,7 +3,7 @@
 
 .. note::
 
-    This method is deprecated, use :doc:`sulu_snippet_load_by_area` instead.
+    This method is deprecated. Use :doc:`sulu_snippet_load_by_area` instead.
 
 Returns the content of the default snippet for the given snippet type.
 
@@ -14,14 +14,14 @@ Returns the content of the default snippet for the given snippet type.
 
 .. note::
 
-    The system currently only support one default per type.
+    The system currently only supports one default per type.
 
 **Arguments**:
 
-- **snippetType**: *string* - The type to search for default snippets.
-- **webspaceKey**: *string* - optional: The webspace to get default snippet
+- **snippetType**: *string* - The type for which to search for default snippets.
+- **webspaceKey**: *string* - The optional webspace from which to get the default snippet
                                         settings.
-- **locale**: *string* - optional: The locale to load snippet.
+- **locale**: *string* - The optional locale to load the snippet.
 
 **Returns**:
 

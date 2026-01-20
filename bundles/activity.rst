@@ -2,7 +2,7 @@ ActivityBundle
 ==============
 
 The ActivityBundle is responsible for recording activities that happen in the application and allows
-developer to listen for changes and other events that happen in the system.
+developers to listen for changes and other events that happen in the system.
 
 Configuration
 -------------
@@ -17,8 +17,8 @@ The ActivityBundle allows for the following configuration:
             adapter: 'doctrine' # can be set to null to not store activities
             persist_payload: false # include payload of event in stored activity
 
-Listen for an event
--------------------
+Listening for an event
+----------------------
 
 Behind the scenes, the ActivityBundle uses events for recording activities that happen in the application.
 Each recorded activity is created based on an event that was dispatched using the `Symfony event dispatcher`_.
@@ -66,7 +66,7 @@ sends an email when a page with a specific template is created in the applicatio
 Store a custom activity
 -----------------------
 
-To store a custom activity in your project, you need to implement a respective event and dispatch it using the
+To store a custom activity in your project, you need to implement a corresponding event and dispatch it using the
 services provided by the ActivityBundle. Your event needs to extend the ``DomainEvent`` class of the activity
 bundle and could look like this:
 
@@ -158,7 +158,7 @@ For example, the translation key for the activity shown above is ``sulu_activity
         "sulu_activity.description.book.created": "{userFullName} has created the Book \"{resourceTitle}\""
     }
 
-The translation text can include placeholders that are replaced with activity specific information. For example,
+The translation text can include placeholders that are replaced with activity-specific information. For example,
 ``{resourceTitle}`` will be replaced with the title of the affected resource. Have a look at the implementation of the
 `ActivityController class`_ of the ActivityBundle to find all available placeholders.
 
@@ -166,7 +166,7 @@ Configure permissions for custom activities
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Activities are visible for all users that are allowed to see the activity list in the administration interface
-per default. To restrict this, it is possible to return a :doc:`security context<../cookbook/securing-your-application>`
+by default. To restrict this, it is possible to return a :doc:`security context<../cookbook/securing-your-application>`
 from the ``getResourceSecurityContext`` method.
 An activity that returns a security context from the ``getResourceSecurityContext`` method  will only be visible for
 users with a ``view`` permission for the context:
@@ -187,15 +187,15 @@ users with a ``view`` permission for the context:
         }
     }
 
-Extending the Admin View with a Activity Table
-------------------------------------------------
+Extending the Admin View with an Activity Table
+-----------------------------------------------
 
-To extend the admin view by adding a activities table, follow these steps:
+To extend the admin view by adding an activities table, follow these steps:
 
 	1.	Inject the `ActivityViewBuilderFactoryInterface`: Inject this interface into your custom Admin class. This will allow you to utilize the necessary methods to create the activities view.
 	2.	Create the Activity List View: Use the `createActivityListViewBuilder` method to create the list view for the activities table.
 
-Here’s an example implementation, demonstrating how to add the activities tab to your custom admin view, for further examples take a look at the SnippetAdmin class:
+Here’s an example implementation, demonstrating how to add the activities tab to your custom admin view, for further examples, see the SnippetAdmin class:
 
 .. code-block:: php
 
@@ -218,7 +218,7 @@ The `createActivityListViewBuilder` method is used to create the view. It takes 
     - The URL path for the activities table.
     - The resource key identifies the type of resource for the activities.
 
-The setParent method sets the parent view to integrate the activities table into the existing admin view.
+The ``setParent`` method sets the parent view to integrate the activities table into the existing admin view.
 
 .. _Symfony event dispatcher: https://symfony.com/doc/current/event_dispatcher.html
 .. _DomainEvent class: https://github.com/sulu/sulu/blob/2.x/src/Sulu/Bundle/ActivityBundle/Domain/Event/DomainEvent.php

@@ -6,7 +6,7 @@ The SuluHttpCache bundle provides integration between Sulu and HTTP caching prox
 CacheManager
 ------------
 
-The CacheManager can be used to invalidate the cache.
+You can use the CacheManager to invalidate the cache.
 
 For example:
 
@@ -23,7 +23,7 @@ CacheLifetime
 CacheLifetimeEnhancer
 """""""""""""""""""""
 
-Use this service to set the cache lifetime from a Sulu structure to the response.
+Use this service to set the cache lifetime of the response based on a Sulu structure.
 The structure needs to be an instance of `PageInterface`.
 
 Note: This service is only available when a proxy client is correctly configured.
@@ -67,16 +67,16 @@ Enable this feature via configuration:
 Tags
 """"
 
-The tags feature is the most comprehensive cache invalidation strategy, it will
+The tags feature is the most comprehensive cache invalidation strategy; it will
 invalidate both the URLs of the structure and the URLs of the pages which
 display references to the structure. It must be used in conjunction with a
 proxy client which supports Banning.
 
-This works by sending all of the UUIDs of the structures which are
+This works by sending all UUIDs of the structures which are
 contained in a page response to the proxy client. The proxy client can then
 store this information along with the cached HTML response.
 
-When you update any structure in the admin interface it will instruct the HTTP proxy
+When you update any structure in the admin interface, it instructs the HTTP proxy
 to purge all the caches which have a reference to the UUID of the structure you
 have updated.
 
@@ -101,14 +101,14 @@ Enable this feature via configuration:
 Proxy Clients
 -------------
 
-At the moment Sulu works with following proxy clients:
+Currently, Sulu works with the following proxy clients:
 
 Symfony Http Cache
 """"""""""""""""""
 
 The Symfony HTTP cache is the default caching client for Sulu. It is integrated directly into Sulu.
 
-It works by "wrapping" the kernel. This is done by the kernel itself, but in the front controller
+It works by 'wrapping' the kernel. This is done by the kernel itself, but in the front controller
 at ``public/index.php`` the cache kernel has to be used:
 
 .. code-block:: php
@@ -118,7 +118,7 @@ at ``public/index.php`` the cache kernel has to be used:
         $kernel = $kernel->getHttpCache();
     }
 
-It will need to be disabled (i.e. the lines need to be removed) when using varnish.
+It must be disabled (i.e. the lines need to be removed) when using varnish.
 
 Varnish
 """""""

@@ -1,11 +1,11 @@
 Password policy
 ===============
 
-The SecurityBundle allows to define a password policy by configuring a pattern.
-The pattern will be used to validate the input of the user in the administration interface
-and programatically created users in the `UserManager`.
+The SecurityBundle allows you to define a password policy by configuring a pattern.
+The pattern validates user input in the administration interface
+and programmatically created users in the `UserManager`.
 
-The following example enables the default pattern of sulu (minimum length of 8 characters).
+The following example enables the default Sulu pattern (minimum length of 8 characters).
 
 .. code:: yaml
 
@@ -33,7 +33,7 @@ The configuration below sets an example pattern that validates the password agai
             pattern: '(?=^.{8,}$)(?=.*\d)(?=.*[^a-zA-Z0-9]+)(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$'
             info_translation_key: app.password_information
 
-Dont forget to provide a translation that explains your password policy to the user by setting the ``info_translation_key`` configuration. 
+Don't forget to provide a translation that explains your password policy to the user by setting the ``info_translation_key`` configuration. 
 
 .. code:: json
 

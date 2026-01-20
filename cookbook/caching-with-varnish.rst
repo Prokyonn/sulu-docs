@@ -1,33 +1,33 @@
 Caching with Varnish
 ====================
 
-Varnish is a HTTP `caching proxy`_  server which can be used to radically
+Varnish is an HTTP `caching proxy`_ server that can be used to significantly
 improve the response time of your website.
 
-Sulu is bundled with a "soft" `caching proxy`_, the Symfony `HttpCache`_, but
-using Varnish is a more optimal solution for a large website, especially if it
+Sulu includes a "soft" `caching proxy`_, the Symfony `HttpCache`_, but
+using Varnish is a better solution for a large website, especially if it
 has lots of traffic.
 
-In addition to being twice as fast as the default caching implementation it
+In addition to being significantly faster than the default caching implementation it
 also supports better cache invalidation, which means that your website will
 appear more up-to-date.
 
 .. note::
 
     "Twice as fast" is relative. The default cache implementation can respond
-    in 0.02s compared to varnishes 0.01s - the difference here is
+    in 0.02s compared to Varnish's 0.01s - the difference here is
     imperceptible - but varnish will scale better and supports better
     invalidation.
 
 This tutorial will walk you through the process of setting up Varnish on
 your own server and configuring it to work with Sulu.
 
-This tutorial assumes that:
+This tutorial assumes:
 
 - You are using the Apache2 web server
 - You are running Ubuntu or Debian
 
-The steps should apply equally to other variants.
+The steps should apply to other variants as well.
 
 Install Varnish
 ---------------
@@ -51,7 +51,7 @@ Web Server
     You may skip this section if you intend to run varnish in a development
     environment and do not want to change the default port of your web server.
 
-For a caching server to serve pages to your users, it will need to "pretend"
+For a caching server to serve pages to your users, it needs to "pretend"
 to be the web server. Web servers listen to requests on port 80 by default. We
 must make Varnish listen for connections on port 80 and make the web server
 listen on a different port.
@@ -70,7 +70,7 @@ Change the ``Listen`` directive in ``/etc/apache2/ports.conf`` to ``Listen 8090`
     # ...
     Listen 8090
 
-And change any and all virtual hosts to now listen on ``8090``:
+Change all virtual hosts to now listen on ``8090``:
 
 .. code-block:: apache
 
@@ -88,7 +88,7 @@ Varnish
 .. note::
 
     Skip this section if you are in a development environment and prefer to
-    access varnish via. its default port (explained later).
+    access Varnish via its default port (explained later).
 
 By default Varnish will listen for connections on port ``6081`` (at least on
 Debian systems). If you are running a production system you will need to
@@ -127,7 +127,7 @@ Now restart the daemon:
 Varnish Configuration
 ---------------------
 
-The following will add full caching support for Sulu:
+The following configuration adds full caching support for Sulu:
 
 .. code-block:: varnish4
 
@@ -204,7 +204,7 @@ And now have a look at the headers on your website:
     Via: 1.1 varnish
     # ...
 
-If you see the above ``Via`` header, then all is good and your are ready to go forward.
+If you see the above ``Via`` header, everything is working, and you can proceed.
 
 Configuring Sulu Invalidation
 -----------------------------
@@ -222,8 +222,7 @@ ensure that the following lines are commented out:
 
 .. warning::
 
-    If you do not comment out the above lines caching will not work correctly as you
-    will be using 2 caches.
+    If you do not comment out the above lines, caching will not work correctly because you will be using two caches.
 
 Now edit ``config/packages/sulu_http_cache.yml`` and change the proxy client
 from ``symfony`` to ``varnish`` and set the address of your varnish server
@@ -244,7 +243,7 @@ Using XKey
 Xkey is an efficient way to invalidate Varnish cache entries based on tagging. The advantage of
 the feature is that you can use the ``grace mode`` feature of varnish, which allows varnish to 
 serve expired cache entries while fetching an update from the backend transparently. 
-Have a look at the varnish documentation for more information about
+See the Varnish documentation for more information about
 the `Grace mode`_.
 
 
@@ -257,7 +256,7 @@ To be able to use it, you need to install ``varnish-modules``:
 
 Or build it from sources see the documentation at the github repository `varnish/varnish-modules`_.
 
-When the installation was successfull you can use following configuration to enable
+When the installation is successful you can use following configuration to enable
 xkey:
 
 .. code-block:: varnish4
@@ -312,7 +311,7 @@ Additionally, you need to configure Sulu to use the XKey feature of varnish:
 Optimal configuration
 ---------------------
 
-To get the most out of the Varnish cache you should enable the ``tags`` option in the configuration.
+To get the most out of the Varnish cache, you should enable the ``tags`` option in the configuration.
 
 .. code-block:: yaml
 

@@ -9,7 +9,7 @@ the `public/build/admin directory`. There are different ways to do this:
 Solution 1: Update Command (Recommended way)
 --------------------------------------------
 
-Sulu is shipped with a build in command to update the build.
+Sulu ships with a built-in command to update the build.
 
 1. Run Update Build command
 
@@ -27,14 +27,15 @@ Sulu is shipped with a build in command to update the build.
 Solution 2: Build manually with docker
 --------------------------------------
 
-1. Start a node container with the desired version and map the the current directory into the /var/project folder in the container
+1. Start a node container with the desired version and map the current directory into the /var/project folder in the container
 
 .. code-block:: bash
 
-    docker run --rm --interactive --tty --volume ${PWD}:/var/project node:14.16.0 /bin/bash
+    docker run --rm --interactive --tty --volume ${PWD}:/var/project node:20.18.1 /bin/bash
 
     # for completion: using another node version is possible by adjusting the tag of the node image
-    # docker run --rm --interactive --tty --volume ${PWD}:/var/project node:12.21.0 /bin/bash
+    # docker run --rm --interactive --tty --volume ${PWD}:/var/project node:22.11.0 /bin/bash
+    # check the assets/admin/package.json for compatible npm versions
 
 2. Cleanup previously created node_modules folders and package-lock.json files
 
@@ -76,10 +77,10 @@ on your computer.
     npm install
     npm run build
 
-Solution 4: Build manually locally with bun
--------------------------------------------
+Solution 4: Build manually with Bun
+-----------------------------------
 
-As an alternative to node/npm Sulu also supports to use `bun`_ to build the administration interface.
+As an alternative to node/npm Sulu also supports using `bun`_ to build the administration interface.
 The support for bun is experimental and can be removed in future versions of Sulu.
 
 1. Install Bun
@@ -111,16 +112,12 @@ If the installation of the npm dependencies or the webpack build fails, you migh
 
 1. Check your Node.js and npm version
 
-You can check the officially supported and tested Node.js and npm version by looking at the `Test Application workflow`_ of the ``sulu/sulu`` package.
-At the time of writing, this includes Node.js 12, Node.js 14 and npm 6.
-
-.. warning::
-
-    Because of a breaking change for linked packages, Sulu is not compatible with npm v7 at the moment. Have a look at the `issue in the sulu/skeleton repository`_ for more information about this..
+You can check the officially supported and tested Node.js and npm version by viewing the `Test Application workflow`_ of the ``sulu/sulu`` package.
+Since Sulu 2.6, Sulu requires at least NPM 8 and Node 18 to build the administration interface.
 
 2. Clear the npm cache on your machine
 
-The webpack build might fail because of leftovers from previous builds our outdated packages.
+The webpack build might fail because of leftovers from previous builds or outdated packages.
 To prevent this, you should remove all the ``package-lock.json`` files and ``node_modules`` directories below your project root before installing the npm dependencies:
 
 .. code-block:: bash

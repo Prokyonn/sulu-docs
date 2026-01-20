@@ -1,15 +1,15 @@
 Custom error page
 =================
 
-With Sulu it is very easy to customize the error pages for your website users.
+Sulu makes it very easy to customize the error pages for your website users.
 You can define a template for each HTTP status code.
 
 Configuration
 -------------
 
 The following code block from the webspace configuration file shows a default
-configuration for the exception templates. If you want to add your own exception
-for example 404 you can simply add it to the list. You can specify that for
+configuration for the exception templates. If you want to add your own exception,
+for example, 404, simply add it to the list. You can specify that for
 each theme.
 
 .. code-block:: xml
@@ -20,13 +20,13 @@ each theme.
     </templates>
 
 The `ErrorController` uses the status code of the response to determine
-which template is responsible for the exception. If no special template is
-defined it uses the template without an error code.
+which template handles the exception. If no special template is
+defined, it uses the template without an error code.
 
 Twig Template
 -------------
 
-In the twig template you can use your website base template to reuse your
+In the Twig template, you can extend your website base template to reuse your
 style.
 
 .. code-block:: html
@@ -45,7 +45,7 @@ style.
 .. warning::
 
     Be careful which variables you use in your `base.html.twig`. If you use variables
-    which are not defined in the error template, the error page cannot be rendered.
+    that are not defined in the error template, the error page cannot be rendered.
 
 The following variables are available inside the exception template.
 
@@ -58,7 +58,7 @@ The following variables are available inside the exception template.
 +---------------------------------+------------------------------------------------------------------+
 | `exception`                     | complete exception object                                        |
 +---------------------------------+------------------------------------------------------------------+
-| `urls`                          | localized urls to start page (e.g. for language-switcher)        |
+| `urls`                          | localized URLs to start page (e.g. for language-switcher)        |
 +---------------------------------+------------------------------------------------------------------+
 | `request.webspaceKey`           | key of the current webspace                                      |
 +---------------------------------+------------------------------------------------------------------+
@@ -68,13 +68,13 @@ The following variables are available inside the exception template.
 +---------------------------------+------------------------------------------------------------------+
 | `request.portalUrl`             | url of current portal                                            |
 +---------------------------------+------------------------------------------------------------------+
-| `request.resourceLocatorPrefix` | prefix for resourcelocators of current portal                    |
+| `request.resourceLocatorPrefix` | prefix for resource locators of current portal                   |
 +---------------------------------+------------------------------------------------------------------+
-| `request.resourcelocator`       | current resourcelocator                                          |
+| `request.resourcelocator`       | current resource locator                                         |
 +---------------------------------+------------------------------------------------------------------+
-| `request.get`                   | array of get parameter                                           |
+| `request.get`                   | array of GET parameters                                          |
 +---------------------------------+------------------------------------------------------------------+
-| `request.post`                  | array of post parameter                                          |
+| `request.post`                  | array of POST parameters                                         |
 +---------------------------------+------------------------------------------------------------------+
 | `request.analyticsKey`          | analytics key of current webspace                                |
 +---------------------------------+------------------------------------------------------------------+
@@ -90,7 +90,7 @@ To test your error pages you can use the following routes:
 
 .. note::
 
-    If you are not sure about your portal configuration you can get the routes with this
+    If you are not sure about your portal configuration you can get the routes using this
     `bin/websiteconsole debug:router | grep _error` command
 
 Examples:

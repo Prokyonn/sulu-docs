@@ -3,20 +3,19 @@ Creating a Pull Request
 
 When creating a pull request:
 
-* Clone the Sulu repository from git.
-* Add a branch and name it after the following format: ``<type>/<description>``, where
-  type is one of ``feature``, ``bugfix``, ``hotfix`` or ``enhancement``. For
-  example: ``feature/what-my-pr-does``. Note that dashes should be used
-  instead of spaces (not underscores).
+* Clone the Sulu repository from Git.
+* Add a branch and name it using the following format: ``<type>/<description>``, where
+  type is one of ``feature``, ``bugfix``, ``hotfix``, or ``enhancement``. For
+  example: ``feature/what-my-pr-does``. Use dashes instead of spaces (do not use underscores).
 * Add your feature/bugfix/enhancement.
-* Create atomic and logically separate commits (use the power of ``git rebase``
-  to have a clean and logical history).
-* Write good commit messages (see the tip below).
+* Create atomic and logically separate commits (use ``git rebase``
+  to maintain a clean and logical history).
+* Write clear commit messages (see the tip below).
 * Write tests.
 * :doc:`test-your-code`.
-* In case you do changes that break backwards compatibility you also have to
+* If you make changes that break backwards compatibility, you must
   add a description to the ``UPGRADE.md`` file in the root directory.
-* Use a meaningful name for the pull request (see the tip below).
+* Use a meaningful title for the pull request (see the tip below).
 * Create the pull request as soon as possible.
 * In addition to a pull request to the code repository, you should also send a
   pull request to the `documentation repository`_ to update the documentation when appropriate.
@@ -25,10 +24,10 @@ When creating a pull request:
 
     A good commit message is composed of a summary (the first line),
     optionally followed by a blank line and a more detailed description. Use a
-    verb (``Fixed ...``, ``Added ...``, ...) to start the summary and don't
+    verb (``Fixed ...``, ``Added ...``, ...) to start the summary and do not
     add a period at the end.
 
-If you are a member of the `Sulu organization`_ you should also:
+If you are a member of the `Sulu organization`_, you should also:
 
 * Add a label for the type of the PR:
 
@@ -36,21 +35,20 @@ If you are a member of the `Sulu organization`_ you should also:
  * **enhancement**: the PR improves existing features
  * **bugfix**: provides a bug fix
  * **hotfix**: the PR is a bugfix that should be made against a stable branch
-   (e.g. ``master``)
+   (e.g., ``master``)
 
 Template
 --------
 
-When creating a pull request on GitHub, there is already a pre filled template
-for you. The template is divided in several parts.
+When creating a pull request on GitHub, there is a pre-filled template
+available. The template is divided into several parts.
 
 Checklist
 `````````
 The pull request must include the following checklist at the top to ensure that
-contributions may be reviewed without needless feedback loops and that your
-contributions can be included into Sulu as quickly as possible:
+contributions can be reviewed efficiently and included in Sulu as quickly as possible:
 
-An example submission could now look as follows:
+An example submission might look like this:
 
 .. code-block:: text
 
@@ -65,53 +63,53 @@ An example submission could now look as follows:
     | License            | MIT
     | Documentation PR   | sulu/sulu-docs#153
 
-Some answers to the questions trigger some more requirements:
+Certain answers trigger additional requirements:
 
 * If you answer yes to "Bug fix?", check if the bug is already listed in the
-  Sulu issues and reference it/them in "Fixed tickets". These should be of the
+  Sulu issues and reference it in "Fixed tickets". These should be in the
   form ``fixes #123, fixes #321``.
 * If you answer yes to "New feature?", you must submit a pull request to the
-  documentation and reference it under the "Documentation PR" section.
+  documentation and reference it in the "Documentation PR" section.
 * If you answer yes to "BC breaks?", the pull request must contain updates to
   the ``UPGRADE.md`` file.
 * If you answer yes to "Deprecations?", the pull request must contain updates to
   the ``UPGRADE.md`` file.
-* If the "license" is not MIT, just don't submit the pull request as it won't
-  be accepted anyway.
+* If the "license" is not MIT, do not submit the pull request as it will not
+  be accepted.
 
 .. note::
 
-  When an issue number is prefixed with ``fixes`` it tells GitHub to
-  automatically close the referenced ticket when the pull request is merged
+  When an issue number is prefixed with ``fixes``, GitHub
+  automatically closes the referenced ticket when the pull request is merged.
 
 What's in this PR?
 ``````````````````
 
-Give as much details as possible about your changes (don't hesitate to give code
+Provide as many details as possible about your changes (including code
 examples to illustrate your points).
-The pull request description helps the code review and it serves as a reference
+The pull request description assists the code review and serves as a reference
 when the code is merged.
 
 Why?
 ````
 
-If your pull request is about adding a new feature or modifying an existing one,
-explain the rationale for the changes. Why did you add this feature, which problem
-does the PR fix?
+If your pull request adds a new feature or modifies an existing one,
+explain the rationale. Why did you add this feature, and which problem
+does the PR solve?
 
-Example usage
+Example Usage
 `````````````
 
-If you add a new feature or make breaking changes, please give us an example
-usage (code examples, screenshots, etc.), so we understand what you try to
-solve.
+If you add a new feature or make breaking changes, please provide an example
+usage (code examples, screenshots, etc.) so we understand the problem you are
+solving.
 
 Remove this section if not needed.
 
 BC Breaks/Deprecations
 ``````````````````````
 
-If you have done BC breaks or deprecations, please describe them shortly here
+If you have introduced BC breaks or deprecations, please describe them briefly here
 and add them to the ``UPGRADE.md`` file as well.
 
 Remove this section if not needed.
@@ -119,7 +117,7 @@ Remove this section if not needed.
 To Do
 `````
 
-If some of the requirements in the checklist are not met, use the "To Do"
+If some requirements in the checklist are not met, use the "To Do"
 section and add the relevant items:
 
 .. code-block:: text
@@ -127,13 +125,12 @@ section and add the relevant items:
     - [ ] Submit changes to the documentation
     - [ ] Document the BC breaks
 
-If the code is not finished yet because you don't have time to finish it or
-because you want early feedback on your work, add an item to to-do list:
+If the code is not finished yet, or if you want early feedback, add an item to the to-do list:
 
 .. code-block:: text
 
     - [ ] Finish the code
-    - [ ] Add tests as they have not been updated yet
+    - [ ] Add tests (not yet updated)
     - [ ] Gather feedback for my changes
 
 Remove this section if not needed.

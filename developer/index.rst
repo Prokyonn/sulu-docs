@@ -1,9 +1,9 @@
 Developer Guide
 ===============
 
-Here's how we work at the Sulu team. We are really open to Pull Requests. It is also a aim to us to ensure code quality and guarantee some consistency in the project. So if you want to contribute to the Sulu project keep our developers guide in mind.
+This guide explains how the Sulu team works. We are open to pull requests and aim to ensure high code quality and consistency across the project. If you want to contribute to Sulu, please keep this guide in mind.
 
-**Developers need to know:**
+**What you should know:**
 
 .. toctree::
     :maxdepth: 2
@@ -11,4 +11,4 @@ Here's how we work at the Sulu team. We are really open to Pull Requests. It is 
     contributing/index
     bc-promise
 
-No matter what, we love every contribution and will honor it.
+We appreciate every contribution!

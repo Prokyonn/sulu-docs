@@ -4,7 +4,7 @@ PreviewBundle
 The PreviewBundle implements the preview feature for pages and custom entities.
 
 The bundle is built to be compatible with the RouteBundle. For custom entities, the
-`RouteDefaultsProvider` will be used to determine which controller should be
+`RouteDefaultsProvider` is used to determine which controller should be
 used to render the HTML of an entity.
 
 Configuration
@@ -22,8 +22,8 @@ The PreviewBundle allows for the following configuration:
 PreviewObjectProvider
 ---------------------
 
-The `PreviewObjectProvider` is the interface which will be used
-to load, bind and de/serialize the object.
+The `PreviewObjectProvider` is the interface used
+to load, bind, and de/serialize the object.
 
 .. code-block:: php
 
@@ -71,7 +71,7 @@ to load, bind and de/serialize the object.
         }
     }
 
-Afterwards the services has to be registered using this class and the tag
+Afterwards, the service must be registered using this class and the tag
 `<tag name="sulu_preview.object_provider" provider-key="events"/>`.
 
 PreviewFormViewBuilder
@@ -81,7 +81,7 @@ In order to display the preview in our form, we have to make use of the `Preview
 
 .. note::
 
-    For more information about Admin Class take a look at :doc:`../../book/extend-admin`.
+    For more information about the Admin Class, see :doc:`../../book/extend-admin`.
 
 .. code-block:: php
 
@@ -129,10 +129,10 @@ In order to display the preview in our form, we have to make use of the `Preview
 Preview Cache
 -------------
 
-The preview use a cache to improve its performance. By default it will use the configured
+The preview uses a cache to improve its performance. By default it will use the configured
 symfony ``cache.app`` adapter.
 
-You can configure other adapter the following way:
+You can configure another adapter as follows:
 
 .. code-block:: yaml
 
@@ -140,7 +140,7 @@ You can configure other adapter the following way:
     sulu_preview:
         cache_adapter: "cache.app" # symfony cache adapter id
 
-For example if you want to use redis you can do it this way:
+For example, if you want to use Redis, you can do it this way:
 
 .. code-block:: yaml
 
@@ -152,7 +152,7 @@ For example if you want to use redis you can do it this way:
         cache:
             default_redis_provider: 'redis://localhost' # this is default and not needed
 
-If you are in a multi server setup its recommended to set the whole `cache.app` in your
+If you are in a multi-server setup, it is recommended to set the whole `cache.app` in your
 `config/packages/cache.yaml` to a central cache like redis.
 
 .. code-block:: yaml

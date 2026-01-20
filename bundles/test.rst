@@ -1,25 +1,25 @@
 TestBundle
 ==========
 
-Writing automatic tests for a Sulu project will be similar to tests in a usual
-Symfony project. Therefore you should have a look at their `test documentation`_.
+Writing automated tests for a Sulu project is similar to testing a standard
+Symfony project. Refer to the Symfony `test documentation`_.
 
 
 Sulu's Kernel Context
 ---------------------
 
 Sulu adds an additional layer to the service container of Symfony. This is
-the kernel context. It separates the *admin* area from the *website* area.
+the kernel context, which separates the *admin* area from the *website* area.
 
-When you start writing integration or functional tests you have to keep in mind
+When writing integration or functional tests, keep in mind
 that some services are only available in either context.
 
 Integration Tests
 -----------------
 
-In integration tests you may have depencencies on other services. If a service
-is only available in the website context you will get issues, because the
-kernel is in admin context per default.
+In integration tests, you may have dependencies on other services. If a service
+is only available in the website context you will encounter issues because the
+kernel is in the admin context by default.
 
 Therefore Sulu provides an extended `KernelTestCase`_ to specify the kernel
 context.
@@ -44,21 +44,20 @@ context.
         }
     }
 
-This will boot the kernel in the website context so that you have access to
-the services living in it.
+This will boot the kernel in the website context giving you access to
+its services.
 
 Functional Tests
 ----------------
 
-In functional tests you test your application from a higher level. Instead of
-single methods or algorithms you run the functions from the same level as the
-user.
+Functional tests test your application from a higher level. Instead of
+testing single methods or algorithms, you execute functions from the user's perspective.
 
-Similar to integration tests you also have to boot the kernel in the website
+As with integration tests, you must boot the kernel in the website
 context if you want to test controllers and services living in that context.
 
 Use Sulu's `SuluTestCase`_ to create a client in the website context and define
-your expectations to the called action.
+your expectations for the called action.
 
 .. code-block:: php
     
@@ -82,7 +81,7 @@ your expectations to the called action.
         }
     }
 
-Actually calling ``$client = static::createWebsiteClient()`` is equal to this
+Calling ``$client = static::createWebsiteClient()`` is equivalent to:
     
 .. code-block:: php
     
@@ -90,13 +89,13 @@ Actually calling ``$client = static::createWebsiteClient()`` is equal to this
         'sulu.context' => SuluKernel::CONTEXT_WEBSITE,
     ]);
 
-Visit the documentation of the `DOM Crawler`_ to find out how to use it to make
-your assertions.
+See the `DOM Crawler`_ documentation to learn how to make
+assertions.
 
 Logging in Users (Authentication)
 ---------------------------------
 
-If you need a logged in user to test secured actions, Sulu provides a test
+If you need a logged-in user to test secured actions, Sulu provides a test
 user, which you can use.
 
 .. code-block:: php
@@ -112,15 +111,14 @@ user, which you can use.
         }
     }
 
-The user you get, is an entity of the type ``Sulu\Bundle\SecurityBundle\Entity\User``,
-has the role *ROLE_USER* and it is automatically granted access if authorization
-is checked.
+The user you get is an entity of type ``Sulu\Bundle\SecurityBundle\Entity\User``,
+has the role *ROLE_USER* and is automatically granted access during authorization checks.
 
 Database purging
 ----------------
 
-If you are doing database manipulations in your tests, and need a clean database
-before you run your tests. You may want to use Sulu's database purging helper.
+If you manipulate the database in your tests and need a clean state
+before running them, use Sulu's database purging helper.
 
 .. code-block:: php
     
@@ -132,9 +130,8 @@ before you run your tests. You may want to use Sulu's database purging helper.
         }
     }
 
-This purges the database before each test, that is defined in the test class.
-If you only want to purge the database once before your tests run you can use
-it in ``setUpBeforeClass()`` instead of ``setUp()``.
+This purges the database before each test defined in the test class.
+To purge the database only once before your tests run, use it in ``setUpBeforeClass()`` instead of ``setUp()``.
 
 
 .. _test documentation: https://symfony.com/doc/current/testing.html

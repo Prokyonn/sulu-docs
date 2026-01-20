@@ -3,8 +3,8 @@ HashBundle
 
 The SuluHashBundle adds an easy to use solution for protecting entities and
 documents from being overridden by accident. This can happen if two users open
-the same form in the user interface. If the user which opened the form later
-saves its changes first, the later save will cause the changes to be
+the same form in the user interface. If the user who opened the form later
+saves their changes first, the later save will cause the changes to be
 overridden.
 
 Serialization
@@ -41,7 +41,7 @@ also adds a code of `1103` to the Response, so that certain actions like
 showing an overlay asking if the changes should be overridden are possible.
 
 The hash checker also checks the value of the query parameter `force`, which
-allows to override the object even if it has changed in the mean time.
+allows overriding the object even if it has changed in the meantime.
 
 The following code snippet shows how the hash checker can be included in a
 controller:

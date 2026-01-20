@@ -1,9 +1,9 @@
 Security System
 ===============
 
-The SecurityBundle supports to work with different security systems. Each role is assigned
+The SecurityBundle supports working with different security systems. Each role is assigned
 to a security system.
-When a request happens, the request is assigned to a security system and the symfony firewall allows a user to login only if the user has at least one role in the assigned security system.
+When a request occurs, it is assigned to a security system and the symfony firewall allows a user to log in only if the user has at least one role in the assigned security system.
 
 By default, there is a single security system called ``Sulu`` which is used for the administration interface.
 
@@ -13,7 +13,7 @@ Webspace Security System
 A webspace can define a security system in its configuration. The security system will be
 assigned to the request when a user visits a page of the webspace.
 
-If your webspace requires some kind of login, you should define a security system in its configuration:
+If your webspace requires a login, you should define a security system in its configuration:
 
 .. code:: xml
 
@@ -21,7 +21,7 @@ If your webspace requires some kind of login, you should define a security syste
         <system>Website</system>
     </security>
 
-If you want to restrict pages, media entities or custom entities to logged in users with a specific role,
+If you want to restrict pages, media entities or custom entities to logged-in users with a specific role,
 you need to enable ``permission-check`` in the webspace configuration:
 
 .. code-block:: xml
@@ -35,8 +35,8 @@ To prevent caching problems with restricted entities, it is important to activat
 Custom Security System
 ----------------------
 
-You can register a custom security system in a ``Admin`` class. This is useful for sections
-like an intranet or an extranet which are not associated to a specific webspace:
+You can register a custom security system in an ``Admin`` class. This is useful for sections
+like an intranet or an extranet which are not associated with a specific webspace:
 
 .. code-block:: php
 

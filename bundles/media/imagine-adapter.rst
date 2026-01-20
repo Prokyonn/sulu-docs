@@ -1,8 +1,8 @@
 Imagine adapter
 ===============
 
-The rendering engine for media is able to use different imagine adapters. By default the bundle detects the installed
-adapters and uses the most mature implementation by default.
+The rendering engine for media is able to use different imagine adapters. By default, the bundle detects the installed
+adapters and uses the most mature implementation.
 
 Available adapters are:
 
@@ -20,11 +20,11 @@ Available adapters are:
 GD
 --
 
-The simplest adapter is GD and it has no external dependencies besides the PHP extension.
+The simplest adapter is GD, which has no external dependencies besides the PHP extension.
 
 **Docker:**
 
-To use the GD extension, you need to install it with docker-php-ext-install. However, GD requires Linux libraries to function properly. Depending on the type of file you want to generate (such as JPG, PNG, or WebP), you also need to install the corresponding libraries.
+To use the GD extension, you need to install it using ``docker-php-ext-install``. However, GD requires Linux libraries to function properly. Depending on the type of file you want to generate (such as JPG, PNG, or WebP), you also need to install the corresponding libraries.
 
 ..code-block:: bash
 
@@ -41,7 +41,7 @@ Imagick
 
 This extension uses imagemagick to render the images.
 
-To install it use following commands:
+To install it, use the following commands:
 
 **Mac:**
 
@@ -59,9 +59,9 @@ To install it use following commands:
 
 .. note::
 
-    It is very common that the `imagick` extension may not remove failed temporary files.
+    It is common for the `imagick` extension to not remove failed temporary files.
     You can create a cronjob to clean up the temporary files if you experience issues with disk space.
-    On a unix system, you can use a cronjob like this to clean up temporary files older than 60 minutes:
+    On a Unix system, you can use a cronjob like this to clean up temporary files older than 60 minutes:
 
     .. code-block:: bash
 
@@ -72,7 +72,7 @@ VIPS
 
 This extension uses vips to render the images.
 
-To install it use following commands:
+To install it, use the following commands:
 
 **Mac:**
 

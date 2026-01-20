@@ -1,37 +1,37 @@
 SecurityBundle
 ==============
 
-The SuluSecurityBundle is responsible for protecting different data and areas
-of the application. Therefore it makes use and enhances the standard `security
+The SuluSecurityBundle is responsible for protecting various data and areas
+of the application. It utilizes and enhances the standard `security
 mechanisms of Symfony`_.
 
 Structure
 ---------
 
 Every Sulu user is linked to a specific Sulu contact from the
-SuluContactBundle. In addition to that a user can have some roles and groups
+SuluContactBundle. Additionally, a user can have roles and groups
 assigned, whereby a group can consist of multiple other groups and roles.
 
-Every role has to be part of a certain system. Different systems can be
-registered via the security contexts, which are explained later. These systems
+Every role must be part of a certain system. Different systems can be
+registered via security contexts, explained later. These systems
 correspond to different applications handled by Sulu. So by default there is
-only the ``Sulu`` system. A user is only enabled to login into Sulu, if he has
+only the ``Sulu`` system. A user is only enabled to log in to Sulu if they have
 at least one role with the ``Sulu`` system assigned.
 
-The users provide two different flags. The ``locked`` flag signalizes that a
-user has been locked by an administrator for some reason. As soon as this flag
-is set, the user can't login to the system anymore. The second flag is called
+The users provide two different flags. The ``locked`` flag indicates that a
+user has been locked by an administrator for some reason. Once this flag
+is set, the user cannot log in to the system anymore. The second flag is called
 ``enabled``, and will be set to true by default. This flag is only important if
-you have implemented your own registration process. In the case you want to use
+you have implemented your own registration process. If you want to use
 a double opt-in mechanism you can set this flag to false on the registration,
 and toggle it, e.g. when the user clicks on a link in an email. As long as the
-``enabled`` flag is set to false, the Sulu-Admin offers you a button to enable
+``enabled`` flag is set to false, the Sulu Admin offers a button to enable
 the user.
 
 Security contexts
 -----------------
 
-Every application can define its own security contexts, which will then be
+Every application can define its own security contexts, which become
 available in the list of security contexts, on which access can be granted or
 denied. Have a look at :doc:`../../cookbook/securing-your-application` to see an
 example.
@@ -44,11 +44,11 @@ The following permissions are distinguished:
 .. list-table::
 
     * - ``VIEW``
-      - Permission to see data the given context
+      - Permission to view data in the given context
     * - ``ADD``
       - Permission to add new data to the given context
     * - ``EDIT``
-      - Permission to edit already existing data in the given context
+      - Permission to edit existing data in the given context
     * - ``DELETE``
       - Permission to delete data in the given context
     * - ``ARCHIVE``
@@ -56,9 +56,9 @@ The following permissions are distinguished:
     * - ``LIVE``
       - Permission to publish data in the given context
     * - ``SECURITY``
-      - Permission to grant or deny access on data in the given context
+      - Permission to grant or deny access to data in the given context
 
-All the permission values are encoded in a bitmask and saved in a permission
+Permission values are encoded in a bitmask and saved in a permission
 object, which has a link to a role. This way it is easily possible to evaluate
 if a user has access to a security context by checking if one of his roles
 grants access.
@@ -66,18 +66,17 @@ grants access.
 Access Control Manager
 ----------------------
 
-The ``AccessControlManager`` is responsible to set permissions on specific
-objects. Since this is not totally decoupled from the entity being protected,
-there is the possibility to register multiple ``AccessControlProvider``. This
-is simply a service implementing the ``AccessControlProviderInterface`` tagged
+The ``AccessControlManager`` is responsible for setting permissions on specific
+objects. Since this is not entirely decoupled from the protected entity,
+multiple ``AccessControlProvider`` services can be registered. This
+is simply a service implementing ``AccessControlProviderInterface`` tagged
 with ``sulu.access_control``.
 
-The task of this class is to save the permission information into the correct
-database. This is important, because otherwise it would not be possible to
-paginate lists considering permissions of these entities in an easy and
-performant way. The ``DoctrineAccessControlProvider`` can be used in combination
+This class saves permission information to the correct
+database. This is crucial for easily and efficiently paginating lists while considering entity permissions.
+The ``DoctrineAccessControlProvider`` can be used in combination
 with any Doctrine entity. The entity only has to implement the
-``SecuredEntityInterface`` to signalize that it can be used with the
+``SecuredEntityInterface`` to indicate that it can be used with the
 ``DoctrineAccessControlProvider``.
 
 .. note::
@@ -89,24 +88,24 @@ with any Doctrine entity. The entity only has to implement the
 Checking security
 -----------------
 
-Sulu offers a ``SecurityChecker`` enabling the developer to easily check if
-a given ``SecurityCondition`` is granted for the currently logged in user. The
+Sulu offers a ``SecurityChecker`` enabling developers to easily check if
+a given ``SecurityCondition`` is granted for the currently logged-in user. The
 security condition consists of the already mentioned security context, an
-object type and id for decoupling from real objects for performance reasons,
+object type and ID to decouple from real objects for performance reasons,
 and the locale to check the permission in. The ``SecurityChecker`` uses the
 Symfony ``AccessDecisionManager``, which calls all security voters including
 the ``SecurityContextVoter``.
 
 This voter will check if the user is allowed to perform the given action (the
 permissions already listed above) in the given context in the given locale. If
-the object type and id are also passed the permissions of the security contexts
+the object type and ID are also passed the permissions of the security contexts
 from the role might be overridden by the permissions from this specific object
 (which are handled by the previously mentioned ``AccessControlManager``).
 
 Single-Sign-On Authentication
 ------------------------------
 
-Sulu supports authentication via Single-Sign-On (SSO).
+Sulu supports authentication via Single Sign-On (SSO).
 To enable it, the security configuration needs to be adjusted to allow SSO in the admin firewall.
 This can be configured in the ``config/packages/security.yaml``:
 
@@ -139,7 +138,7 @@ This can be configured in the ``config/packages/security.yaml``:
    +                default_role_key: 'USER'
 
 After adjusting the configuration and clearing the symfony cache,
-you only see the ``username or email`` field when you try to login to the administration interface.
+you will only see the ``username or email`` field when trying to log in to the administration interface.
 When the user email matches the configured domain,
 the user is then redirected to the SSO provider to authenticate. After successful authentication, the system redirects the user back to the administration interface.
 If the domain does not match the configured domain, the user is authenticated using the standard login form.
@@ -152,7 +151,7 @@ On password reset, when the domain matches, the user is also redirected to the S
 Two-Factor Authentication
 -------------------------
 
-Sulu allows to use two-factor authentication over email via the scheb/2fa packages. To enable it, 
+Sulu allows using two-factor authentication over email via the scheb/2fa packages. To enable it, 
 the packages need to be installed into the project via composer:
 
 .. code-block:: bash
@@ -187,7 +186,7 @@ admin firewall. This is configured in the ``config/packages/security.yaml``:
    +                 success_handler: sulu_security.two_factor_authentication_success_handler
    +                 failure_handler: sulu_security.two_factor_authentication_failure_handler
 
-Afterwards, the scheb/2fa bundle needs to be configured to enable email and trusted devices
+Afterward, the scheb/2fa bundle needs to be configured to enable email and trusted devices
 in the ``config/packages/scheb_2fa.yaml`` file:
 
 .. code-block:: yaml

@@ -1,16 +1,15 @@
 Media Properties Provider
 =========================
 
-Media properties providers are used to gather data for a given file. Sulu will
-save the provided properties to the respective FileVersion entity which can
+Media properties providers are used to gather data for a given file. Sulu saves the provided properties to the respective FileVersion entity which can
 be accessed in twig templates and PHP code. 
 
-Sulu is shipped with the following providers:
+Sulu includes the following providers:
 
 Image Properties Provider
 -------------------------
 
-The ``ImagePropertiesProvider`` works for every image which is supported by the 
+The ``ImagePropertiesProvider`` works for every image supported by the 
 configured :doc:`imagine adapter <imagine-adapter>` and provides the ``width`` and 
 ``height`` of an image.
 This information can be used in CSS to provide placeholder images or other kind of things.
@@ -19,14 +18,14 @@ Video Properties Provider
 -------------------------
 
 The ``VideoPropertiesProvider`` requires that ``ffprobe`` is configured and installed
-on your server. When it is available the provider will return the ``duration``,
+on your server. When available the provider will return the ``duration``,
 ``width`` and ``height`` of the video.
 
-Create custom Properties Provider
----------------------------------
+Create a Custom Properties Provider
+-----------------------------------
 
 It is possible to register a custom media properties provider in your project.
-To do this, you create a new service that implements the ``PropertiesProviderInterface``:
+To do this, create a new service that implements the ``PropertiesProviderInterface``:
 
 .. code-block:: php
 
@@ -59,7 +58,7 @@ To do this, you create a new service that implements the ``PropertiesProviderInt
         }
     }
 
-When ``autoconfigure`` is disabled you need to make sure that you tag the service
+When ``autoconfigure`` is disabled, ensure you tag the service
 with the ``sulu_media.media_properties_provider`` tag.
 
 .. code-block:: yaml

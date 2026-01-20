@@ -4,12 +4,12 @@ Date
 Description
 -----------
 
-Shows an input field with an attached date picker for selecting a date.
+Displays an input field with an attached date picker for selecting a date.
 
 Parameters
 ----------
 
-No parameters available
+No parameters available.
 
 Example
 -------

@@ -4,14 +4,14 @@ Contact account selection
 Description
 -----------
 
-Shows a list with the possibility to assign some people or organizations from
-the contact section to a page. Also allows to define a position, which can be
+Displays a list with the ability to assign people or organizations from
+the contact section to a page. It also allows you to define a position, which can be
 handled later in the template.
 
 Parameters
 ----------
 
-No parameters available
+No parameters available.
 
 Example
 -------

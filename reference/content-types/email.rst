@@ -4,13 +4,13 @@ Email
 Description
 -----------
 
-Shows a text line, the inserted content will be validated against a email regex
+Displays a text line where the inserted content is validated against an email regex
 and saved as a simple string.
 
 Parameters
 ----------
 
-No parameters available
+No parameters available.
 
 Example
 -------

@@ -1,100 +1,66 @@
 Glossary
 ========
 
-A glossary is:
+A glossary is a list of terms in a particular domain of knowledge with their definitions.
 
-     A list of terms in a particular domain of knowledge with their definitions.
-
-This page aims to list all of the terminology used within Sulu both as a
-reference and as a guide to use when naming things in the code-base.
+This page lists terminology used within Sulu as a reference and as a naming guide for the codebase.
 
 Component
-    Of a Structure -- a named set of Properties. Used by blocks. ??
-
-Document
-    Documents are the domain representation of nodes from the PHPCR content
-    repository. For example "PageDocument", or "SnippetDocument".
-
-    The namespace used within components/bundles for all things relating to document
-    the document manager component.
-
-Document type
-    The short name for a class of document, for example "page" the name of the
-    PageDocument class.
+    Of a Structure—a named set of Properties.
 
 Locale
-    Represents a linguistic region, for example `de`, `de_at`, `en` or `en_us`.
+    Represents a linguistic region, for example ``de``, ``de_at``, ``en`` or ``en_us``.
 
 Localized
-    Of a Property - the state of being localized, or capable of being translated.
+    Of a Property—the state of being localized or capable of being translated.
 
 Metadata
-    Literally data about data. Typically a data structure with information
-    such as field mappings which should be applied to a different data
-    structure.
-
-    In the context of Sulu this applied to Structures, Properties and Documents.
+    Data about data. Typically, a data structure with information such as field mappings that should be applied to a different data structure. In the context of Sulu, this applies to Structures, Properties, and Documents.
 
 Non-localized
-    Of a Property - the state of not being localized, not capable of being
-    translated.
+    Of a Property—the state of not being localized or not capable of being translated.
 
 Path
-    Always refers to the path of an object within the content repository,
-    for example ``/cmf/sulu_io/contents/animals/dog`` is a path.
+    Always refers to the path of an object within the content repository, for example ``/cmf/sulu_io/contents/animals/dog``.
 
 Page
-    A page is basic type of document. Pages are accessible directly with URLs and
-    they represent pages of your website.
+    A page is a basic type of document. Pages are accessible directly via URLs and represent pages of your website.
 
 Parameter
-    In relation to Property and Structure items; a configuration parameter
-    which relates to the configuration of the content type.
+    In relation to Property and Structure items; a configuration parameter related to the configuration of the property type.
 
 Prefix
-    The former part of a web facing URL which is defined by the portal, it is
-    followed by the resource locator. The prefix may include the locale.
+    The first part of a web-facing URL defined by the portal, followed by the resource locator. The prefix may include the locale.
 
 Property
-    This term refers to the items in a Structure.
+    Refers to the items in a Structure.
     
 Property Type
-    Property types are the way Sulu represents different types of "content". For
-    example, `email`, `text` and `smart_content` are three examples of Sulu
-    Property Types
+    The way Sulu represents different types of "content". For example, ``email``, ``text``, and ``smart_content`` are three examples of Sulu property types.
 
 Resource locator
-    The later part of a web facing URL belonging to some document, excluding
-    the host and prefix segment. For example ``/articles/foo`` is a resource locator,
-    however ``/de/articles/foo`` and ``http://example.com/articles/foo`` are not. The
-    resource locator will never include the locale.
+    The latter part of a web-facing URL belonging to a document, excluding the host and prefix segment. For example, ``/articles/foo`` is a resource locator, while ``/de/articles/foo`` and ``http://example.com/articles/foo`` are not. The resource locator never includes the locale.
 
 Segment
-    As applying to URLs and Paths - a section of a path or URL, presumably
-    delimited by `/`.
+    As applied to URLs and paths—a section of a path or URL, typically delimited by ``/``.
 
 Shadow
-    Of a document. A localized document can specify that it should be loaded
-    in a different locale. The target locale is called the "shadow" locale.
+    Of a document. A localized document can specify that it should be loaded in a different locale. The target locale is called the "shadow" locale.
 
 Workflow Stage
-    The stage of the workflow, for example "published" and "test" are stages.
+    The stage of the workflow, for example, "published" and "test" are stages.
 
 Snippet
-    Snippets are like pages except that they are not accessible directly with
-    URLs. Snippets are typically aggregated within pages.
+    Snippets are like pages but are not accessible directly via URLs. Snippets are typically aggregated within pages.
 
 Structure
-    Structures represent dynamic content in Sulu. A structure is a collection
-    of Properties.
+    Structures represent dynamic content in Sulu. A structure is a collection of Properties.
 
 Structure type
-    The name of a given structure, e.g. ``overview``, ``hotel`` or
-    ``article``.
+    The name of a given structure, e.g., ``overview``, ``hotel``, or ``article``.
 
 Webspace
-    In Sulu a webspace encapsulates all of the data of one or more domains
-    which use the same data.
+    In Sulu, a webspace encapsulates all the data of one or more domains using the same dataset.
 
 Webspace Document
-    The document at the root of the webspace tree -- the homepage.
+    The document at the root of the webspace tree—the homepage.

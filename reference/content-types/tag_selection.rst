@@ -4,18 +4,18 @@ Tag Selection
 Description
 -----------
 
-Shows a simple text line with an autocomplete feature for the available Tags in
+Displays a simple text line with an autocomplete feature for the available tags in
 the system. Tags can be managed in the settings section of Sulu. The assigned
-tags will be saved as an array.
+tags are saved as an array.
 
 .. note::
 
-    Tags which do not already exist will be created.
+    Tags that do not already exist will be created automatically.
 
 .. note::
 
-    This content type is rarely needed because the ``Excerpt and Taxonomies``
-    allows to assign tags to pages.
+    This property type is rarely needed because the ``Excerpt & Taxonomies`` tab
+    allows you to assign tags to pages.
 
 Parameters
 ----------
@@ -26,19 +26,19 @@ Parameters
     * - Parameter
       - Type
       - Description
-    * - min
+    * - ``min``
       - string
-      - The minimum number of selected tags
-    * - max
+      - The minimum number of selected tags.
+    * - ``max``
       - string
-      - The maximum number of selected tags
-    * - request_parameters
+      - The maximum number of selected tags.
+    * - ``request_parameters``
       - collection
       - Collection of parameters that are appended to the requests sent by the selection.
-    * - resource_store_properties_to_request
+    * - ``resource_store_properties_to_request``
       - collection
       - Collection of property names.
-        The value of the respective properties are appended to the requests sent by the selection.
+        The values of the respective properties are appended to the requests sent by the selection.
 
 Example
 -------

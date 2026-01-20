@@ -4,15 +4,15 @@ Collection selection
 Description
 -----------
 
-Let you assign multiple collections from the media section.
+Allows you to assign multiple collections from the media section.
 
 .. note::
 
-    This content type passes an array of Collection_ entities to the twig template. It does not provide the media
-    entities inside of the selected collections.
+    This property type passes an array of Collection_ entities to the Twig template. It does not provide the media
+    entities within the selected collections.
     If you want to access the media entities of a collection, you should use a :doc:`smart_content property <smart_content>`
-    with the ``media`` data provider or load the matching media entities in a  :doc:`custom controller <../../cookbook/custom-controller>`
-    or in a `custom twig extension`_.
+    with the ``media`` data provider or load the matching media entities in a :doc:`custom controller <../../cookbook/custom-controller>`
+    or in a `custom Twig extension`_.
 
 Parameters
 ----------
@@ -25,21 +25,21 @@ Parameters
       - Description
     * - item_disabled_condition
       - string
-      - Allows to set a `jexl`_ expression that evaluates if an item should be displayed as disabled.
+      - Allows you to set a `jexl`_ expression that evaluates whether an item should be displayed as disabled.
         Disabled items cannot be selected.
     * - allow_deselect_for_disabled_items
       - bool
-      - Defines if the user should be able to deselect an item that is disabled. Default value is true.
+      - Defines whether the user can deselect an item that is disabled. Default value is ``true``.
     * - sortable
       - bool
-      - Defines if the user should be able to sort the selected items. Default value is true.
+      - Defines whether the user can sort the selected items. Default value is ``true``.
     * - request_parameters
       - collection
       - Collection of parameters that are appended to the requests sent by the selection.
     * - resource_store_properties_to_request
       - collection
       - Collection of property names.
-        The value of the respective properties are appended to the requests sent by the selection.
+        The values of the respective properties are appended to the requests sent by the selection.
 
 Return value
 ------------
@@ -67,5 +67,5 @@ Twig
     {% endfor %}
 
 .. _Collection: https://github.com/sulu/sulu/blob/2.x/src/Sulu/Bundle/MediaBundle/Api/Collection.php
-.. _custom twig extension: https://symfony.com/doc/current/templating/twig_extension.html
+.. _custom Twig extension: https://symfony.com/doc/current/templating/twig_extension.html
 .. _jexl: https://github.com/TomFrost/jexl

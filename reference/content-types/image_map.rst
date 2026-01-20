@@ -4,20 +4,20 @@ ImageMap
 Description
 -----------
 
-The image map content type allows to assign an arbitrary amount of hotspots to
-an image. These hotspots can be either circles, rectangles or points. It's
-possible to define multiple types with different content types included. Every
-hotspot needs to be one of the defined types.
+The image map property type allows you to assign an arbitrary amount of hotspots to
+an image. These hotspots can be circles, rectangles, or points. It is
+possible to define multiple types with different property types included. Every
+hotspot must be one of the defined types.
 
-A quite common use case is to create a type containing a text editor. Then it's
-possible to describe different parts of an image using text. In the front-end
+A common use case is to create a type containing a text editor. Then it is
+possible to describe different parts of an image using text. In the frontend,
 this could be implemented using hover areas. If the user hovers over a hotspot,
-the corresponding text could be shown in a popover.
+the corresponding text can be shown in a popover.
 
 Parameters
 ----------
 
-No parameters available
+No parameters available.
 
 Example
 -------
@@ -74,7 +74,7 @@ XML
 
 .. note::
 
-    You can use global block-types also for the image_map content-type. See
+    You can use global block types for the ``image_map`` property type as well. See
     :ref:`template properties <templates-global-blocks>` for more information.
 
 Twig
@@ -129,7 +129,7 @@ Twig
     </style>
 
     <div class="imageMap__container">
-        <img class="imageMap__img" src="{{ image_map.image.url }}"/>
+        <img class="imageMap__img" src="{{ image_map.image.thumbnails['1920x'] }}" alt="{{ image.description|default(image.title) }}"> {# define a dynamic image format #}
 
         {% for index, hotspot in image_map.hotspots %}
             {% set left = hotspot.hotspot.left * 100 %}
@@ -169,3 +169,9 @@ Twig
             <p>{{ hotspot.text|default|raw }}</p>
         {% endif %}
     {% endfor %}
+
+.. note::
+
+    For performance reasons, you should never use the ``<your_field>.image.url`` attribute to render images on your
+    website. Always use ``thumbnails`` and :doc:`configure your image formats <../../../book/image-formats>`
+    to provide fast, optimized, and cacheable images.

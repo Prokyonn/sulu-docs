@@ -1,8 +1,8 @@
-Provide Sulu twig template attributes in your controller
+Providing Sulu Twig Template Attributes in Your Controller
 ========================================================
 
-In order to use the ``base`` template that is used for pages on custom routes, you need to provide the correct
-attributes to your template. To do this, you can use the``TemplateAttributeResolver`` service in your controller:
+To use the ``base`` template that is used for pages on custom routes, you must provide the correct
+attributes to your template. To do this, use the ``TemplateAttributeResolver`` service in your controller:
 
 .. code-block:: php
 
@@ -20,9 +20,7 @@ attributes to your template. To do this, you can use the``TemplateAttributeResol
     #[AsController]
     class StaticController
     {
-        /**
-         * @Route("/custom", name="app_custom")
-         */
+        #[Route("/custom", name: "app_custom")]
         public function indexAction(
             TemplateAttributeResolverInterface $resolver,
             Environment $twig
@@ -42,7 +40,7 @@ attributes to your template. To do this, you can use the``TemplateAttributeResol
             // Server Cache Lifetime (how long the server should cache the page in seconds)
             $response->headers->set(SuluHttpCache::HEADER_REVERSE_PROXY_TTL, '604800'); // 604800 seconds = 1 week
 
-            // Uncached response private response (for controller containing user specific data):
+            // Uncached response private response (for controller containing user-specific data):
             // $response->setPrivate();
             // $response->setMaxAge(0);
             // $response->setSharedMaxAge(0);

@@ -1,16 +1,16 @@
-Generating thumbnails for video files with ffmpeg
+Generating thumbnails for video files with FFmpeg
 =================================================
 
-FFmpeg is a library to process video files. Sulu is able to use this libraries
+FFmpeg is a library for processing video files. Sulu can use these libraries
 to generate thumbnail images for video files.
 
-1. Install ffmpeg-bundle:
+1. Install the FFmpeg library:
 
 .. code-block:: bash
 
     composer require php-ffmpeg/php-ffmpeg
 
-2. Add configuration `config/packages/sulu_media.yml`:
+2. Add the configuration to ``config/packages/sulu_media.yaml``:
 
 .. code-block:: yaml
 

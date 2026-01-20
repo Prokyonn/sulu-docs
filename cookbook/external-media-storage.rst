@@ -1,95 +1,63 @@
-Store Media in an external Storage
-==================================
+Storing Media in External Storage
+=================================
 
-Sulu is able to upload newly created media files directly to an external storage provider (such as AWS S3 or
-Google Cloud Storage).
+Sulu stores its media using the `flysystem file system abstraction`_. This allows you to easily configure different storage backends.
 
-AWS-S3
-------
+By default, Sulu uses the local file system. A list of other supported storage backends and their installation instructions
+can be found in the Flysystem documentation here: https://github.com/thephpleague/flysystem-bundle/blob/3.x/docs/2-cloud-storage-providers.md
 
-First install dependencies.
-
-.. code-block:: bash
-
-    composer require "league/flysystem:^1.0" "league/flysystem-aws-s3-v3:^1.0.1"
-
-Configure the storage with following yaml-snippet:
+The following represents the default configuration for Sulu and can be adjusted to meet your needs:
 
 .. code-block:: yaml
 
-    sulu_media:
-        storage: s3
+    # config/packages/flysystem.yaml
+    flysystem:
         storages:
-            s3:
-                key: 'your aws s3 key'
-                secret: 'your aws s3 secret'
-                bucket_name: 'your aws s3 bucket name'
-                path_prefix: 'optional path prefix'
-                region: 'eu-west-1'
+            default.storage:
+                adapter: 'local'
+                options:
+                    directory: '%kernel.project_dir%/var/storage/default'
 
-If you use s3 compatible services (e.g. minio) you can pass additional ``arguments`` and ``endpoint`` to the
-configuration.
-
-Google Cloud-Storage
---------------------
-
-First follow this the `Google Cloud Documentation`_ to setup a System-Account and download the json-key.
-
-.. code-block:: json
-
-    {
-        "type": "service_account",
-        "project_id": "project-id",
-        "private_key_id": "some_number",
-        "private_key": "-----BEGIN PRIVATE KEY-----\n....
-        =\n-----END PRIVATE KEY-----\n",
-        "client_email": "<api-name>api@project-id.iam.gserviceaccount.com",
-        "client_id": "...",
-        "auth_uri": "https://accounts.google.com/o/oauth2/auth",
-        "token_uri": "https://accounts.google.com/o/oauth2/token",
-        "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
-        "client_x509_cert_url": "https://www.googleapis.com/...<api-name>api%40project-id.iam.gserviceaccount.com"
-    }
-
-Install the dependencies:
-
-.. code-block:: bash
-
-    composer require "league/flysystem:^1.0" "superbalist/flysystem-google-storage:^7.1"
-
-Dump this file to a readable folder on your machine and configure the storage with following yaml-snippet:
-
-.. code-block:: yaml
-
+    # config/packages/sulu_media.yaml
     sulu_media:
-        storage: google_cloud
-        storages:
-            google_cloud:
-                key_file_path: '/path/to/key.json'
-                bucket_name: 'sulu-bucket'
-                path_prefix: 'optional path prefix'
-
-.. _Google Cloud Documentation: https://cloud.google.com/video-intelligence/docs/common/auth#set_up_a_service_account
+        storage:
+            flysystem_service: 'default.storage'
 
 
-Azure Blob Storage
-------------------
+.. warning::
 
-First install dependencies.
+    Please check the section :ref:`what-about-image-formats` to avoid confusion about how image formats are handled in Sulu,
+    and why they cannot be stored in the configured flysystem storage.
 
-.. code-block:: bash
+.. _what-about-image-formats:
 
-    composer require "league/flysystem:^1.0" "league/flysystem-azure-blob-storage:^0.1"
+What About Image Formats?
+-------------------------
 
-Configure the storage with following yaml-snippet:
+.. note::
 
-.. code-block:: yaml
+    Only the original files will be uploaded to the external storage. Image formats and thumbnails will still be generated
+    in the local directory. This is because image formats are generated in Sulu on demand. Specifically, when
+    an image format is requested for the first time, Sulu generates the image from the original file and stores it in the public
+    directory. The web server then acts as a proxy. If the image is requested again, it checks the public
+    directory and returns the previously generated image instead of regenerating it. External storages like S3,
+    Google Cloud Storage, or Azure Blob Storage do not natively support this proxy or CDN functionality.
 
-    sulu_media:
-        storage: azure_blob
-        storages:
-            azure_blob:
-                connection_string: 'DefaultEndpointsProtocol=https;AccountName={YOUR_ACCOUNT_NAME};AccountKey={YOUR_ACCOUNT_KEY};'
-                container_name: 'container-name'
-                path_prefix: 'optional path prefix'
+    If you want to store image formats in an external service, you must use a CDN like Fastly, Cloudflare, or others
+    that support caching generated image formats for extended periods. Some hosters allow you to configure a CDN directly on specific URLs.
+    In Sulu, all URLs under ``/uploads/media/*`` must be routed through a proxy or CDN. If your chosen CDN
+    requires a custom domain, you can use Symfony's CDN feature via:
 
+    ``{{ asset(media.thumbnail['40x40']) }}``
+
+    and `configure a CDN domain`_ in the Symfony ``framework.assets`` configuration. If you have tested your proxy or CDN and it correctly
+    caches the generated images, you can disable saving thumbnails to the local filesystem by setting
+    ``sulu_media.format_cache.save_image`` to ``false`` in ``config/packages/sulu_media.yaml``. It is recommended to use an environment variable
+    to still enable local storage during development.
+
+    Important: Never disable the format cache unless you have set up a CDN or proxy. Otherwise, your server will
+    regenerate the image format on every request, which can overwhelm your server as image generation is resource-intensive.
+
+
+.. _Configure a CDN domain: https://symfony.com/doc/6.4/reference/configuration/framework.html#base-urls
+.. _flysystem file system abstraction: https://github.com/thephpleague/flysystem

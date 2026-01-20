@@ -1,7 +1,7 @@
 Extend Entities
 ===============
 
-Sulu allows to extend and replace the following internal entities.
+Sulu allows you to extend and replace the following internal entities:
 
 * User
 * Role
@@ -11,12 +11,12 @@ Sulu allows to extend and replace the following internal entities.
 * Media
 * Tag
 
-You can extend all of them in the same way. Therefore we explain it for `User` here.
+You can extend all of them in the same way. The following example demonstrates this for the `User` entity.
 
-Create a Entity
----------------
+Creating an Entity
+------------------
 
-Create your own Entity that extends Sulu `User` class.
+Create your own entity that extends the Sulu `User` class.
 
 .. code-block:: php
 
@@ -27,28 +27,20 @@ Create your own Entity that extends Sulu `User` class.
     use Doctrine\ORM\Mapping as ORM;
     use Sulu\Bundle\SecurityBundle\Entity\User as SuluUser;
 
-    /**
-     * The following annotations are required for replacing the table of the extended entity:
-     *
-     * @ORM\Table(name="se_users")
-     * @ORM\Entity
+    /*
+     * The following attributes are required for replacing the table of the extended entity:
      */
+    #[ORM\Entity]
+    #[ORM\Table(name: 'se_users')]
     class User extends SuluUser
     {
-        /**
-         * @var string
-         *
-         * @ORM\Column(name="myProperty", type="string", length=255, nullable = true)
-         */
-        private $myProperty;
+        #[ORM\Column(name: 'myProperty', type: 'string', length: 255, nullable: true)]
+        private ?string $myProperty = null;
 
         /**
          * Set myProperty
-         *
-         * @param string $myProperty
-         * @return User
          */
-        public function setMyProperty($myProperty)
+        public function setMyProperty(?string $myProperty): self
         {
             $this->myProperty = $myProperty;
 
@@ -57,10 +49,8 @@ Create your own Entity that extends Sulu `User` class.
 
         /**
          * Get myProperty
-         *
-         * @return string
          */
-        public function getMyProperty()
+        public function getMyProperty(): ?string
         {
             return $this->myProperty;
         }
@@ -68,20 +58,20 @@ Create your own Entity that extends Sulu `User` class.
 
 .. warning::
 
-    Your Entity can have own properties, but they should have at least default values.
-    Otherwise the normal features of Sulu could crash (like the
-    `sulu:security:user:create` command).
+    Your entity can have its own properties, but they should have default values.
+    Otherwise, standard Sulu features could fail (such as the
+    ``sulu:security:user:create`` command).
 
 .. warning::
 
-    The `@ORM\\Table` annotation on your entity must match the table of the extended entity.
-    Otherwise, doctrine might run into errors when querying data of the entity.
+    The ``#[ORM\\Table(...)]`` attribute on your entity must match the table of the extended entity.
+    Otherwise, Doctrine may encounter errors when querying entity data.
 
 Configuration
 -------------
 
-Configure Sulu to use your own entity instead in the respective file in the
-``config/packages/*`` folder. If the file does not exist, you need to create it.
+Configure Sulu to use your custom entity in the corresponding file in the
+``config/packages/`` folder. If the file does not exist, you must create it.
 
 For the `User` entity (`se_users`):
 
@@ -96,9 +86,9 @@ For the `User` entity (`se_users`):
 
 .. note::
 
-   Symfony keeps the user object in the session, clearing the sessions is so sometimes required
-   when running into ``php.CRITICAL: Uncaught Error: Failed opening required /var/project/var/cache/website/prod/doctrine/orm/Proxies/__CG__SuluBundleSecurityBundleEntityUser.php``.  
-   If use the native session storage you can use ``(php -i && php bin/console debug:config framework session) | grep save_path`` to get the configured save paths of sessions.
+   Symfony stores the user object in the session; clearing sessions is sometimes required
+   when encountering ``php.CRITICAL: Uncaught Error: Failed opening required /var/project/var/cache/website/prod/doctrine/orm/Proxies/__CG__SuluBundleSecurityBundleEntityUser.php``.  
+   If you use native session storage, you can use ``(php -i && php bin/console debug:config framework session) | grep save_path`` to identify the configured session save paths.
 
 For the `Role` entity (`se_roles`):
 
@@ -175,7 +165,7 @@ For the `Tag` entity (`ta_tags`):
                 model:                Sulu\Bundle\TagBundle\Entity\Tag
                 repository:           Sulu\Bundle\TagBundle\Entity\TagRepository
 
-After changing the configuration of your project, use the following command to clear the
+After modifying your project's configuration, use the following command to clear the
 Symfony cache:
 
 .. code-block:: bash
@@ -184,5 +174,6 @@ Symfony cache:
 
 .. warning::
 
-    If you override entities in an existing project, you need to migrate the existing data
-    to avoid data loss.
+    If you override entities in an existing project, you must migrate the existing data
+    to prevent data loss.
+

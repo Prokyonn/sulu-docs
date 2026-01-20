@@ -1,31 +1,29 @@
-Securing your application
-=========================
+Securing Your Application
+=======================
 
-Sulu is delivered with two different possibilities to protect parts of your
-application. The first is the permissions based on security contexts, which
-allow you to restrict access to entire parts of your application or Sulu. The
-permissions for this kind of security are managed on a roles level. In addition
-to that the localization for which these permissions are valid has to be
-defined on the assignment of the role to the user.
+Sulu includes two primary ways to protect parts of your application. The first is permission-based security via security contexts, which
+allows you to restrict access to entire sections of your application or Sulu. These
+permissions are managed at the role level. Additionally, the locales for which these permissions are valid must be
+defined when assigning the role to a user.
 
-The second way is to protect the access on a per-object basis. These
-permissions are set on the specific object. The user still has to have the
-correct localizations assigned in order to gain access.
+The second way is to protect access on a per-object basis. These
+permissions are set on specific objects. The user must still have the
+correct locales assigned to gain access.
 
-This tutorial will show how to use Sulu's security functionality with your own
-application specific code.
+This tutorial demonstrates how to use Sulu's security functionality with your custom
+application code.
 
-Protect content using a security context
-----------------------------------------
+Protecting Content Using a Security Context
+-------------------------------------------
 
-This section describes how to protect an entire part of your application (but
-not a specific object).
+This section describes how to protect an entire part of your application (rather than
+a specific object).
 
-Define your security context
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Defining Your Security Context
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-First of all you have to define the security context, which is represented by a
-simple string. This is done in the ``Admin`` class of your Bundle:
+First, you must define the security context, which is represented by a
+simple string. This is done in the ``Admin`` class of your bundle:
 
 .. code-block:: php
 
@@ -60,29 +58,29 @@ simple string. This is done in the ``Admin`` class of your Bundle:
     }
 
 This information is defined in the ``getSecurityContexts`` method, which should
-return an array. The first level describes the system to which the security
-context applies - this would either be Sulu (for stuff in the administration)
-or a different context that you have defined manually.
+return an array. The first level identifies the system to which the security
+context applies—this would either be Sulu (for administration)
+or a custom context that you have defined.
 
-The second level just defines the title for another separation used in the
+The second level defines the title for another category used in the
 administration interface. The third level defines the name of the permissions
-themselves. This name follows a namespacing scheme based on the previously used
-names. This value is the key for an array containing all the available
+themselves. This name should follow a namespacing scheme based on previously used
+names. This value is the key for an array containing all available
 permission types for this security context.
 
 .. note::
 
-    Since the ``Admin`` class is registered as a service, you can make use of
-    different services to define the available security contexts. For example
-    the SuluPageBundle uses a service to create an own security context for
+    Since the ``Admin`` class is registered as a service, you can utilize
+    other services to define available security contexts. For example,
+    the SuluPageBundle uses a service to create a security context for
     all available webspaces in the system.
 
-Protect your controller
-~~~~~~~~~~~~~~~~~~~~~~~
+Protecting Your Controller
+~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-After defining a security context, you can use it to  protect the actions
-of one of your controllers. All you have to do is to implement the
-``SecuredControllerInterface`` telling the ``SuluSecurityListener`` which
+After defining a security context, you can use it to protect the actions
+of your controllers. Implement the
+``SecuredControllerInterface`` to tell the ``SuluSecurityListener`` which
 security context and locale to use for the permission check:
 
 .. code-block:: php
@@ -120,31 +118,30 @@ security context and locale to use for the permission check:
         }
     }
 
-The ``getLocale`` method returns the locale, which is probably determined
-somehow by the request, and the ``getSecurityContext`` method defines which
+The ``getLocale`` method returns the locale, which is typically determined
+from the request, and the ``getSecurityContext`` method defines which
 security context is required to access this type of resource.
 
-The ``SuluSecurityListener`` appends the information on which type of
-permission (`view`, `add`, `edit`, `delete`, ...) is required, and
-automatically takes care of the permission check and returns a page with a
-status code of `403` in case the permissions for the currently logged in user
-where not sufficient.
+The ``SuluSecurityListener`` automatically identifies which type of
+permission (``view``, ``add``, ``edit``, ``delete``, ...) is required,
+performs the check, and returns a page with a
+status code of ``403`` if the user's permissions
+are insufficient.
 
-Protecting specific objects
+Protecting Specific Objects
 ---------------------------
 
-For some parts of your application you might want to protect specific objects.
-This section will describe how this is done with the possibilities Sulu offers.
+For some parts of your application, you may want to protect specific objects.
+This section describes how to achieve this using Sulu's built-in features.
 
-Adding the permission tab to your form
+Adding the Permission Tab to Your Form
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-First of all you have to add the permission tab to your form to enable the user
-to set up the permissions accordingly. The permission tab presents a list of
-the available user roles and a few permission icons, which can be activated.
+First, you must add the permission tab to your form to allow users
+to configure permissions. The permission tab displays a list of
+available user roles and permission icons that can be selected.
 
-Therefore the `Admin` class you have created for your own business objects
-needs some updating. You can add the permission tab as shown below:
+To do this, update the ``Admin`` class for your business objects:
 
 .. code-block:: php
 
@@ -180,12 +177,12 @@ needs some updating. You can add the permission tab as shown below:
         }
     }
 
-The important option here is set in the ``addRequestParameters`` call, which
-defines for which resource this permission form is used. In order for that to
-work the relation between the ``resourceKey`` and the security context and the
-security class has to be configured:
+The critical option here is the ``addRequestParameters`` call, which
+defines which resource this permission form manages. For this to
+work, the relationship between the ``resourceKey``, security context, and
+security class must be configured:
 
-.. code-block: yaml
+.. code-block:: yaml
 
     resources:
         example:
@@ -195,14 +192,13 @@ security class has to be configured:
             security_context: 'sulu_admin.example'
             security_class: 'App\\Entity\\Example'
 
-After this addition the permission tab should already be visible in the edit
-form.
+After adding this, the permission tab will be visible in the edit form.
 
-Configure the controller
-~~~~~~~~~~~~~~~~~~~~~~~~
+Configuring the Controller
+~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-The second part is to implement the `SecuredObjectControllerInterface` in the
-Controller handling the specific type of entities:
+Next, implement the ``SecuredObjectControllerInterface`` in the
+controller handling the specific entities:
 
 .. code-block:: php
 
@@ -258,17 +254,16 @@ Controller handling the specific type of entities:
         }
     }
 
-The `SecuredObjectControllerInterface` requires three different methods. The
-`getLocale` method is the same as in the `SecuredControllerInterface`, and the
-implementation can be shared. The `getSecuredClass` method has to return the
-same identifier for the type of object as used in the resources configuration.
-Finally the `getSecuredObjectId` receives the request object, and has to return
-the id of the object from it.
+The ``SecuredObjectControllerInterface`` requires three methods. The
+``getLocale`` method is identical to the one in ``SecuredControllerInterface``, and the
+implementation can be shared. The ``getSecuredClass`` method must return the
+same identifier for the object type used in the resources configuration.
+Finally, ``getSecuredObjectId`` receives the request object and must return
+the object ID.
 
-The rest of the work will be done by the `SuluSecurityListener` in the same way
-as for the check of the security contexts.
+The rest of the work is handled by the ``SuluSecurityListener`` in the same manner
+as the security context checks.
 
-Note that the `cgetAction` needs some special handling when the `ListBuilder`
-is used. The `ListBuilder` contains a `setPermissionCheck` method, which takes
-a user and a permission. If you pass these two, you will only receive rows for
-which the given user has the given permission granted.
+Note that ``cgetAction`` requires special handling when using ``ListBuilder``. The ``ListBuilder`` includes a ``setPermissionCheck`` method that takes
+a user and a permission. If provided, the query only returns rows
+where the user has the specified permission.

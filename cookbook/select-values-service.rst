@@ -1,18 +1,18 @@
-Display values from a service in a select
-=========================================
+Displaying Values from a Service in a Select Field
+==================================================
 
-Sulu allows to set the value of a ``param`` of a property with the type ``expression``
+Sulu allows you to set the value of a ``param`` for a property with the ``expression`` type
 via the `Symfony expression language`_.
-This makes it possible to display values returned by a service in the case of the
-:doc:`../reference/content-types/select` and :doc:`../reference/content-types/single_select` content-type.
+This makes it possible to display values returned by a service for the
+:doc:`../reference/property-types/select` and :doc:`../reference/property-types/single_select` property types.
 
 .. note::
 
     Be aware that the provided expression is only evaluated during the initial request to the administration interface.
-    If you want to provide a selection for your custom entity, you should configure the ``selection`` or ``single_selection`` field-type
+    If you want to provide a selection for your custom entity, you should configure the ``selection`` or ``single_selection`` field type
     as described in :doc:`../../book/extend-admin`.
 
-A service for returning the values for these content types could look something like this:
+A service for returning the values for these property types could look like this:
 
 .. code-block:: php
 
@@ -59,8 +59,8 @@ A service for returning the values for these content types could look something 
         }
     }
 
-The service need to be `marked as public`_.
-This is possible by adding the following lines to the ``config/services.yaml``:
+The service must be `marked as public`_.
+This is achieved by adding the following lines to ``config/services.yaml``:
 
 .. code-block:: yaml
 
@@ -68,7 +68,7 @@ This is possible by adding the following lines to the ``config/services.yaml``:
         resource: '../src/Content/Select/'
         public: true
 
-When your service is marked as public, you can access it in your template like this:
+When your service is marked as public, you can access it in your template as follows:
 
 .. code-block:: xml
 

@@ -1,58 +1,56 @@
-How to manage analytics?
-========================
+Managing Analytics
+==================
 
-Sulu gives the content-manger an easy way to manage analytic-codes and appends
-them automatically to the website output without any changes in the
-twig-template. You can find the list of analytics under the webspace section.
+Sulu provides content managers with an easy way to manage analytics codes and automatically appends
+them to the website output without requiring changes to Twig templates. You can find the list of analytics under the webspace section.
 
-The analytics consist of:
+The analytics configuration consists of:
 
 .. list-table::
     :header-rows: 1
 
+    * - Property
+      - Description
     * - Title
-      - To identify it.
+      - A unique label to identify the configuration.
     * - Domains
-      - On which domain this analytics should be appended.
+      - The specific domains where these analytics should be appended.
     * - All Domains
-      - Should it appended to all domains.
+      - Whether the analytics should be appended to all domains.
     * - Type
-      - The type (google, google_tag_manager, matomo, custom).
+      - The analytics provider (google, google_tag_manager, matomo, custom).
     * - Content
-      - The code or key of the analytic.
+      - The tracking code or key for the analytics service.
 
-Sulu can handle different types of analytic-systems like google or matomo.
-This codes will be automatically added with the given key and site-id (for
-matomo). To add other systems simply choose type custom and copy and paste
-the code into the textarea.
+Sulu supports various analytics systems such as Google Analytics or Matomo.
+These codes are automatically added with the given key or site ID (for Matomo). To add other systems, select the "custom" type and paste the tracking code into the textarea.
 
 .. warning::
 
-    Be aware that custom analytics will not be evaluated and appended without
-    validation - therefore it could break the website directly after saving.
+    Custom analytics are appended without validation; therefore, incorrect code can break the website immediately after saving.
 
-Override analytics template
----------------------------
+Overriding Analytics Templates
+------------------------------
 
-You are able to override the analytics template with the
-`symfony template overriding mechanism <http://symfony.com/doc/current/book/templating.html#overriding-bundle-templates>`_.
+You can override the analytics templates using the
+`Symfony template overriding mechanism <http://symfony.com/doc/current/book/templating.html#overriding-bundle-templates>`_.
 
-There are three relevant templates folders:
+The relevant template folders are:
 
-* ``SuluWebsiteBundle:Analytics/type/google``
-* ``SuluWebsiteBundle:Analytics/type/google_tag_manager``
-* ``SuluWebsiteBundle:Analytics/type/matomo``
-* ``SuluWebsiteBundle:Analytics/type/custom``
+* ``SuluWebsiteBundle/Analytics/google``
+* ``SuluWebsiteBundle/Analytics/google_tag_manager``
+* ``SuluWebsiteBundle/Analytics/matomo``
+* ``SuluWebsiteBundle/Analytics/custom``
 
-Each of these folders can contain multiple templates according to the desired
-position of its content:
+Each of these folders can contain multiple templates corresponding to the desired
+position of the content:
 
 * ``body-open.html.twig``
 * ``body-close.html.twig``
 * ``head-open.html.twig``
 * ``head-close.html.twig``
 
-You can access the following information in the twig variable ``analytics``.
+You can access the following information in the Twig variable ``analytics``:
 
 .. list-table::
     :header-rows: 1
@@ -62,16 +60,16 @@ You can access the following information in the twig variable ``analytics``.
       - Description
     * - id
       - int
-      - A unique identifier of the analytics.
+      - A unique identifier for the analytics configuration.
     * - title
       - string
-      - The title of the analytics.
+      - The title of the analytics configuration.
     * - allDomains
       - boolean
-      - Indicates whether the analytics is on all domains or only a specific one.
+      - Indicates whether the analytics apply to all domains or only specific ones.
     * - content
       - mixed
-      - Differs for the type.
+      - Data structure varies by type.
     * - type
       - string
       - google / google_tag_manager / matomo / custom
@@ -81,6 +79,6 @@ You can access the following information in the twig variable ``analytics``.
 
 .. note::
 
-    The ``content`` property contains for type google / google_tag_manager the key,
-    for matomo an associated array of ``url`` and ``siteId`` and for the custom type
-    the whole script (except the ``<script>`` tag).
+    For Google or Google Tag Manager, the ``content`` property contains the key.
+    For Matomo, it contains an associative array with ``url`` and ``siteId``.
+    For the custom type, it contains the entire script (excluding the ``<script>`` tag).

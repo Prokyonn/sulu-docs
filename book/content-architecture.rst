@@ -1,9 +1,9 @@
 About the Sulu Content Architecture
 ===================================
 
-We already heard something about :doc:`introduction/content-architecture`
+We have already touched upon :doc:`introduction/content-architecture`
 in the introduction.
-Now we are starting to code will dig a little bit deeper.
+Now that we are starting to code, we will dig a little deeper.
 
 Sulu organizes content in webspaces, which have already been explained in the
 section about the :doc:`introduction/components`. These webspaces contain an
@@ -22,16 +22,14 @@ to. There is also a further reference of all the available
 :doc:`../reference/property-types/index`.
 
 There are also some advanced features regarding the pages in Sulu. Besides the
-content management using the properties and property types already described
+content management using the properties and property types already described,
 there is also the possibility to define internal and external links. Internal
-links redirect to other pages managed by the content management section of
-Sulu, and external link to an arbitrary URL.
+links redirect to other pages managed by Sulu, while external links point to arbitrary URLs.
 
-Another useful feature is the shadow page functionality. It allows to use the
-content of another localization. So if a webspace defines localizations for
-American and British English, it is possible to use the content of the American
-English for the British English, without managing the exactly same content
-again. This is especially useful if there are e.g. different contact addresses
+Another useful feature is the shadow page functionality. It allows you to use content from another localization.
+For example, if a webspace defines localizations for
+American and British English, you can use the American English content for British English, without duplicating content management.
+This is especially useful if there are e.g. different contact addresses
 for each country, but the rest of the page should be exactly the same.
 
-With the content architecture on our mind, we can :doc:`webspaces`.
+With the content architecture in mind, we can move on to :doc:`webspaces`.

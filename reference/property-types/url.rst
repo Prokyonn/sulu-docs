@@ -4,7 +4,7 @@ URL
 Description
 -----------
 
-Shows a text line, the inserted content will be validated against an URL regex
+Displays a text line where the inserted content is validated against a URL regex
 and saved as a simple string.
 
 Parameters
@@ -16,13 +16,13 @@ Parameters
     * - Parameter
       - Type
       - Description
-    * - defaults
+    * - ``defaults``
       - collection
-      - Default values for input (scheme and specificPart).
-    * - schemes
+      - Default values for input (``scheme`` and ``specific_part``).
+    * - ``schemes``
       - collection
-      - List of available schemes in dropdown and validation.
-        Defaults are: ``https://``, ``http://``, ``ftp://``, ``ftps``, ``mailto:``, ``tel:``.
+      - List of available schemes in the dropdown and for validation.
+        Defaults are: ``https://``, ``http://``, ``ftp://``, ``ftps://``, ``mailto:``, ``tel:``.
 
 Example
 -------
@@ -61,7 +61,7 @@ Extended Example
 Twig
 ----
 
-The property type returns the full url which can be rendered directly:
+The property type returns the full URL, which can be rendered directly:
 
 .. code-block:: twig
 

@@ -1,8 +1,9 @@
 Reference
 =========
 
-In our reference we'll describe how to configure stuff and how to use existing things. You can find list of functionality we put in Sulu and how you could use it. At the moment there are components like e.g. `Property Types <property-types/index.html>`_ and `Twig Extensions <twig-extensions/index.html>`_.
-The Reference aims to developers who already worked through the introduction and know how Sulu works.
+In our reference, we describe how to configure components and utilize existing features. You can find lists of functionality included in Sulu and how to use them. Key sections include :doc:`property-types/index` and :doc:`twig-extensions/index`.
+
+The reference is intended for developers who have already worked through the introduction and are familiar with how Sulu works.
 
 **What you can find in the Reference**
 
@@ -14,4 +15,4 @@ The Reference aims to developers who already worked through the introduction and
     twig-extensions/index
     glossary
 
-Have fun with our Reference.
+Have fun exploring our reference.

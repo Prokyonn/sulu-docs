@@ -4,7 +4,7 @@ Number
 Description
 -----------
 
-Shows a number input field, the inserted content will be saved as number.
+Displays a number input field. The inserted content is saved as a number.
 
 Parameters
 ----------
@@ -15,18 +15,18 @@ Parameters
     * - Parameter
       - Type
       - Description
-    * - min
+    * - ``min``
       - number
-      - The minimum number that can be entered
-    * - max
+      - The minimum number that can be entered.
+    * - ``max``
       - number
-      - The maximum number that can be entered
-    * - step
+      - The maximum number that can be entered.
+    * - ``step``
       - number
-      - The allowed steps between minium and maximum number
-    * - multiple_of
+      - The allowed steps between the minimum and maximum numbers.
+    * - ``multiple_of``
       - number
-      - If set, the input value needs to be a multiple of this parameter. Setting this to ``1`` ensures, that the inputted value is an integer.
+      - If set, the input value must be a multiple of this parameter. Setting this to ``1`` ensures that the input value is an integer.
 
 Example
 -------

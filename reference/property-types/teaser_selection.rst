@@ -1,18 +1,18 @@
 Teaser Selection
 ================
 
-The "teaser_selection" property type is used for displaying teasers to other
-content in your website. These teasers could be arranged as a list or grid.
+The ``teaser_selection`` property type is used for displaying teasers for other
+content on your website. These teasers can be arranged as a list or grid.
 
-In the administration interface, the widget is displayed as a selector for the
-teasers. Content managers can choose a number of target contents. By default,
+In the administration interface, the widget is displayed as a selector for 
+teasers. Content managers can choose several target contents. By default,
 the text from the "Excerpt & Categories" tab of the target content is shown.
-You can however customize the text of the teaser if you like.
+You can, however, customize the text of the teaser if you prefer.
 
 Configuration
 -------------
 
-Add a field of type "teaser_selection" to your page template:
+Add a field of type ``teaser_selection`` to your page template:
 
 .. code-block:: xml
 
@@ -41,8 +41,8 @@ Add a field of type "teaser_selection" to your page template:
 Twig
 ----
 
-In Twig, the field contains an array of teasers. Iterate the array and format
-the teasers as you like:
+In Twig, the field contains an array of teasers. Iterate through the array and format
+the teasers as needed:
 
 .. code-block:: twig
 
@@ -75,7 +75,7 @@ the teasers as you like:
 .. note::
 
     Some teaser providers include additional data in the ``attributes`` property.
-    For example, article teasers may include the webspace information. You can
+    For example, article teasers may include webspace information. You can
     access these with ``teaser.attributes.webspace``.
 
 Each teaser is an object with the following properties:
@@ -87,37 +87,37 @@ Each teaser is an object with the following properties:
     * - Property
       - Type
       - Description
-    * - id
+    * - ``id``
       - int|string
-      - The ID of the teaser
-    * - type
+      - The ID of the teaser.
+    * - ``type``
       - string
-      - The resource key/type of the teaser (e.g., "pages", "articles")
-    * - locale
+      - The resource key/type of the teaser (e.g., "pages", "articles").
+    * - ``locale``
       - string
-      - The locale of the teaser (e.g., "en", "de_AT")
-    * - title
+      - The locale of the teaser (e.g., "en", "de_AT").
+    * - ``title``
       - string
       - The title of the teaser. For pages and articles, this is taken from the
         "Excerpt & Categories" tab or the content title, but can be customized
-        per teaser
-    * - description
+        per teaser.
+    * - ``description``
       - string
       - The description text. For pages and articles, this defaults to the
-        excerpt description or tagged properties, but can be customized per teaser
-    * - moreText
+        excerpt description or tagged properties, but can be customized per teaser.
+    * - ``moreText``
       - string
-      - The text for the "read more" link. Defaults to excerpt more text
-    * - mediaId
+      - The text for the "read more" link. Defaults to excerpt more text.
+    * - ``mediaId``
       - int|null
       - The ID of the teaser image. For pages and articles, defaults to the
-        excerpt image or tagged media properties, but can be customized per teaser
-    * - url
+        excerpt image or tagged media properties, but can be customized per teaser.
+    * - ``url``
       - string
-      - The URL of the target content
-    * - attributes
+      - The URL of the target content.
+    * - ``attributes``
       - array
-      - Additional custom attributes provided by the teaser provider
+      - Additional custom attributes provided by the teaser provider.
 
 Parameters
 ----------
@@ -131,17 +131,17 @@ The following parameters can be used to customize the field in the template:
     * - Parameter
       - Type
       - Description
-    * - present_as
+    * - ``present_as``
       - collection
-      - A collection of strings. Each string is typically a CSS class that is
-        used to render the teaser list. You can configure the ``<title>`` of
-        each entry that is shown in the admin
-    * - min
+      - A collection of strings. Each string is typically a CSS class used
+        to render the teaser list. You can configure the ``<title>`` of
+        each entry shown in the admin.
+    * - ``min``
       - string
-      - The minimum number of selected teasers
-    * - max
+      - The minimum number of selected teasers.
+    * - ``max``
       - string
-      - The maximum number of selected teasers
+      - The maximum number of selected teasers.
 
 Tagging Properties for Teaser Data
 -----------------------------------
@@ -235,7 +235,7 @@ interface. The selected value can be used to set the CSS class of the teaser ele
 Custom Content with Teaser Providers
 ------------------------------------
 
-If you want to display teasers of custom data, create an implementation of
+If you want to display teasers for custom data, create an implementation of
 ``TeaserProviderInterface``. For example, we'll make it possible to select
 from a list of recipes:
 
@@ -313,27 +313,27 @@ The ``TeaserConfiguration`` constructor accepts the following parameters:
     * - Parameter
       - Type
       - Description
-    * - title
+    * - ``title``
       - string
-      - Display name shown in the admin interface dropdown
-    * - resourceKey
+      - Display name shown in the administration interface dropdown menu.
+    * - ``resourceKey``
       - string
-      - The resource key for your resource (e.g., "recipes", "pages")
-    * - listAdapter
+      - The resource key for your resource (e.g., "recipes", "pages").
+    * - ``listAdapter``
       - string
-      - The list adapter to use ("table" or "column_list")
-    * - displayProperties
+      - The list adapter to use ("table" or "column_list").
+    * - ``displayProperties``
       - array
-      - Which properties to display in the selection list (e.g., ["title"])
-    * - overlayTitle
+      - Which properties to display in the selection list (e.g., ["title"]).
+    * - ``overlayTitle``
       - string
-      - Title shown in the selection overlay
-    * - view
+      - Title shown in the selection overlay.
+    * - ``view``
       - string|null
-      - Admin route to navigate to when clicking an item (optional)
-    * - resultToView
+      - Admin route to navigate to when clicking an item (optional).
+    * - ``resultToView``
       - array|null
-      - Mapping of teaser properties to route parameters (e.g., ["id" => "id"]) (optional)
+      - Mapping of teaser properties to route parameters (e.g., ["id" => "id"]) (optional).
 
 The ``Teaser`` constructor accepts the following parameters:
 
@@ -344,33 +344,33 @@ The ``Teaser`` constructor accepts the following parameters:
     * - Parameter
       - Type
       - Description
-    * - id
+    * - ``id``
       - int|string
-      - The unique identifier of the teaser
-    * - type
+      - The unique identifier of the teaser.
+    * - ``type``
       - string
-      - The resource key/type of the teaser (e.g., "recipes", "pages")
-    * - locale
+      - The resource key/type of the teaser (e.g., "recipes", "pages").
+    * - ``locale``
       - string
-      - The locale of the teaser
-    * - title
+      - The locale of the teaser.
+    * - ``title``
       - string
-      - The title text
-    * - description
+      - The title text.
+    * - ``description``
       - string
-      - The description text
-    * - moreText
+      - The description text.
+    * - ``moreText``
       - string
-      - The text for the "read more" link
-    * - url
+      - The text for the "read more" link.
+    * - ``url``
       - string
-      - The URL to link to
-    * - mediaId
+      - The URL to link to.
+    * - ``mediaId``
       - int|null
-      - The ID of the teaser image
-    * - attributes
+      - The ID of the teaser image.
+    * - ``attributes``
       - array
-      - Additional custom attributes
+      - Additional custom attributes.
 
 Register the provider in Symfony's service container and tag it with
 ``sulu.teaser.provider``:
@@ -399,3 +399,4 @@ Sulu includes built-in teaser providers for common Sulu resources:
 
 **Articles** (alias: ``articles``)
     Allows selecting articles.
+

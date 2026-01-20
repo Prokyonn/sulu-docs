@@ -27,8 +27,7 @@ Services
 Geolocators
 ^^^^^^^^^^^
 
-The Geolocator services in the map bundle provide a common API to geocoding services, in particular
-for obtaining address information from user searches.
+The Geolocator services in the map bundle provide a common API for geocoding services, particularly for obtaining address information from user searches.
 
 Geolocators are PHP services and can be found in the ``Geolocator/Service`` namespace.
 
@@ -38,11 +37,11 @@ Nominatim
 .. note::
 
     `Nominatim`_ (from the Latin, 'by name') is a tool to search OSM data by name and
-    address and to generate synthetic addresses of OSM points (reverse geocoding)
+    address and generates synthetic addresses of OSM points (reverse geocoding)
 
 There are several available Nominatim providers that can be configured via the ``endpoint`` configuration.
 Some of them might require an authentication token that can be configured via the ``api_key`` configuration.
-Have a look at the `OpenStreetMap Wiki`_ for an up-to-date list of providers.
+See the `OpenStreetMap Wiki`_ for an up-to-date list of providers.
 
 **Configuration:**
 
@@ -58,7 +57,7 @@ Google Maps
 
 **Configuration:**
 
-- ``api_key``: Create the api-key in the `Google Cloud Console`_
+- ``api_key``: Create the API key in the `Google Cloud Console`_
 
 .. _Nominatim: http://wiki.openstreetmap.org/wiki/Nominatim
 .. _OpenStreetMap Wiki: http://wiki.openstreetmap.org/wiki/Nominatim

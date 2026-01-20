@@ -1,31 +1,29 @@
 SearchBundle
 ============
 
-The SuluSearchBundle is mainly an integration of the `MassiveSearchBundle`_
-into Sulu. There is also the `MassiveSearchBundle Documentation`_ explaining
-this Bundle in more detail. This documentation is also valid for using it with
-Sulu, although there are some extensions made by the SuluSearchBundle. It
+The SuluSearchBundle is primarily an integration of the `MassiveSearchBundle`_
+into Sulu. The `MassiveSearchBundle Documentation`_ explains
+this bundle in more detail. This documentation is also valid for using it with
+Sulu, however, the SuluSearchBundle adds some extensions. It
 offers a controller to provide a web API to search through the system, adds
 more fields - like creator and changer - to the search documents and also
-handles the security provided by Sulu. But the most important thing is that it
+handles the security provided by Sulu. Most importantly, it
 also contains the administration user interface.
 
 Configuration
 -------------
 
-The configuration of this bundle contains some more metadata about each index
-created by the `MassiveSearchBundle`_ consisting of the following values:
+The configuration of this bundle contains some more metadata for each index
+created by the `MassiveSearchBundle`_, consisting of the following values:
 
 - ``name``: Can contain a name for the index, which will be used in the UI.
   Useful if the index represents something a non-translatable literal can
   describe.
 - ``security_context``: This setting is used to describe which security context
-  (see :doc:`security/index`) the user has to have ``view`` permission in, in order
-  to search through this index.
+  (see :doc:`security/index`) the user must have ``view`` permission for to search this index.
 - ``icon``: Describes which icon should be used in the search result if no
   image is available.
-- ``view``: Contains information necessary to navigate to the correct form on
-  a click on the search result. This includes the ``name`` of the route and a
+- ``view``: Contains information necessary to navigate to the correct form when clicking a search result. This includes the ``name`` of the route and a
   map called ``result_to_view``, which maps fields from the search result to
   the edit form.
 
@@ -50,15 +48,15 @@ So a sample configuration would look like this:
 
     It is also possible to use `PrependExtensions`_ or in more complicated
     cases to change the value of the ``sulu_search.indexes`` parameter in a
-    `CompilerPass`_. Actually that is what most of the Sulu bundles are doing
+    `CompilerPass`_. This is what most Sulu bundles do
     to minimize the configuration effort of the application.
 
 Website Search
 ^^^^^^^^^^^^^^
 
 This bundle also provides configuration for the website search. By default,
-when using the website search, only pages will be listed as result. If you
-want e.g. a custom entity to be found in the website search, you have to
+the website search lists only pages as results. If you
+want a custom entity (e.g.) to be found in the website search, you have to
 register the corresponding index.
 
 The configuration looks like the following:
@@ -72,8 +70,7 @@ The configuration looks like the following:
             indexes:
                 - examples_published
 
-You could also prevent pages from being found using the
-search. This can be achieved using the following code:
+You can also prevent pages from appearing in search results. This can be achieved using the following code:
 
 .. code-block:: yaml
 
@@ -116,14 +113,13 @@ See :doc:`../book/webspaces` for more details.
 Reindexing
 ----------
 
-Re-indexing is the process of reading all of the documents in the system and
-regenerating their search records. This is necessary when changes are made to
-the metadata and it is desirable to propagate these changes over all of the
+Reindexing is the process of reading all documents in the system and
+regenerating their search records. This is necessary when metadata changes and you want to propagate these changes to all
 indexed documents / entities in the system -- or when you import new data
 (e.g. from a backup) and need to index that data.
 
 To re-index all entities (Contacts, Media, etc.) and documents (Pages, Snippets)
-simply run the following:
+run the following command:
 
 .. code-block:: bash
 
@@ -153,7 +149,7 @@ To recover if the process is interrupted:
 
 .. important::
 
-    In recomending the ``prod`` environment we assume that you have not
+    In recommending the ``prod`` environment we assume that you have not
     changed the default environment configuration. The important point is that
     logging increases memory consumption and should be disabled.
 

@@ -1,4 +1,4 @@
-Custom Route-Generator
+Custom Route Generator
 ======================
 
 The RouteBundle enables you to define custom route generators.
@@ -6,7 +6,7 @@ These generators will be called every time you create or update
 a route for the given entity. For each entity you can define
 which generator will be used.
 
-The following example will generate a route by using the
+The following example generates a route by using the
 core route generator, but you can define route schemas for
 each entity type.
 

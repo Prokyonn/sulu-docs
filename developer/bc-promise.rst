@@ -1,15 +1,15 @@
 Backwards Compatibility Promise
 ===============================
 
-Sulu is a stable software used in production. It is however still under heavy
-development and therefore a full backwards compatibility can not be guaranteed
-at the current stage.
+Sulu is stable software used in production. However, it is still under heavy
+development, and therefore full backwards compatibility cannot be guaranteed
+at this stage.
 
-We do our best to keep backwards compatibility for the most used extension
-points and services of Sulu. These are listed in this document.
+We do our best to maintain backwards compatibility for the most commonly used extension
+points and services in Sulu. These are listed in this document.
 
-The promises given in this document are only valid during a single major
-release. When a new major version is released, these promises might be broken.
+The promises given in this document are only valid within a single major
+release. When a new major version is released, these promises may be broken.
 
 PHP
 ---
@@ -17,19 +17,19 @@ PHP
 Twig
 ~~~~
 
-The most important extension point is twig as its templates are used in any
-project using Sulu for content management. We guarantee that the variables
-passed to the twig template as described in
-:doc:`../book/twig` will keep their
-structure and that all the twig extensions as described in
-:doc:`../reference/twig-extensions/index` will continue to work using the same
+The most important extension point is Twig, as its templates are used in every
+Sulu project. We guarantee that the variables
+passed to Twig templates, as described in
+:doc:`../book/twig`, will maintain their
+structure and that all Twig extensions described in
+:doc:`../reference/twig-extensions/index` will continue to function using the same
 calls.
 
 Configuration
 ~~~~~~~~~~~~~
 
-There are several configuration files responsible for Sulu's behaviour for which
-backwards compatibility is promised:
+Several configuration files define Sulu's behavior, and we promise backwards
+compatibility for the following:
 
 * Webspace (see :doc:`../book/webspaces`)
 * Template (see :doc:`../book/templates`)
@@ -40,34 +40,29 @@ backwards compatibility is promised:
 Events
 ~~~~~~
 
-Using events for extending Sulu is quite common so we will keep backwards
-compatibility here. There might be new data added to some events but the current
-data will not be removed. The events are also guaranteed not to change names.
+Using events to extend Sulu is common, and we maintain backwards
+compatibility here. While new data may be added to events, existing
+data will not be removed. Event names are also guaranteed not to change.
 
-Sulu-Admin
+Sulu Admin
 ~~~~~~~~~~
 
-Using the ``Admin`` class together with its navigation is guaranteed not to
+Using the ``Admin`` class along with its navigation is guaranteed not to
 break.
 
-Content Types
-~~~~~~~~~~~~~
+Property Types
+~~~~~~~~~~~~~~
 
-It is safe to create custom content types by implementing the
-``ContentTypeInterface`` or by inheriting one of the abstract
-``SimpleContentType`` or ``ComplexContentType`` classes.
+We ensure that the property types included with Sulu save
+content in a consistent way to prevent regressions during upgrades.
 
-We also make sure that the content types delivered with Sulu will save the
-content in the same way so that there will not be any regressions with the
-content on an upgrade.
-
-There will be migrations provided in case the structure of the content has to be
-changed in order to fix some bugs and the previous promise cannot be kept.
+If the content structure must be changed to fix bugs, we will provide
+migrations.
 
 Sulu Classes and Interfaces
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-The following classes and interfaces are guaranteed to keep backwards
+The following classes and interfaces are guaranteed to maintain backwards
 compatibility:
 
 * ``DocumentManagerInterface``

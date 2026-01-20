@@ -1,10 +1,10 @@
-Test your Code
-==============
+Testing Your Code
+=================
 
-If your tests require external dependencies (e.g. a database connection) then
-they are Functional tests, otherwise they will be a Unit Test.
+If your tests require external dependencies (e.g., a database connection), they
+are functional tests; otherwise, they are unit tests.
 
-One key quality of Unit tests is that they execute very fast, whereas
+A key quality of unit tests is that they execute very quickly, whereas
 functional tests tend to be slower.
 
 Functional Tests
@@ -19,40 +19,40 @@ To run the tests, follow these steps:
 Bundle Testing
 ~~~~~~~~~~~~~~
 
-The test runner script is a php script which automates the execution of
-**Bundle** tests. It is used by the continuous integration server and can be
-useful to quickly get the tests running.
+The test runner script is a PHP script that automates the execution of
+**bundle** tests. It is used by the continuous integration server and is
+useful for quickly running tests.
 
 .. code-block:: bash
 
     $ ./bin/runtests -i -C
 
-The above will initialize the database(``i``) and run all the tests excluding
-the component tests (``C``).
+The command above initializes the database (``-i``) and runs all tests except
+the component tests (``-C``).
 
-`runtests` has the following options:
+``runtests`` has the following options:
 
-   * ``-i``: Initialize the test setup (e.g. creating database).
-   * ``-t [Bundle]``: Run the tests only for the specific bundle.
+   * ``-i``: Initialize the test setup (e.g., creating the database).
+   * ``-t [Bundle]``: Run tests only for the specified bundle.
    * ``-a``: Run all tests.
-   * ``-B``: Don't run the bundle tests
-   * ``-C``: Don't run the component tests
+   * ``-B``: Do not run bundle tests.
+   * ``-C``: Do not run component tests.
 
-Subsequently you will only need to run the tests, so you can omit the ``-i``
+Subsequently, you only need to run the tests, so you can omit the ``-i``
 option.
 
 .. code-block:: bash
 
     $ ./bin/runtests -a
 
-You may also specify a specific bundle for which to run the tests:
+You may also specify a specific bundle:
 
 .. code-block:: bash
 
     $ ./bin/runtests -C -t SearchBundle
 
-After the bundles have been initialized you may also simply change to the
-bundle root directory and use ``phpunit`` as normal:
+After the bundles have been initialized, you can also navigate to the
+bundle root directory and use ``phpunit`` normally:
 
 .. code-block:: bash
 
@@ -62,7 +62,7 @@ bundle root directory and use ``phpunit`` as normal:
 Component Testing
 -----------------
 
-The component tests may be executed using the runtests script or PHPUnit from
+Component tests may be executed using the ``runtests`` script or PHPUnit from
 the root directory:
 
 .. code-block:: bash
@@ -70,16 +70,16 @@ the root directory:
     $ ./bin/runtests -B
     $ phpunit
 
-You can test a specific component with PHPUnit by specifying the path:
+You can test a specific component with PHPUnit by specifying its path:
 
 .. code-block:: bash
 
     $ phpunit src/Sulu/Component/Content
 
-Jackrabbit installation
+Jackrabbit Installation
 -----------------------
 
-By default Sulu uses the Doctrine DBAL implementation for PHPCR in your local
+By default, Sulu uses the Doctrine DBAL implementation for PHPCR in your local
 test environment. If you need to test against the Jackrabbit backend, you can
 install it with the following bash snippet:
 
@@ -92,13 +92,13 @@ install it with the following bash snippet:
         cd -
     fi
 
-To start your jackrabbit installation run
+To start your Jackrabbit installation, run:
 
 .. code-block:: bash
 
     java -jar downloads/jackrabbit-standalone-2.12.0.jar > /dev/null &
 
-Now you have to run your tests with the ``jackrabbit`` backend enabled (omit the
+Now, run your tests with the ``jackrabbit`` backend enabled (omit the
 initialization step [``-i``] after the first run):
 
 .. code-block:: bash

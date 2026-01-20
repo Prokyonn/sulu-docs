@@ -1,15 +1,14 @@
 MarkupBundle
 ============
 
-The MarkupBundle provides the feature of extending output formats as with
-different so called tags. These tags will be automatically parsed and replaced
-before the response will be sent.
+The MarkupBundle allows extending output formats using different so-called tags.
+These tags are automatically parsed and replaced before the response is sent.
 
 Example
 -------
 
-This example contains a sulu-related example. The tag ``sulu-link`` represents
-a link to another page. This tag will be replaced via a valid anchor where the
+This example shows a Sulu-related tag. The tag ``sulu-link`` represents
+a link to another page. This tag is replaced by a valid anchor where the
 `href` attribute contains the UUID of the page.
 
 .. code-block:: html
@@ -20,13 +19,13 @@ a link to another page. This tag will be replaced via a valid anchor where the
         </body>
     </html>
 
-**Results into:**
+**Result:**
 
 .. code-block:: html
 
     <html>
         <body>
-            <a href="http://example.com/test" title="test-title">Page Title</a>
+            <a href="http://example.org/test" title="test-title">Page Title</a>
         </body>
     </html>
 
@@ -41,7 +40,7 @@ Core Tags
 Extending
 ---------
 
-To enable replacement of your custom tags you can define a service which
+To enable replacement of your custom tags you can define a service that
 implements the ``TagInterface``.
 
 .. code-block:: php
@@ -55,7 +54,8 @@ implements the ``TagInterface``.
          *
          * @return array Tag array to replace all occurrences.
          */
-        public function parseAll($attributesByTag) {
+        public function parseAll($attributesByTag): array
+        {
             $result = [];
             foreach($attributesByTag as $tag => $attributes) {
                 $url = ; // load url via uuid from document-manager
@@ -68,15 +68,15 @@ implements the ``TagInterface``.
         }
     }
 
-When registering your service simple add the tag
+When registering your service, simply add the tag
 ``<tag name="sulu_markup.tag" tag="link"/>``.
 
 Namespaces
 ----------
 
-Namespaces will be used to find tags with a special behavior. The default
+Namespaces are used to identify tags with specific behavior. The default
 namespace is ``sulu``, but you can register your own namespace by adding a new
-service and register your ``TagInterface`` implementations with this new
+service and registering your ``TagInterface`` implementations with this new
 namespace.
 
 .. code-block:: xml
@@ -93,5 +93,5 @@ namespace.
              tag="custom-tag" type="html" />
     </service>
 
-With this definitions you can use ``<custom-namespace-custom-tag/>`` in your
+With these definitions you can use ``<custom-namespace-custom-tag/>`` in your
 response.

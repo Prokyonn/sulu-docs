@@ -1,18 +1,16 @@
-ContentRepository
-=================
+Content Repository
+==================
 
-The content-repository was developed to query the content raw-data. The
-developer can decide which properties will be loaded.
+The Content Repository was developed to query raw content data.
+Developers can decide which properties to load.
 
 The main goal of the repository is to centralize the core features ghost, shadow
-and internal links. These things will be handled full automatically. If you are
-using this repository.
+and internal links. These aspects are handled automatically when using this repository.
 
 Usage
 -----
 
-There are two ways to use it. One in the front-end over an rest-api and one with
-a backend service.
+There are two ways to use it. One in the frontend via a REST API and one via a backend service.
 
 API
 ...
@@ -28,17 +26,17 @@ The mandatory parameters are:
       - Description
     * - locale
       - de
-      - Localization which will be used.
+      - Localization to use.
     * - webspace
       - sulu_io
-      - Webspace from which content will be loaded.
+      - Webspace from which to load content.
     * - fields
       - ''
       - Comma separated list of properties.
 
 .. note::
 
-   If the parameter fields is not set the content will be resolved with the slow
+   If the ``fields`` parameter is not set the content will be resolved with the slow
    legacy system (which is deprecated).
 
 You can specify following optional parameters:
@@ -50,23 +48,23 @@ You can specify following optional parameters:
       - Description
     * - exclude-ghosts
       - false
-      - If true ghost will be filtered.
+      - If true, ghost pages will be filtered.
     * - exclude-shadows
       - false
-      - If true shadows will be filtered.
+      - If true, shadow pages will be filtered.
 
-Over the mapping you can specify which properties will be loaded by the
+Via the mapping, you can specify which properties will be loaded by the
 repository (for example: 'title,order,article').
 
-The list endpoint also accepts a `parent` parameter. If this parameter is set
-the given page will be used to query for children else the webspace root is
+The list endpoint also accepts a `parent` parameter. If this parameter is set,
+the given page will be used to query for children; otherwise, the webspace root is the
 default.
 
 Service
 .......
 
-The id of the service is `sulu_page.content_repository`. The methods can be
-used as described in the phpdocs.
+The ID of the service is `sulu_page.content_repository`. The methods can be
+used as described in the PHPDocs.
 
 The mapping variable contains information for the mapping process.
 
@@ -75,15 +73,15 @@ The mapping variable contains information for the mapping process.
     * - Name
       - Description
     * - hydrateShadow
-      - if this is false no shadow pages will be returned.
+      - If false, no shadow pages are returned.
     * - hydrateGhost
-      - if this is false no ghost pages will be returned.
+      - If false, no ghost pages are returned.
     * - followInternalLink
-      - if this is false the link will not be resolved.
+      - If false, links are not resolved.
     * - properties
       - List of hydrated properties
 
-You can build this mapping over the mapping builder:
+You can build this mapping using the mapping builder:
 
 .. code-block:: php
 

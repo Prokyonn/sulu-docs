@@ -1,24 +1,24 @@
 Reference Store
 ===============
 
-The reference-store is a service which collects ids of entities/documents
-which are used to render a page. This ids will be used for example in the
+The reference store is a service that collects IDs of entities/documents
+which are used to render a page. These IDs are used, for example, in the
 caching component :doc:`../http_cache`.
 
 Architecture
 ------------
 
-Each type of content registers its own service which implements the
+Each content type registers its own service implementing the
 ``ReferenceStoreInterface`` or with the default implementation
 ``Sulu\Bundle\PageBundle\ReferenceStore\ReferenceStore``.
 
-The service ``sulu_website.reference_store_pool`` collects the services with the
-tag ``sulu_website.reference_store`` and use the ``alias`` attribute to
+The ``sulu_website.reference_store_pool`` service collects services with the
+tag ``sulu_website.reference_store`` and uses the ``alias`` attribute to
 identify them.
 
-To register a loaded entity use the concrete store (e.g.
+To register a loaded entity, use the concrete store (e.g.
 ``sulu_page.reference_store.content`` or your own service) and call the
-method ``add`` to append the id of the entity.
+``add`` method to append the entity ID.
 
 Example
 -------

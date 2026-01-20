@@ -4,8 +4,8 @@ Single Icon selection
 Description
 -----------
 
-Lets you select a single icon from a configured icon set. The selected icon is passed to the twig template as an object.
-The configured icon sets can be either icon fonts or SVGs.
+Allows you to select a single icon from a configured icon set. The selected icon is passed to the Twig template as an object.
+Configured icon sets can be either icon fonts or SVGs.
 
 .. warning::
 
@@ -20,19 +20,19 @@ Parameters
     * - Parameter
       - Type
       - Description
-    * - icon_set
+    * - ``icon_set``
       - string
-      - Defines which icon set should be used. This parameter is required and needs to be configured.
+      - Defines which icon set should be used. This parameter is required and must be configured.
 
 Return value
 ------------
 
-Returns the name of the selected icon or svg.
+Returns the name of the selected icon or SVG.
 
 Configuration
-----------------
+-------------
 
-By default, you can select Sulu icons in the single icon selection field. If you’d like to add your own icon font or SVGs, simply extend the configuration as shown below.
+By default, you can select Sulu icons in the single icon selection field. If you want to add your own icon font or SVGs, extend the configuration as shown below:
 
 .. code-block:: yaml
 
@@ -52,8 +52,8 @@ Example
         </meta>
 
         <params>
-    <!-- "sulu" is the default configured icon font for the Sulu icons-->
-    <!--    <param name="icon_set" value="sulu"/> -->
+            <!-- "sulu" is the default configured icon font for Sulu icons-->
+            <!-- <param name="icon_set" value="sulu"/> -->
             <param name="icon_set" value="iconfont"/>
         </params>
     </property>
@@ -63,9 +63,10 @@ Twig
 
 .. code-block:: twig
 
-    {% set icons = content.icon %}
+    {% set icon = content.icon %}
     <span class="icon-{{ icon.icon }}"></span>
 
     {% set svg = content.svg %}
     <img src="{{ asset('svgs/' ~ svg.icon ~ '.svg') }}"/>
+
 

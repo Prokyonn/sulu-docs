@@ -4,7 +4,7 @@ Text line
 Description
 -----------
 
-Shows a simple text line, the inserted content will be saved as simple string.
+Displays a simple text line. The inserted content is saved as a simple string.
 
 Parameters
 ----------
@@ -15,27 +15,27 @@ Parameters
     * - Parameter
       - Type
       - Description
-    * - headline
+    * - ``headline``
       - boolean
-      - If true the height and font size of the text line get increased.
-    * - soft_max_length
+      - If ``true``, the height and font size of the text line are increased.
+    * - ``soft_max_length``
       - string
-      - Soft limit for maximum number of characters. Will show a character counter (replaces `max_characters`)
-    * - max_segments
+      - Soft limit for the maximum number of characters. Displays a character counter (replaces ``max_characters``).
+    * - ``max_segments``
       - string
-      - Soft limit for maximum number of segments. Will show a segment counter.
-    * - segment_delimiter
+      - Soft limit for the maximum number of segments. Displays a segment counter.
+    * - ``segment_delimiter``
       - string
-      - The delimiter used to split the value into segments (required to use `max_segments`)
-    * - min_length
+      - The delimiter used to split the value into segments (required to use ``max_segments``).
+    * - ``min_length``
       - string
-      - The minimum number of characters
-    * - max_length
+      - The minimum number of characters.
+    * - ``max_length``
       - string
-      - The maximum number of characters
-    * - pattern
+      - The maximum number of characters.
+    * - ``pattern``
       - string
-      - A regex pattern the must be fulfilled by the entered data (e.g. "^[a-zA-Z]*$" will only allow letters)
+      - A regex pattern that must be met by the entered data (e.g., ``"^[a-zA-Z]*$"`` allows only letters).
 
 Example
 -------

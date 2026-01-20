@@ -4,7 +4,7 @@ Single page selection
 Description
 -----------
 
-Shows a field, on which exactly one link to another page can be assigned.
+Displays a field where exactly one link to another page can be assigned.
 
 Parameters
 ----------
@@ -15,20 +15,20 @@ Parameters
     * - Parameter
       - Type
       - Description
-    * - item_disabled_condition
+    * - ``item_disabled_condition``
       - string
-      - Allows to set a `jexl`_ expression that evaluates if an item should be displayed as disabled.
+      - Allows you to set a `jexl`_ expression that evaluates whether an item should be displayed as disabled.
         Disabled items cannot be selected.
-    * - allow_deselect_for_disabled_items
+    * - ``allow_deselect_for_disabled_items``
       - bool
-      - Defines if the user should be able to deselect an item that is disabled. Default value is true.
-    * - request_parameters
+      - Defines whether the user can deselect an item that is disabled. Default value is ``true``.
+    * - ``request_parameters``
       - collection
       - Collection of parameters that are appended to the requests sent by the selection.
-    * - resource_store_properties_to_request
+    * - ``resource_store_properties_to_request``
       - collection
       - Collection of property names.
-        The value of the respective properties are appended to the requests sent by the selection.
+        The values of the respective properties are appended to the requests sent by the selection.
 
 Example
 -------
@@ -44,15 +44,15 @@ Example
 Twig
 ----
 
-The property type only returns the UUID of the target page at the moment. If you want to
-render a link to the page, you can use the :doc:`sulu-link tag<../../bundles/markup/link>`:
+The property type returns only the UUID of the target page. To
+render a link to the page, use the :doc:`sulu-link tag<../../bundles/markup/link>`:
 
 .. code-block:: html
 
     <sulu-link href="{{ content.link }}">Link Text</sulu-link>
 
-If you need to load additional data of the target page, you can use the
-:doc:`sulu_content_load twig extension<../twig-extensions/functions/sulu_content_load>`:
+If you need to load additional data from the target page, use the
+:doc:`sulu_content_load Twig extension<../twig-extensions/functions/sulu_content_load>`:
 
 .. code-block:: twig
 

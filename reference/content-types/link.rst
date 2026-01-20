@@ -4,13 +4,12 @@ Link
 Description
 -----------
 
-The link content type allows to select different type of links, including links to internal entities like
+The link property type allows you to select different types of links, including links to internal entities such as
 pages and external URLs.
-The content type can be limited to allow only specific link types and configured to show an ``anchor`` and
-a ``target`` field.
+The property type can be limited to specific link types and configured to show ``anchor`` and
+``target`` fields.
 
-
-The link content type can be extended with additional link types by :doc:`implementing a custom LinkProvider service<../../cookbook/link-provider>`.
+The link property type can be extended with additional link types by :doc:`implementing a custom LinkProvider service<../../cookbook/link-provider>`.
 
 Parameters
 ----------
@@ -26,17 +25,17 @@ Parameters
       - Enables the ``anchor`` input field in the overlay. Default: ``false``
     * - enable_attributes
       - bool
-      - Enables the ``target``, ``title`` and ``rel`` input fields in the overlay. Default: ``false``
+      - Enables the ``target``, ``title``, and ``rel`` input fields in the overlay. Default: ``false``
     * - enable_query
       - bool
       - Enables the ``query`` input field in the overlay. Default: ``false``
     * - types
       - collection
-      - List of available types in the dropdown.
+      - List of available types in the dropdown menu.
         Default: All registered link types
     * - excluded_types
       - collection
-      - List of types that should be excluded in the dropdown.
+      - List of types that should be excluded from the dropdown menu.
         Default: empty array
 
 Example

@@ -4,7 +4,7 @@ Single Account selection
 Description
 -----------
 
-Let you assign one account from the account section to the page.
+Allows you to assign one account from the account section to a page.
 
 Parameters
 ----------
@@ -15,25 +15,25 @@ Parameters
     * - Parameter
       - Type
       - Description
-    * - item_disabled_condition
+    * - ``item_disabled_condition``
       - string
-      - Allows to set a `jexl`_ expression that evaluates if an item should be displayed as disabled.
+      - Allows you to set a `jexl`_ expression that evaluates whether an item should be displayed as disabled.
         Disabled items cannot be selected.
-    * - allow_deselect_for_disabled_items
+    * - ``allow_deselect_for_disabled_items``
       - bool
-      - Defines if the user should be able to deselect an item that is disabled. Default value is true.
-    * - request_parameters
+      - Defines whether the user can deselect an item that is disabled. Default value is ``true``.
+    * - ``request_parameters``
       - collection
       - Collection of parameters that are appended to the requests sent by the selection.
-    * - resource_store_properties_to_request
+    * - ``resource_store_properties_to_request``
       - collection
       - Collection of property names.
-        The value of the respective properties are appended to the requests sent by the selection.
+        The values of the respective properties are appended to the requests sent by the selection.
 
 Return value
 ------------
 
-See the Account_ for available variables and functions.
+See Account_ for available variables and functions.
 
 Example
 -------
@@ -49,7 +49,7 @@ Example
 Twig
 ----
 
-You need to use the :doc:`../twig-extensions/functions/sulu_resolve_media` if you want to render
+You must use :doc:`../twig-extensions/functions/sulu_resolve_media` if you want to render
 the account logo image.
 
 .. code-block:: twig
@@ -61,7 +61,8 @@ the account logo image.
         {% set image = sulu_resolve_media(account.logo, app.request.locale) %}
 
         <img src="{{ image.thumbnails['80x80'] }}" alt="{{ account.name }}">
-    {% endif
+    {% endif %}
 
 .. _Account: https://github.com/sulu/sulu/blob/2.x/src/Sulu/Bundle/ContactBundle/Api/Account.php
 .. _jexl: https://github.com/TomFrost/jexl
+

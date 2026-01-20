@@ -4,8 +4,8 @@ Media selection
 Description
 -----------
 
-Shows a list with the possibility to assign some assets from the media section
-to a page. Also allows to define a position, which can be handled later in the
+Displays a list with the ability to assign assets from the media section
+to a page. It also allows you to define a position, which can be handled later in the
 template.
 
 Parameters
@@ -17,26 +17,26 @@ Parameters
     * - Parameter
       - Type
       - Description
-    * - types
+    * - ``types``
       - string
-      - A comma separated list of available asset types to assign. Each item in
-        the list must be one of ``document``, ``image``, ``video`` or ``audio``.
-    * - displayOptions
+      - A comma-separated list of available asset types to assign. Each item in
+        the list must be one of ``document``, ``image``, ``video``, or ``audio``.
+    * - ``displayOptions``
       - collection
-      - A collection of booleans, which defines to which positions the assets
-        can be assigned (``leftTop``, ``top``, ``rightTop``, ...)
-    * - defaultDisplayOption
+      - A collection of booleans that defines which positions assets
+        can be assigned to (``leftTop``, ``top``, ``rightTop``, ...).
+    * - ``defaultDisplayOption``
       - string
-      - Defines which of the displayOptions is the default one
-    * - min
+      - Defines which of the ``displayOptions`` is the default.
+    * - ``min``
       - string
-      - The minimum number of selected media
-    * - max
+      - The minimum number of selected media.
+    * - ``max``
       - string
-      - The maximum number of selected media
-    * - sortable
+      - The maximum number of selected media.
+    * - ``sortable``
       - bool
-      - Defines if the user should be able to sort the selected items. Default value is true.
+      - Defines whether the user can sort the selected items. Default value is ``true``.
 
 Example
 -------
@@ -76,7 +76,7 @@ Twig
     {% endfor %}
 
 If your property defines ``displayOptions``, you can access the selected ``displayOption``
-via ``view.<property_name>.displayOptions``:
+via ``view.<property_name>.displayOption``:
 
 .. code-block:: twig
 
@@ -86,9 +86,9 @@ via ``view.<property_name>.displayOptions``:
         {% endfor %}
     </div>
 
-If you want to provide a link for downloading a document, you can use ``.url`` attribute
+If you want to provide a link for downloading a document, you can use the ``.url`` attribute
 or wrap it with the :doc:`sulu_get_media_url <../twig-extensions/functions/sulu_get_media_url>`
-to control which `disposition header`_ the target url should use:
+function to control which `disposition header`_ the target URL should use:
 
 .. code-block:: twig
 
@@ -104,8 +104,8 @@ to control which `disposition header`_ the target url should use:
 
 .. note::
 
-    For performance reasons you should never use the ``.url`` attribute to render ``images`` on your
+    For performance reasons, you should never use the ``.url`` attribute to render images on your
     website. Always use ``thumbnails`` and :doc:`configure your image formats <../../../book/image-formats>`
-    to provide fast optimized cacheable images.
+    to provide fast, optimized, and cacheable images.
 
 .. _`disposition header`: https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Disposition

@@ -4,7 +4,7 @@ Select
 Description
 -----------
 
-Adds the possibility to choose multiple values from a given list of values.
+Adds the ability to choose multiple values from a given list of values.
 
 Parameters
 ----------
@@ -15,16 +15,16 @@ Parameters
     * - Parameter
       - Type
       - Description
-    * - values
+    * - ``values``
       - collection
       - A collection of values to choose from.
-    * - default_values
+    * - ``default_values``
       - collection
-      - A collection of default values which are activated by default.
+      - A collection of default values that are activated by default.
 
 .. note::
 
-    Have a look at the  :doc:`single_select` type if you want to select a single value.
+    See the :doc:`single_select` property type if you want to select only a single value.
 
 Example
 -------
@@ -67,13 +67,13 @@ Example
 Expression Example
 ------------------
 
-By using a ``param`` with the type ``expression``, it is also possible to display
-the values returned by a service (:doc:`../../cookbook/select-values-service`).
+By using a ``param`` with the ``expression`` type, you can also display
+values returned by a service (:doc:`../../cookbook/select-values-service`).
 
 .. note::
 
     Be aware that the provided expression is only evaluated during the initial request to the administration interface.
-    If you want to provide a selection for your custom entity, you should configure the ``selection`` field-type
+    If you want to provide a selection for your custom entity, you should configure the ``selection`` field type
     as described in :doc:`../../book/extend-admin`.
 
 .. code-block:: xml

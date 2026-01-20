@@ -4,7 +4,7 @@ Text area
 Description
 -----------
 
-Shows a simple text area, the inserted content will be saved as simple string.
+Displays a simple text area. The inserted content is saved as a simple string.
 
 Parameters
 ----------
@@ -15,18 +15,18 @@ Parameters
     * - Parameter
       - Type
       - Description
-    * - soft_max_length
+    * - ``soft_max_length``
       - string
-      - Soft limit for maximum number of characters. Will show a character counter (replaces `max_characters`)
-    * - min_length
+      - Soft limit for the maximum number of characters. Displays a character counter (replaces ``max_characters``).
+    * - ``min_length``
       - string
-      - The minimum number of characters
-    * - max_length
+      - The minimum number of characters.
+    * - ``max_length``
       - string
-      - The maximum number of characters
-    * - pattern
+      - The maximum number of characters.
+    * - ``pattern``
       - string
-      - A regex pattern the must be fulfilled by the entered data (e.g. "^[a-zA-Z]*$" will only allow letters)
+      - A regex pattern that must be met by the entered data (e.g., ``"^[a-zA-Z]*$"`` allows only letters).
 
 Example
 -------

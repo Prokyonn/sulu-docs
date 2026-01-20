@@ -1,38 +1,38 @@
 Maintenance Mode
 ================
 
-When you need to deploy a new version of your project on a production environment
-it is often necessary to disable your sulu-application and inform your users
-about it.
+When you need to deploy a new version of your project to a production environment,
+it is often necessary to disable your Sulu application and inform your users
+about the downtime.
 
-Sulu maintenance mode displays a simple holding page which can be easily customized.
+Sulu maintenance mode displays a simple holding page that can be easily customized.
 
-Activate Maintenance Mode
--------------------------
+Activating Maintenance Mode
+---------------------------
 
-Sulu is shipped with a simple maintenance page stored in `public/maintenance.php`_
-file which can be changed for your needs.
+Sulu is shipped with a simple maintenance page stored in the `public/maintenance.php`_
+file, which can be customized to meet your needs.
 
-To activate the maintenance mode you need to  set the environment variable SULU_MAINTENANCE to true.
-For example, in your ``.htaccess`` file or vhost file for apache:
+To activate maintenance mode, set the environment variable ``SULU_MAINTENANCE`` to ``true``.
+For example, in your ``.htaccess`` or vhost file for Apache:
 
 .. code-block:: apache
 
     SetEnv SULU_MAINTENANCE true
 
-For nginx you can configure the maintenance mode in the php part of your vhost by adding:
+For Nginx, you can configure maintenance mode in the PHP section of your vhost by adding:
 
 .. code-block:: nginx
 
     fastcgi_param SULU_MAINTENANCE true;
 
-Configure Maintenance Mode
---------------------------
+Configuring Maintenance Mode
+----------------------------
 
 Allowed IP addresses
 ~~~~~~~~~~~~~~~~~~~~
 
-You may like to access your application while maintenance mode is active. Then you need to set the allowed IPs:
+You may want to access your application while maintenance mode is active. You can set the allowed IPs in ``public/maintenance.php``:
 
 .. code-block:: php
 
@@ -58,8 +58,7 @@ You can define translations for your template as follows:
 Default locale
 ~~~~~~~~~~~~~~
 
-By default, ``maintenance.php`` is automatically detecting your browsers language. If no translation for this language
-exists the default locale is being used. By default this is English:
+By default, ``maintenance.php`` automatically detects your browser's language. If no translation exists for that language, the default locale is used. The default is English:
 
 .. code-block:: php
 

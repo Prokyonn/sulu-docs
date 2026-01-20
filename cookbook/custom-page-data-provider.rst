@@ -1,13 +1,11 @@
-Filter pages by a property using a custom SmartContent DataProvider
+Filter Pages by Property Using a Custom SmartContent DataProvider
 ===================================================================
 
-The ``smart_content`` content type allows for the configuration of a ``provider`` param, which is used for gathering
-the items that are passed to the twig template. As described in :doc:`/reference/content-types/smart_content`, Sulu
-comes with a few included providers and also allows to implement new ones to load custom entities.
+The ``smart_content`` property type allows for the configuration of a ``provider`` parameter, used for gathering items passed to the Twig template. As described in :doc:`/reference/property-types/smart_content`, Sulu
+comes with a few included providers and also allows implementing new ones to load custom entities.
 
-In some cases, it might be useful to register an additional provider, which only returns pages including a property
-with a specific value. This is possible by registering a new instance of the ``PageDataProvider`` included in Sulu
-that uses a custom implementation of the ``QueryBuilder``. In the following example a custom ``AuthorPageDataProvider``
+In some cases, it might be useful to register an additional provider, which returns only pages with a specific property value. This is achieved by registering a new instance of the ``PageDataProvider`` included in Sulu
+that uses a custom implementation of the ``QueryBuilder``. In the following example, a custom ``AuthorPageDataProvider``
 is implemented, which filters the pages for a specific author:
 
 **1. Implement a custom** ``QueryBuilder`` **class that adds conditions**
@@ -108,8 +106,8 @@ Adding custom sorting
 ---------------------
 
 You can implement custom sorting criteria by creating a new ``DataProvider`` class that extends from the ``PageDataProvider`` class and using it instead.
-That way, you can sort by a property that isn't provided by the ``PageDataProvider``. 
-When a lot of business logic it is probably better to create a custom entity instead.
+This allows sorting by a property not provided by the ``PageDataProvider``. 
+If there is significant business logic, it is probably better to create a custom entity instead.
 
 **1. Create a custom** ``DataProvider`` **class that overrides the** ``PageDataProvider`` **configuration.**
 
@@ -146,7 +144,7 @@ When a lot of business logic it is probably better to create a custom entity ins
         }
     }
 
-Other configuration settings can be overriden as well. The available options are:
+Other configuration settings can be overridden as well. The available options are:
 
 .. list-table::
     :header-rows: 1
@@ -156,19 +154,19 @@ Other configuration settings can be overriden as well. The available options are
       - Description
     * - `setTags`
       - bool
-      - Enable tags to be selecteable for smart_content.
+      - Enable tags to be selectable for smart_content.
     * - `setTags`
       - bool
       - Enable categories.
     * - `setLimit`
       - bool
-      - Enable limit.
+      - Enable item limit.
     * - `setPaginated`
       - bool
       - Enable pagination.
     * - `setPresentAs`
       - bool
-      - Enable present as.
+      - Enable 'present as' options.
     * - `setAudienceTargeting`
       - bool
       - Enable audience targeting.
@@ -187,4 +185,4 @@ Other configuration settings can be overriden as well. The available options are
             class: App\SmartContent\EventPageDataProvider
 
 
-All other parameters remain the same as you would register a ``PageDataProvider`` service that uses a custom ``QueryBuilder`` implementation.
+All other parameters remain the same as when registering a ``PageDataProvider`` service that uses a custom ``QueryBuilder`` implementation.

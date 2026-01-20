@@ -4,7 +4,7 @@ Displaying Values from a Service in a Select Field
 Sulu allows you to set the value of a ``param`` for a property with the ``expression`` type
 via the `Symfony expression language`_.
 This makes it possible to display values returned by a service for the
-:doc:`../reference/property-types/select` and :doc:`../reference/property-types/single_select` property types.
+:doc:`../reference/content-types/select` and :doc:`../reference/content-types/single_select` content types.
 
 .. note::
 
@@ -12,7 +12,7 @@ This makes it possible to display values returned by a service for the
     If you want to provide a selection for your custom entity, you should configure the ``selection`` or ``single_selection`` field type
     as described in :doc:`../../book/extend-admin`.
 
-A service for returning the values for these property types could look like this:
+A service for returning the values for these content types could look like this:
 
 .. code-block:: php
 

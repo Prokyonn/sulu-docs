@@ -2,8 +2,8 @@ Provider for a Custom Link Type
 =============================
 
 ``LinkProvider`` services resolve data for different types of internal links.
-These services are used in various parts of the system, including the ``Link`` property type
-(see :doc:`../reference/property-types/link`), the internal link plugin for CKEditor, and
+These services are used in various parts of the system, including the ``Link`` content type
+(see :doc:`../reference/content-types/link`), the internal link plugin for CKEditor, and
 the ``<sulu-link>`` tag inside Twig templates (see :doc:`../bundles/markup/link`).
 
 The ``LinkProvider::preload`` method resolves an array of ``LinkItem``

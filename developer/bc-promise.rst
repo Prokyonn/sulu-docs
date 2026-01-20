@@ -50,10 +50,10 @@ Sulu Admin
 Using the ``Admin`` class along with its navigation is guaranteed not to
 break.
 
-Property Types
+Content Types
 ~~~~~~~~~~~~~~
 
-We ensure that the property types included with Sulu save
+We ensure that the content types included with Sulu save
 content in a consistent way to prevent regressions during upgrades.
 
 If the content structure must be changed to fix bugs, we will provide

@@ -17,7 +17,7 @@ Parameters
       - Description
     * - ``type``
       - string
-      - Defines the appearance of the checkbox. Can be "checkbox" or "toggler". Be aware of the difference between the property type and parameter type.
+      - Defines the appearance of the checkbox. Can be "checkbox" or "toggler". Be aware of the difference between the content type and parameter type.
     * - ``default_value``
       - bool
       - Defines the default value of the checkbox. When not set, the initial value is ``null``.

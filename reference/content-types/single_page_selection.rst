@@ -44,7 +44,7 @@ Example
 Twig
 ----
 
-The property type returns only the UUID of the target page. To
+The content type returns only the UUID of the target page. To
 render a link to the page, use the :doc:`sulu-link tag<../../bundles/markup/link>`:
 
 .. code-block:: html

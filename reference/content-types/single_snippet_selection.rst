@@ -6,7 +6,7 @@ Description
 
 Allows you to select a single snippet. Snippets are reusable pieces of content that can be included on multiple pages.
 
-Currently, this property type does not support multiple areas and types.
+Currently, this content type does not support multiple areas and types.
 
 Parameters
 ----------

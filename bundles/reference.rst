@@ -37,11 +37,11 @@ references by executing the `bin/console sulu:reference:refresh` command. This c
 Integrating references for custom property-types
 ------------------------------------------------
 
-To integrate the ReferenceBundle for custom property types, you need to implement the `ReferenceContentTypeInterface` in your
-property type class. This interface requires you to implement the ``getReferences`` method. The method receives the
+To integrate the ReferenceBundle for custom content types, you need to implement the `ReferenceContentTypeInterface` in your
+content type class. This interface requires you to implement the ``getReferences`` method. The method receives the
 ``ReferenceCollector``, which you can use to add references.
 
-Example implementation for a custom property type:
+Example implementation for a custom content type:
 
 .. code-block:: php
 

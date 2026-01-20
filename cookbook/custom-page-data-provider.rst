@@ -1,7 +1,7 @@
 Filter Pages by Property Using a Custom SmartContent DataProvider
 ===================================================================
 
-The ``smart_content`` property type allows for the configuration of a ``provider`` parameter, used for gathering items passed to the Twig template. As described in :doc:`/reference/property-types/smart_content`, Sulu
+The ``smart_content`` content type allows for the configuration of a ``provider`` parameter, used for gathering items passed to the Twig template. As described in :doc:`/reference/content-types/smart_content`, Sulu
 comes with a few included providers and also allows implementing new ones to load custom entities.
 
 In some cases, it might be useful to register an additional provider, which returns only pages with a specific property value. This is achieved by registering a new instance of the ``PageDataProvider`` included in Sulu

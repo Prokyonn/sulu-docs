@@ -4,9 +4,9 @@ ImageMap
 Description
 -----------
 
-The image map property type allows you to assign an arbitrary amount of hotspots to
+The image map content type allows you to assign an arbitrary amount of hotspots to
 an image. These hotspots can be circles, rectangles, or points. It is
-possible to define multiple types with different property types included. Every
+possible to define multiple types with different content types included. Every
 hotspot must be one of the defined types.
 
 A common use case is to create a type containing a text editor. Then it is
@@ -74,7 +74,7 @@ XML
 
 .. note::
 
-    You can use global block types for the ``image_map`` property type as well. See
+    You can use global block types for the ``image_map`` content type as well. See
     :ref:`template properties <templates-global-blocks>` for more information.
 
 Twig

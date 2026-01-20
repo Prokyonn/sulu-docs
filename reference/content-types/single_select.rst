@@ -24,7 +24,7 @@ Parameters
 
 .. note::
 
-    See the :doc:`select` property type if you want to select multiple values.
+    See the :doc:`select` content type if you want to select multiple values.
 
 Example
 -------

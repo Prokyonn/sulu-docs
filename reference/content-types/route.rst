@@ -4,13 +4,13 @@ Route
 Description
 -----------
 
-The ``route`` property type allows you to generate URLs for **custom entities**.
+The ``route`` content type allows you to generate URLs for **custom entities**.
 See :doc:`/bundles/route/index` to learn how to implement routing for your custom entity.
 
 .. note::
 
-    The ``route`` property type should not be used on page templates. For pages, use the :doc:`resource_locator`
-    property type instead.
+    The ``route`` content type should not be used on page templates. For pages, use the :doc:`resource_locator`
+    content type instead.
 
 Parameters
 ----------

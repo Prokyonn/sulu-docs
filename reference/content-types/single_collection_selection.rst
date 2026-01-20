@@ -8,7 +8,7 @@ Allows you to assign one collection from the media section.
 
 .. note::
 
-    This property type passes a Collection_ entity to the Twig template. It does not provide the media
+    This content type passes a Collection_ entity to the Twig template. It does not provide the media
     entities within the selected collection.
     If you want to access the media entities of a collection, you should use a :doc:`smart_content property <smart_content>`
     with the ``media`` data provider or load the matching media entities in a :doc:`custom controller <../../cookbook/custom-controller>`

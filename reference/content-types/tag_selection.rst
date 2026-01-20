@@ -14,7 +14,7 @@ tags are saved as an array.
 
 .. note::
 
-    This property type is rarely needed because the ``Excerpt & Taxonomies`` tab
+    This content type is rarely needed because the ``Excerpt & Taxonomies`` tab
     allows you to assign tags to pages.
 
 Parameters

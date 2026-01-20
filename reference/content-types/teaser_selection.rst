@@ -1,7 +1,7 @@
 Teaser Selection
 ================
 
-The ``teaser_selection`` property type is used for displaying teasers for other
+The ``teaser_selection`` content type is used for displaying teasers for other
 content on your website. These teasers can be arranged as a list or grid.
 
 In the administration interface, the widget is displayed as a selector for 

@@ -4,12 +4,12 @@ Link
 Description
 -----------
 
-The link property type allows you to select different types of links, including links to internal entities such as
+The link content type allows you to select different types of links, including links to internal entities such as
 pages and external URLs.
-The property type can be limited to specific link types and configured to show ``anchor`` and
+The content type can be limited to specific link types and configured to show ``anchor`` and
 ``target`` fields.
 
-The link property type can be extended with additional link types by :doc:`implementing a custom LinkProvider service<../../cookbook/link-provider>`.
+The link content type can be extended with additional link types by :doc:`implementing a custom LinkProvider service<../../cookbook/link-provider>`.
 
 Parameters
 ----------

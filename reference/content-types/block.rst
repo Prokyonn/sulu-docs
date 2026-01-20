@@ -4,8 +4,8 @@ Block
 Description
 -----------
 
-The block property type allows you to group an arbitrary amount of other content
-types. Each block can define multiple types with different property types
+The block content type allows you to group an arbitrary amount of other content
+types. Each block can define multiple types with different content types
 included. These blocks can then be repeated and ordered by the content manager
 in the Sulu admin.
 
@@ -13,7 +13,7 @@ A common use case is to combine a text editor with a media selection.
 This way, text can be directly linked to an image via the assignment to the
 same block. This approach has its biggest benefit compared to putting images into the
 text editor when used in combination with responsive design. When using
-multiple property types in a block, the template developer has the freedom to
+multiple content types in a block, the template developer has the freedom to
 place the image where and in which format it makes sense. In contrast, adding
 images to the text editor would make it difficult to adapt the format and
 placement in the Twig template.
@@ -46,8 +46,8 @@ Parameters
 Example
 -------
 
-Please note that the configuration of the block property type differs from
-other property types.
+Please note that the configuration of the block content type differs from
+other content types.
 
 Instead of a ``property`` tag, a ``block`` tag is used. The
 ``default-type`` attribute is mandatory and describes which of the types are

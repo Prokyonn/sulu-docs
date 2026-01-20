@@ -24,7 +24,7 @@ Parameters
 
 .. note::
 
-    See the :doc:`single_select` property type if you want to select only a single value.
+    See the :doc:`single_select` content type if you want to select only a single value.
 
 Example
 -------

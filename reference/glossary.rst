@@ -27,7 +27,7 @@ Page
     A page is a basic type of document. Pages are accessible directly via URLs and represent pages of your website.
 
 Parameter
-    In relation to Property and Structure items; a configuration parameter related to the configuration of the property type.
+    In relation to Property and Structure items; a configuration parameter related to the configuration of the content type.
 
 Prefix
     The first part of a web-facing URL defined by the portal, followed by the resource locator. The prefix may include the locale.
@@ -35,8 +35,8 @@ Prefix
 Property
     Refers to the items in a Structure.
     
-Property Type
-    The way Sulu represents different types of "content". For example, ``email``, ``text``, and ``smart_content`` are three examples of Sulu property types.
+Content Type
+    The way Sulu represents different types of "content". For example, ``email``, ``text``, and ``smart_content`` are three examples of Sulu content types.
 
 Resource locator
     The latter part of a web-facing URL belonging to a document, excluding the host and prefix segment. For example, ``/articles/foo`` is a resource locator, while ``/de/articles/foo`` and ``http://example.com/articles/foo`` are not. The resource locator never includes the locale.

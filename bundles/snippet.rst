@@ -107,7 +107,7 @@ Implement a Snippet in your Template
 
 Snippets are stored separately and are not accessible via a direct URL.
 
-To use a snippet on a page, add the property type ":doc:`../reference/property-types/single_snippet_selection`" to link one snippet, or ":doc:`../reference/property-types/snippet_selection`" for multiple snippets.
+To use a snippet on a page, add the content type ":doc:`../reference/content-types/single_snippet_selection`" to link one snippet, or ":doc:`../reference/content-types/snippet_selection`" for multiple snippets.
 
 .. figure:: ../img/social-media-snippet-selection.png
 
@@ -144,5 +144,5 @@ Learn more
 ----------
 
 * :doc:`../cookbook/default-snippets`
-* Property type reference for :doc:`../reference/property-types/single_snippet_selection`
-* Property type reference for :doc:`../reference/property-types/snippet_selection`
+* Content type reference for :doc:`../reference/content-types/single_snippet_selection`
+* Content type reference for :doc:`../reference/content-types/snippet_selection`

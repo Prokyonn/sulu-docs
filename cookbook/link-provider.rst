@@ -1,29 +1,28 @@
-Provider for custom link type
+Provider for a Custom Link Type
 =============================
 
-``LinkProvider`` services are used to resolve data for different types of internal links.
-The services are used in different parts of the system, including the `Link` property type
-(see :doc:`../reference/property-types/link`), the internal link plugin of the CKEditor and
-the ``<sulu-link>`` tag inside of twig-templates (see :doc:`../bundles/markup/link`).
+``LinkProvider`` services resolve data for different types of internal links.
+These services are used in various parts of the system, including the ``Link`` property type
+(see :doc:`../reference/property-types/link`), the internal link plugin for CKEditor, and
+the ``<sulu-link>`` tag inside Twig templates (see :doc:`../bundles/markup/link`).
 
-The ``LinkProvider::preload`` method is responsible for resolving an array of ``LinkItem``
-instances for the given arguments. Each ``LinkItem`` consists of the following properties:
+The ``LinkProvider::preload`` method resolves an array of ``LinkItem``
+instances for given arguments. Each ``LinkItem`` contains the following properties:
 
-* id
-* title
-* url
-* published
+* ``id``
+* ``title``
+* ``url``
+* ``published``
 
 Example
 -------
 
-To register a ``LinkProvider`` service for a custom link type, you create a service that
-implements the ``LinkProviderInterface`` and tag it with the respective resource key:
+To register a ``LinkProvider`` service for a custom link type, create a service implementing
+the ``LinkProviderInterface`` and tag it with the respective resource key:
 ``<tag name="sulu.link.provider" alias="{resourceKey}"/>``
 
-If the entities of the new link type should be selected via a list in the administration interface,
-the ``LinkProvider::getConfiguration`` method must return the configuration that is used for
-the list.
+If entities of the new link type should be selectable via a list in the administration interface,
+the ``LinkProvider::getConfiguration`` method must return the list configuration.
 
 .. code-block:: php
 
@@ -62,18 +61,18 @@ the list.
                 return [];
             }
 
-            $items = ...; // load items by id
+            $items = ...; // load items by ID
             foreach ($items as $item) {
-                $result[] = new LinkItem(...); // create link-item foreach item
+                $result[] = new LinkItem(...); // create LinkItem for each item
             }
 
             return $result;
         }
     }
 
-If the entities of the new link type cannot be selected via a list, the ``LinkProvider::getConfiguration``
-method of your service must return ``null`` and you need to register a custom overlay via
-the ``linkTypeRegistry`` Javascript service:
+If entities of the new link type cannot be selected via a list, the ``LinkProvider::getConfiguration``
+method of your service must return ``null``, and you need to register a custom overlay via
+the ``linkTypeRegistry`` JavaScript service:
 
 .. code-block:: javascript
 

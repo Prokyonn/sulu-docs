@@ -1,8 +1,8 @@
-SmartContentProvider for SmartContent
-=====================================
+Smart Content Providers
+=======================
 
 SmartContentProviders are used to load data for SmartContent. They return data filtered
-by a configuration array. This array can be configured with an overlay in the
+by a configuration array. This array can be configured via an overlay in the
 backend form.
 
 This configuration array includes the following values:
@@ -12,49 +12,49 @@ This configuration array includes the following values:
 
     * - Name
       - Description
-    * - dataSource
-      - Additional constraint - like page-"folder".
-    * - tags
-      - Multiple selection of tags, which an item should have.
-    * - tagOperator
-      - The item has any or all of the selected tags.
-    * - categories
-      - Multiple selection of categories, which an item should have.
-    * - categoryOperator
-      - The item has any or all of the selected categories.
-    * - types
-      - Multiple selection of types (e.g. templates), which an item should have
+    * - ``dataSource``
+      - Additional constraint, such as a page "folder."
+    * - ``tags``
+      - Multiple selection of tags that an item should have.
+    * - ``tagOperator``
+      - Determines if the item must have any or all of the selected tags.
+    * - ``categories``
+      - Multiple selection of categories that an item should have.
+    * - ``categoryOperator``
+      - Determines if the item must have any or all of the selected categories.
+    * - ``types``
+      - Multiple selection of types (e.g., templates) that an item should have.
 
-Tags (websiteTags) and Categories (websiteCategories) can also be "injected" by
-GET parameters from the website. This can be handled separately from the
-admin-selected. Also different operators (websiteTagsOperator and
-websiteCategoryOperator) are available.
+Tags (``websiteTags``) and Categories (``websiteCategories``) can also be "injected" via
+GET parameters from the website. These can be handled separately from the
+admin-selected filters. Different operators (``websiteTagsOperator`` and
+``websiteCategoryOperator``) are also available.
 
-Additional features, which can be provided with a SmartContentProvider:
+Additional features that can be provided by a SmartContentProvider:
 
 .. list-table::
     :header-rows: 1
 
     * - Name
       - Description
-    * - presentAs
-      - Value can be used in the website for display options - like one or two
-        column - these values can be freely configured by developers.
-    * - page & pageSize
+    * - ``presentAs``
+      - A value used in the website for display options (e.g., one or two
+        columns). These values can be freely configured by developers.
+    * - ``page`` & ``pageSize``
       - Pagination of items.
-    * - limit
-      - Maximum items for (if pagination is active) over all pages or overall.
+    * - ``limit``
+      - Maximum number of items to display across all pages or overall (if pagination is active).
 
-How to create a custom SmartContentProvider?
----------------------------------------------
+How to Create a Custom SmartContentProvider?
+--------------------------------------------
 
-To create a custom SmartContentProvider you have to create a service which
+To create a custom SmartContentProvider, create a service that
 implements the ``Sulu\Bundle\AdminBundle\SmartContent\SmartContentProviderInterface``.
 This interface provides functions to resolve the configured filters and return
 the matching entities. The provider also returns a configuration object to enable
 or disable features.
 
-Below are the steps to create a SmartContentProvider for an ExampleEntity using
+Below are the steps to create a SmartContentProvider for an ``ExampleEntity`` using
 the Builder pattern for configuration.
 
 1. Repository
@@ -122,10 +122,10 @@ typical implementation provides ``findByFilters`` and ``countByFilters`` methods
 
     Creating a separate repository is optional. You can also implement the query
     logic directly in your SmartContentProvider's ``findFlatBy`` and ``countBy``
-    methods if you prefer.
+    methods.
 
 2. SmartContentProvider
-~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~
 
 Create a SmartContentProvider by implementing the ``SmartContentProviderInterface``:
 
@@ -199,37 +199,37 @@ The ``Builder`` class provides these methods to configure your provider:
 
     * - Method
       - Description
-    * - enableTags()
-      - Enables the tag filtering functionality.
-    * - enableCategories()
-      - Enables the category filtering functionality.
-    * - enableLimit()
+    * - ``enableTags()``
+      - Enables tag filtering functionality.
+    * - ``enableCategories()``
+      - Enables category filtering functionality.
+    * - ``enableLimit()``
       - Allows limiting the output items to a specified number.
-    * - enablePagination()
-      - Allows enabling pagination and specifying items per page.
-    * - enablePresentAs()
-      - Allows enabling multiple options for the view. These options can be
+    * - ``enablePagination()``
+      - Enables pagination and specifying items per page.
+    * - ``enablePresentAs()``
+      - Enables multiple options for the view. These options can be
         configured in the template configuration of the SmartContent property.
-    * - enableSorting(array $sorting)
+    * - ``enableSorting(array $sorting)``
       - Enables sorting functionality. The sorting options must be passed
-        into this method.
-    * - enableTypes(array $types)
+        to this method.
+    * - ``enableTypes(array $types)``
       - Enables type filtering functionality. The selectable types must be
-        passed into this method.
-    * - enableDatasource(string $resourceKey, string $listKey, string $adapter)
+        passed to this method.
+    * - ``enableDatasource(string $resourceKey, string $listKey, string $adapter)``
       - Allows choosing a source for the request. This is useful in tree
-        structures, because it allows filtering e.g. for pages below a certain
+        structures because it allows filtering, for example, for pages below a certain
         parent page.
-    * - enableAudienceTargeting()
+    * - ``enableAudienceTargeting()``
       - Enables filtering through audience targeting.
-    * - enableProperties(array $properties)
-      - Defines default property names to be exposed in HTML templates. Only use
-        if your provider returns ContentRichEntities.
-    * - enableView(string $view, array $resultToView)
-      - Allows defining which view the application should navigate to when
+    * - ``enableProperties(array $properties)``
+      - Defines default property names to be exposed in HTML templates. Use this only
+        if your provider returns ``ContentRichEntities``.
+    * - ``enableView(string $view, array $resultToView)``
+      - Defines which view the application should navigate to when
         clicking on a resulting item. The first parameter describes the view
         defined in an ``Admin`` class and the second parameter is a mapping from
-        a json pointer. The mapping defines how the values of the clicked item
+        a JSON pointer. The mapping defines how the values of the clicked item
         should be sent to the view's path.
 
 3. Service Definition
@@ -249,5 +249,5 @@ Register the provider as a service with the ``sulu.smart_content.data_provider``
 
 The ``alias`` must match the value returned by ``getType()``.
 
-Afterwards you can use your new SmartContentProvider in your templates by setting
+Afterward, you can use your new SmartContentProvider in your templates by setting
 the ``provider`` parameter to ``examples``.

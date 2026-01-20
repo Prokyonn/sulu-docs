@@ -4,9 +4,9 @@ Page Selection
 Description
 -----------
 
-Shows a list with the possibility to add links to other pages managed in Sulu.
-Additionally it populates all the fields defined in the template configuration
-to the HTML template. The content is stored as an array of references.
+Displays a list that allows you to add links to other pages managed in Sulu.
+Additionally, it populates all fields defined in the template configuration
+into the HTML template. The content is stored as an array of references.
 
 Parameters
 ----------
@@ -17,33 +17,33 @@ Parameters
     * - Parameter
       - Type
       - Description
-    * - properties
+    * - ``properties``
       - collection
-      - Defines with which key which property of the linked page should be
-        populated to the HTML template.
-    * - item_disabled_condition
+      - Defines which properties of the linked page should be
+        populated into the HTML template and under which key.
+    * - ``item_disabled_condition``
       - string
-      - Allows to set a `jexl`_ expression that evaluates if an item should be displayed as disabled.
+      - Allows you to set a `jexl`_ expression that evaluates whether an item should be displayed as disabled.
         Disabled items cannot be selected.
-    * - allow_deselect_for_disabled_items
+    * - ``allow_deselect_for_disabled_items``
       - bool
-      - Defines if the user should be able to deselect an item that is disabled. Default value is true.
-    * - sortable
+      - Defines whether the user can deselect an item that is disabled. Default value is ``true``.
+    * - ``sortable``
       - bool
-      - Defines if the user should be able to sort the selected items. Default value is true.
-    * - request_parameters
+      - Defines whether the user can sort the selected items. Default value is ``true``.
+    * - ``request_parameters``
       - collection
       - Collection of parameters that are appended to the requests sent by the selection.
-    * - resource_store_properties_to_request
+    * - ``resource_store_properties_to_request``
       - collection
       - Collection of property names.
-        The value of the respective properties are appended to the requests sent by the selection.
-    * - min
+        The values of the respective properties are appended to the requests sent by the selection.
+    * - ``min``
       - string
-      - The minimum number of selected pages
-    * - max
+      - The minimum number of selected pages.
+    * - ``max``
       - string
-      - The maximum number of selected pages
+      - The maximum number of selected pages.
 
 Example
 -------

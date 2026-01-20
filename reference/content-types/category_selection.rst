@@ -4,14 +4,13 @@ Category selection
 Description
 -----------
 
-Shows a list of all available categories. The user can select with a checkbox
-which ones to assign to the page. Categories can be managed in the settings
-section of Sulu. The selection will be saved as an array.
+Displays a list of all available categories. The user can select which ones to assign to the page using checkboxes. Categories can be managed in the settings
+section of Sulu. The selection is saved as an array.
 
 .. note::
 
-    This content type is rarely needed because the ``Excerpt and Taxonomies``
-    allows to assign categories to pages.
+    This property type is rarely needed because the ``Excerpt & Taxonomies`` tab
+    allows you to assign categories to pages.
 
 Parameters
 ----------
@@ -24,7 +23,7 @@ Parameters
       - Description
     * - item_disabled_condition
       - string
-      - Allows to set a `jexl`_ expression that evaluates if an item should be displayed as disabled.
+      - Allows you to set a `jexl`_ expression that evaluates whether an item should be displayed as disabled.
         Disabled items cannot be selected.
     * - request_parameters
       - collection
@@ -32,13 +31,13 @@ Parameters
     * - resource_store_properties_to_request
       - collection
       - Collection of property names.
-        The value of the respective properties are appended to the requests sent by the selection.
+        The values of the respective properties are appended to the requests sent by the selection.
     * - min
       - string
-      - The minimum number of selected categories
+      - The minimum number of selected categories.
     * - max
       - string
-      - The maximum number of selected categories
+      - The maximum number of selected categories.
 
 Example
 -------
@@ -54,7 +53,7 @@ Example
 Extended Example
 ----------------
 
-Following example defines an entry category for the selection tree.
+The following example defines a root category for the selection tree.
 
 .. code-block:: xml
 
@@ -78,7 +77,7 @@ Twig
         <h3>{{ category.name }}</h3>
     {% endfor %}
 
-If you want to list all categories in your template you can use the :doc:`../twig-extensions/functions/sulu_categories`
-twig extension for it.
+If you want to list all categories in your template, you can use the :doc:`../twig-extensions/functions/sulu_categories`
+Twig extension.
 
 .. _jexl: https://github.com/TomFrost/jexl

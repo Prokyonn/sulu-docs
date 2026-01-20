@@ -4,10 +4,10 @@ Snippet Selection
 Description
 -----------
 
-Allows to select an arbitrary number of snippets. Snippets are reusable pieces of content that can be included on
-multiple pages. The assigned snippets will be saved as an array of references.
+Allows you to select an arbitrary number of snippets. Snippets are reusable pieces of content that can be included on
+multiple pages. The assigned snippets are saved as an array of references.
 
-Currently this content type does not support multiple areas and types.
+Currently, this property type does not support multiple areas and types.
 
 Parameters
 ----------
@@ -18,38 +18,38 @@ Parameters
     * - Parameter
       - Type
       - Description
-    * - types
+    * - ``types``
       - string
-      - If set, only snippets of the type can be selected.
-    * - default
+      - If set, only snippets of this type can be selected.
+    * - ``default``
       - string
-      - If set, the default snippet of the given area will be used as fallback value if no snippet is selected.
-    * - loadExcerpt
+      - If set, the default snippet of the given area will be used as a fallback if no snippet is selected.
+    * - ``loadExcerpt``
       - boolean
-      - If set to true, the taxonomies information of the snippet is loaded into a "taxonomies" property.
-    * - item_disabled_condition
+      - If set to ``true``, the taxonomy information of the snippet is loaded into a ``taxonomies`` property.
+    * - ``item_disabled_condition``
       - string
-      - Allows to set a `jexl`_ expression that evaluates if an item should be displayed as disabled.
+      - Allows you to set a `jexl`_ expression that evaluates whether an item should be displayed as disabled.
         Disabled items cannot be selected.
-    * - allow_deselect_for_disabled_items
+    * - ``allow_deselect_for_disabled_items``
       - bool
-      - Defines if the user should be able to deselect an item that is disabled. Default value is true.
-    * - sortable
+      - Defines whether the user can deselect an item that is disabled. Default value is ``true``.
+    * - ``sortable``
       - bool
-      - Defines if the user should be able to sort the selected items. Default value is true.
-    * - request_parameters
+      - Defines whether the user can sort the selected items. Default value is ``true``.
+    * - ``request_parameters``
       - collection
       - Collection of parameters that are appended to the requests sent by the selection.
-    * - resource_store_properties_to_request
+    * - ``resource_store_properties_to_request``
       - collection
       - Collection of property names.
-        The value of the respective properties are appended to the requests sent by the selection.
-    * - min
+        The values of the respective properties are appended to the requests sent by the selection.
+    * - ``min``
       - string
-      - The minimum number of selected snippets
-    * - max
+      - The minimum number of selected snippets.
+    * - ``max``
       - string
-      - The maximum number of selected snippets
+      - The maximum number of selected snippets.
 
 Example
 -------

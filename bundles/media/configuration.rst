@@ -1,7 +1,7 @@
 Configuration
 =============
 
-The SuluMediaBundle can be configured the following way:
+The SuluMediaBundle can be configured in the following way:
 
 .. code-block:: yaml
 

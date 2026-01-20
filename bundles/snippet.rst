@@ -1,35 +1,35 @@
 SnippetBundle
 =============
 
-The SnippetBundle contains the implementation to use snippets in Sulu.
+The SnippetBundle implements snippets in Sulu.
 
 What is a Snippet
 -----------------
 
-As the name suggests, a snippet is a small fragment on a page.
-However, unlike blocks, for example, which would also fit this description, the idea with snippets is reusability.
-As a section of a web page a snippet must be first universally maintained, and thereafter be reused anywhere on the website.
-An example on a website would be a social media section.
+As the name suggests, a snippet is a small page fragment.
+However, unlike blocks, for example, which would also fit this description, snippets are designed for reusability.
+A snippet is a website section that is maintained centrally and reused anywhere.
+A social media section is a good example.
 
-In this section there would be logos of social services like Facebook and a link to the profile on the service.
-This section could of course also be built conventionally in a page template, but you would have to maintain it on each page.
+This section might contain logos of social services like Facebook and a link to the profile on the service.
+You could build this section in a page template, but you would have to maintain it on every page.
 
 This is where snippets come into play.
-A snippet could be configured to cover exactly this use case and you would only have to maintain the profiles once and could reuse them at any point.
+A snippet could be configured to cover exactly this use case and you would only have to maintain the profiles once and reuse them anywhere.
 
 Creating a Snippet Template
 ---------------------------
 
-In this example we'll creating a "Social Media" snippet to the page of Sulu.
+In this example, we will create a "Social Media" snippet.
 
 .. figure:: ../img/snippet-social-media.png
 
-Creating a snippet Template isn't really different like Page :doc:`../book/templates`.
-Create a XML File in your `config/template/snippets/` folder like the following example
+Creating a snippet template is similar to creating a page template (see :doc:`../book/templates`).
+Create an XML file in your `config/template/snippets/` folder, as shown in the following example:
 
 .. note::
 
-    The <key> and the name of the XML must be the same!
+    The ``<key>`` and the XML filename must match.
 
 .. code-block:: xml
 
@@ -99,15 +99,15 @@ Create a XML File in your `config/template/snippets/` folder like the following 
 Properties
 ----------
 
-Properties are the same as Page :doc:`../book/templates`.
+Properties are the same as for Pages (see :doc:`../book/templates`).
 
 
 Implement a Snippet in your Template
 ------------------------------------
 
-Snippets are stored separately and are not accessible via the web page URL.
+Snippets are stored separately and are not accessible via a direct URL.
 
-So if we want to use a snippet on a page, we need to add the property type ":doc:`../reference/property-types/single_snippet_selection`" if we want to link one or ":doc:`../reference/property-types/snippet_selection`" for more snippets.
+To use a snippet on a page, add the property type ":doc:`../reference/property-types/single_snippet_selection`" to link one snippet, or ":doc:`../reference/property-types/snippet_selection`" for multiple snippets.
 
 .. figure:: ../img/social-media-snippet-selection.png
 
@@ -125,8 +125,7 @@ So if we want to use a snippet on a page, we need to add the property type ":doc
 
 Load Snippets from a Subfolder
 ------------------------------
-By the means of configuration in `config/packages/sulu_admin.yaml` according to the following scheme
-it is also possible to load snippet templates from custom folders.
+You can load snippet templates from custom folders by configuring `config/packages/sulu_admin.yaml` as follows:
 
 .. code-block:: yaml
 
@@ -138,7 +137,7 @@ it is also possible to load snippet templates from custom folders.
                         path: "%kernel.project_dir%/config/template/events/snippets/"
                         type: "snippet"
 
-In this example, a new Events folder has been specified. It is important that the key for the configuration remains unique for each config.
+In this example, a new Events folder is specified. The configuration key must be unique.
 
 
 Learn more

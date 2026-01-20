@@ -1,10 +1,10 @@
-How to add localizations with the localization provider?
-========================================================
+Adding Localizations with the Localization Provider
+==================================================
 
-If you are creating a bundle that has its own localizations they should be registered in the Sulu system.
-Otherwise you won't be able to use Sulu's security features, for example.
+If you create a bundle with its own localizations, they should be registered within the Sulu system.
+This ensures you can use Sulu's security features and other locale-dependent functionalities.
 
-It's possible to add locales by simple defining a service with the LocalizationProvider and pass your custom
+You can add locales by simply defining a service using the ``LocalizationProvider`` and passing your custom
 locales as arguments.
 
 Example

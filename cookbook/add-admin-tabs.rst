@@ -3,12 +3,12 @@ Adding tabs to Sulu's Admin UI
 
 .. note::
 
-    It is recommended to read :doc:`../book/extend-admin` beforehand to get a better understandig of how Sulu admin
+    It is recommended to read :doc:`../book/extend-admin` beforehand to get a better understanding of how Sulu admin
     classes work.
 
 This tutorial will walk you through the process of adding an extra tab to the administration interface.
 
-This could be useful in many different situations, like e.g. adding an extra tab for social media information to pages
+This could be useful in many different situations, such as adding an extra tab for social media information to pages
 or contacts.
 
 In this example we'll be adding a "Socials" tab to the page form of Sulu.
@@ -18,12 +18,12 @@ In this example we'll be adding a "Socials" tab to the page form of Sulu.
 Create the form for this view
 -----------------------------
 
-You have to create the form that is rendered in this view. Therefore create a form at
+You need to create the form that is rendered in this view. Create a form at
 ``config/forms/page_socials.xml``.
 
 .. note::
 
-    Note how we use slashes in the names of the properties, this returns the values in the given hierarchy.
+    Notice how we use slashes in the names of the properties, this returns the values in the given hierarchy.
 
 .. code-block:: xml
 
@@ -71,13 +71,13 @@ Register the view in your admin class
 
 We'll create a class ``src/Admin/SocialAdmin`` which extends ``Sulu\Bundle\AdminBundle\Admin``.
 
-In the ``Admin`` we need to implement ``configureViews``. For our example we need the ``webspace_manager`` in
-combination with ``security_checker`` to check if the logged in user has permission to edit pages.
+In the ``Admin`` class, we need to implement ``configureViews``. For our example we need the ``webspace_manager`` in
+combination with the ``security_checker`` to check if the logged in user has permission to edit pages.
 
-Note the ``setParent`` call adding the view as a child to ``PageAdmin::EDIT_FORM_VIEW``. This will result in a new tab
+Note the ``setParent`` call, which adds the view as a child to ``PageAdmin::EDIT_FORM_VIEW``. This will result in a new tab
 in the edit form for pages.
 
-The ``setFormKey`` takes a string reference, which should be the same as the key tag in the above form XML.
+The ``setFormKey`` takes a string reference, which should match the key tag in the form XML above.
 
 .. code-block:: php
 
@@ -137,7 +137,7 @@ The ``setFormKey`` takes a string reference, which should be the same as the key
         }
     }
 
-We can register this class as a service and give it a ``sulu.admin`` tag, then it will be picked up by Sulu.
+We register this class as a service and tag it with ``sulu.admin`` so it is picked up by Sulu.
 
 .. code-block:: yaml
 
@@ -151,11 +151,11 @@ We can register this class as a service and give it a ``sulu.admin`` tag, then i
             - { name: 'sulu.admin'}
             - { name: 'sulu.context', context: 'admin' }
 
-When you debug the container right now your should see your own ``Admin`` class show up.
+When you debug the container, you should see your own ``Admin`` class show up.
 
 .. code-block:: bash
 
-    $ php bin/console debug:container --tag=sulu.admin
+    $ php bin/adminconsole debug:container --tag=sulu.admin
 
         Service ID               Class name
         sulu_contact.admin       Sulu\Bundle\ContactBundle\Admin\ContactAdmin
@@ -174,12 +174,12 @@ When you debug the container right now your should see your own ``Admin`` class 
 You should now see the tab in the administration interface, but the data of the form is not saved yet.
 
 
-Persist the data of the form
-----------------------------
+Persisting Form Data
+--------------------
 
-In the final step, we need to persist the data of the added tab. In the case of the pages, we can utilize the existing
+In the final step, we persist the data from the added tab. In the case of the pages, we can utilize the existing
 pages API by registering a new `StructureExtension`. In other cases, we would need to implement our own API endpoint
-for the tab as shown in the :doc:`../book/extend-admin` chapter.
+for the tab, as shown in the :doc:`../book/extend-admin` chapter.
 
 .. code-block :: php
 

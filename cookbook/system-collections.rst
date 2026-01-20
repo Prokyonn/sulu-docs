@@ -1,14 +1,14 @@
-System-Collections
+System Collections
 ==================
 
-System-Collections are special collections which are not editable, deletable or
-movable. Apart from that they can be used like all other collections.
+System collections are special collections that are not editable, deletable, or
+movable. Otherwise, they can be used like all other collections.
 
-The System takes care of creating and upgrading them. Each bundle can request
-them, to save there images like avatar or logos in the contact section.
+The system manages the creation and upgrading of these collections. Bundles can request
+them to save images such as avatars or logos in the contact section.
 
-Because of the usage of the configuration tree also the App itself can register
-system collection and use them.
+Because of the configuration tree, the application itself can also register
+system collections and use them.
 
 .. code-block:: yaml
 
@@ -27,7 +27,7 @@ system collection and use them.
                             en: 'Child Collection'
                             de: 'Kindsammlung'
 
-This structure will be used to create a Collection Structure like this:
+This structure creates a collection structure like this:
 
 .. code-block:: bash
 
@@ -35,8 +35,8 @@ This structure will be used to create a Collection Structure like this:
      |--> My Collection
      |     |--> Child Collection
 
-If you want to register a system collection in a bundle, you can use the PrependExtensionInterface
-of Symfony to prepend the respective configuration:
+To register a system collection in a bundle, use the ``PrependExtensionInterface``
+of Symfony to prepend the corresponding configuration:
 
 .. code-block:: php
 
@@ -79,13 +79,13 @@ of Symfony to prepend the respective configuration:
          */
         public function load(array $configs, ContainerBuilder $container)
         {
-            ...
+            // ...
         }
     }
 
-To use this new Collection you can use the `sulu_media.system_collections.manager`
-(`Sulu\Component\Media\SystemCollections\SystemCollectionManagerInterface`) service.
-The service will create the new collection on the first access of the collection.
+To use the new collection, use the ``sulu_media.system_collections.manager``
+(``Sulu\Component\Media\SystemCollections\SystemCollectionManagerInterface``) service.
+The service creates the new collection upon the first access.
 
 .. code-block:: php
 
@@ -102,5 +102,5 @@ The service will create the new collection on the first access of the collection
 
 .. note::
 
-    The key of sub collection is a combination with the parent key so its `parent_key.child_key`
-    e.g.: `my_key.my_child_key`.
+    The key for a sub-collection is a combination of the parent key and the child key, such as ``parent_key.child_key``
+    (e.g., ``my_key.my_child_key``).

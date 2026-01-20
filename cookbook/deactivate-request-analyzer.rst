@@ -1,21 +1,20 @@
 How to deactivate the RequestAnalyzer?
 ======================================
 
-The ``RequestAnalyzer`` has the very important task of recognizing e.g. at
-which webspace and locale the current request is targeted. It also recognizes
-if the current request is not valid based on some rules, e.g. if there is no 
-webspace available at the requested URL. In this case the ``RequestAnalyzer``
-throws an exception, which makes it quite easy to find about errors in your
+The ``RequestAnalyzer`` has the important task of identifying which webspace and locale the current request is targeted. It also recognizes
+if the current request is invalid based on established rules, such as when no 
+webspace is available at the requested URL. In this case, the ``RequestAnalyzer``
+throws an exception, making it easy to identify errors in your
 webspace configuration.
 
-However, this behavior might be disturbing for requests in which you are fully
-aware that there is no webspace available and you also do not need one. For
-these special requests the ``RequestAnalyzer`` can be easily turned off.
+However, this behavior might be undesirable for requests where you are 
+aware that no webspace is available and you do not need one. For
+these specific requests, the ``RequestAnalyzer`` can be disabled.
 
-This is achieved using the `request attributes from Symfony`_. Sulu scans this
-property for field called ``_requestAnalyzer``, and avoids calling it when this
-attribute is set to false. The easiest way to achieve this is using the
-routing configuration file, which might look something like this:
+This is achieved using `request attributes from Symfony`_. Sulu scans these
+attributes for a field called ``_requestAnalyzer`` and skips the call when this
+attribute is set to false. The easiest way to achieve this is via the
+routing configuration file:
 
 .. code-block:: yaml
 
